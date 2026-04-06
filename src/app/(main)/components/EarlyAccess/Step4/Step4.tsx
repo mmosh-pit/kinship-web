@@ -2,7 +2,7 @@
 import { BackArrowVW } from "@/app/(catfawn)/catfawn/components/BackArrow/BackArrowVW";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
 import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
-import axios from "axios";
+import client from "@/app/lib/httpClient";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -93,7 +93,7 @@ export const Step4: React.FC<Step4Props> = ({
     if (cachedData.isMobileNumberVerified !== true || numberChanged) {
       try {
         setIsLoading(true);
-        const result = await axios.post("/api/visitors/generate-otp", {
+        const result = await client.post("/visitors/generate-otp", {
           type: "sms",
           mobile: contactDetails.mobileNumber,
           countryCode: contactDetails.countryCode,
@@ -112,14 +112,16 @@ export const Step4: React.FC<Step4Props> = ({
               isMobileNumberVerified: false,
             }),
           );
-          axios.post("/api/visitors/upsert-early-access", {
-            email: cachedData.email,
-            mobileNumber: contactDetails.mobileNumber,
-            countryCode: contactDetails.countryCode,
-            country: contactDetails.country,
-            isMobileNumberVerified: false,
-            currentStep: "5",
-          }).catch(() => {});
+          client
+            .post("/visitors/upsert-early-access", {
+              email: cachedData.email,
+              mobileNumber: contactDetails.mobileNumber,
+              countryCode: contactDetails.countryCode,
+              country: contactDetails.country,
+              isMobileNumberVerified: false,
+              currentStep: "5",
+            })
+            .catch(() => { });
           if (onSuccess) onSuccess();
         } else {
           createMessage(

@@ -3,11 +3,11 @@ import { BackArrowVW } from "@/app/(catfawn)/catfawn/components/BackArrow/BackAr
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
 import { InputVW } from "@/app/(catfawn)/catfawn/components/Input/InputVW";
 import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
-import axios from "axios";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { data as userDataAtom, isAuth, isAuthOverlayOpen } from "@/app/store";
+import client from "@/app/lib/httpClient";
 
 interface Step7Props {
   onBack?: () => void;
@@ -65,10 +65,7 @@ export const Step7 = ({
         currentStep: "complete",
       };
 
-      const res = await axios.post(
-        "/api/visitors/save-early-access",
-        updatedData,
-      );
+      const res = await client.post("/visitors/save-early-access", updatedData);
 
       if (!res.data?.status) {
         createMessage(
@@ -114,7 +111,7 @@ export const Step7 = ({
         JSON.stringify({
           ...cachedData,
           referedKinshipCode: "",
-          currentStep: "8",
+          currentStep: "complete",
           noCodeChecked: true,
         }),
       );
@@ -141,7 +138,7 @@ export const Step7 = ({
     try {
       setIsLoading(true);
 
-      const response = await axios.post("/api/visitors/has-code-exist", {
+      const response = await client.post("/visitors/has-code-exist", {
         code: kinshipCode,
       });
 
@@ -157,7 +154,7 @@ export const Step7 = ({
           ...cachedData,
           referedKinshipCode: kinshipCode,
           noCodeChecked: false,
-          currentStep: "8",
+          currentStep: "complete",
         }),
       );
 

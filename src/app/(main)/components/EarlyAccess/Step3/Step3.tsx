@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
@@ -11,6 +10,7 @@ import { decryptData } from "@/utils/decryptData";
 import Input from "../../common/Input";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import EyeIcon from "@/assets/icons/EyeIcon";
+import client from "@/app/lib/httpClient";
 
 interface Step3Props {
   onSuccess?: () => void;
@@ -118,11 +118,13 @@ export const Step3: React.FC<Step3Props> = ({
     localStorage.setItem("early-access-data", JSON.stringify(updatedData));
     setCachedData(updatedData);
 
-    axios.post("/api/visitors/upsert-early-access", {
-      email: cachedData.email,
-      password: encryptedPassword,
-      currentStep: "4",
-    }).catch(() => {});
+    client
+      .post("/visitors/upsert-early-access", {
+        email: cachedData.email,
+        password: encryptedPassword,
+        currentStep: "4",
+      })
+      .catch(() => { });
 
     if (onSuccess) onSuccess();
   };

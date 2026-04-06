@@ -1,7 +1,7 @@
 import React from "react";
-import axios from "axios";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
 import { useRouter } from "next/navigation";
+import client from "@/app/lib/httpClient";
 
 const STORAGE_KEY = "early-access-data";
 
@@ -82,7 +82,7 @@ export const Step1: React.FC<Step1Props> = ({
     try {
       setIsLoading(true);
 
-      const response = await axios.post("/api/visitors/generate-otp", {
+      const response = await client.post("/visitors/generate-otp", {
         type: "email",
         email: email.trim(),
       });
@@ -98,8 +98,8 @@ export const Step1: React.FC<Step1Props> = ({
             currentStep: "2",
           }),
         );
-        axios
-          .post("/api/visitors/upsert-early-access", {
+        client
+          .post("/visitors/upsert-early-access", {
             email: email.trim(),
             firstName: fullName,
             hasChecked,

@@ -3,7 +3,7 @@ import { BackArrowVW } from "@/app/(catfawn)/catfawn/components/BackArrow/BackAr
 import { CheckBoxVW } from "@/app/(catfawn)/catfawn/components/CheckBox/CheckBoxVW";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
 import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
-import axios from "axios";
+import client from "@/app/lib/httpClient";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 
@@ -91,11 +91,13 @@ export const Step6 = ({
           currentStep: "7",
         }),
       );
-      axios.post("/api/visitors/upsert-early-access", {
-        email: cachedData.email,
-        mobilePreferences,
-        currentStep: "7",
-      }).catch(() => {});
+      client
+        .post("/visitors/upsert-early-access", {
+          email: cachedData.email,
+          mobilePreferences,
+          currentStep: "7",
+        })
+        .catch(() => { });
       if (onSuccess) onSuccess();
     } finally {
       setIsLoading(false);

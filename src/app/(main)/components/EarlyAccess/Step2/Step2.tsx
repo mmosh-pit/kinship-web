@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 
 import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
 import { BackArrowVW } from "@/app/(catfawn)/catfawn/components/BackArrow/BackArrowVW";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
+import client from "@/app/lib/httpClient";
 
 interface Step2Props {
   onSuccess?: () => void;
@@ -128,7 +128,7 @@ export const Step2: React.FC<Step2Props> = ({
 
     try {
       setIsLoading(true);
-      const result = await axios.post("/api/visitors/verify-otp", {
+      const result = await client.post("/visitors/verify-otp", {
         email: cachedData.email,
         otp: code,
         type: "email",
@@ -144,11 +144,13 @@ export const Step2: React.FC<Step2Props> = ({
         localStorage.setItem("early-access-data", JSON.stringify(updatedData));
         setCachedData(updatedData);
 
-        axios.post("/api/visitors/upsert-early-access", {
-          email: cachedData.email,
-          hasVerifiedEmail: true,
-          currentStep: "3",
-        }).catch(() => {});
+        client
+          .post("/visitors/upsert-early-access", {
+            email: cachedData.email,
+            hasVerifiedEmail: true,
+            currentStep: "3",
+          })
+          .catch(() => { });
 
         if (onSuccess) {
           onSuccess();
@@ -173,7 +175,7 @@ export const Step2: React.FC<Step2Props> = ({
     setHasLoadingResendOTP(true);
 
     try {
-      const result = await axios.post("/api/visitors/resend-otp", {
+      const result = await client.post("/visitors/resend-otp", {
         email: cachedData.email,
         type: "email",
       });

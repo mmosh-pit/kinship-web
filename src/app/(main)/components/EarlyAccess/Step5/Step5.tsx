@@ -2,7 +2,7 @@
 import { BackArrowVW } from "@/app/(catfawn)/catfawn/components/BackArrow/BackArrowVW";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
 import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
-import axios from "axios";
+import client from "@/app/lib/httpClient";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -130,10 +130,10 @@ export const Step5: React.FC<Step5Props> = ({
     try {
       setIsLoading(true);
 
-      const res = await axios.post("/api/visitors/verify-otp", {
-        email: cachedData.email,
+      const res = await client.post("/visitors/verify-otp", {
+        mobile: cachedData.mobileNumber,
         otp: enteredOtp,
-        type: "email",
+        type: "sms",
         currentStep: "6",
       });
 
@@ -146,11 +146,13 @@ export const Step5: React.FC<Step5Props> = ({
             currentStep: "6",
           }),
         );
-        axios.post("/api/visitors/upsert-early-access", {
-          email: cachedData.email,
-          isMobileNumberVerified: true,
-          currentStep: "6",
-        }).catch(() => {});
+        client
+          .post("/visitors/upsert-early-access", {
+            email: cachedData.email,
+            isMobileNumberVerified: true,
+            currentStep: "6",
+          })
+          .catch(() => { });
         onSuccess?.();
       } else {
         setHasInvalid(true);
@@ -169,7 +171,7 @@ export const Step5: React.FC<Step5Props> = ({
     setHasLoadingResendOTP(true);
 
     try {
-      const result = await axios.post("/api/visitors/resend-otp", {
+      const result = await client.post("/visitors/resend-otp", {
         type: "sms",
         mobile: cachedData.mobileNumber,
         countryCode: cachedData.countryCode,
