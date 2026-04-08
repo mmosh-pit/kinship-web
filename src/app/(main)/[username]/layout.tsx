@@ -3,12 +3,12 @@ import "../..//globals.css";
 import { getUserDataForMetadata } from "@/app/lib/getUserDataForMetadata";
 
 type Props = {
-  params: { username: string };
+  params: Promise<{ username: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const username = params.username;
+  const { username } = await params;
 
   if (!username) {
     return {
@@ -22,28 +22,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  // const user = await getUserDataForMetadata(username);
+  const user = await getUserDataForMetadata(username);
 
-  // if (!user) {
+  if (!user) {
+    return {
+      title: "Kinship Codes",
+      description: "It’s All Related",
+      openGraph: {
+        images: [
+          "https://storage.googleapis.com/mmosh-assets/kinship_codes.png",
+        ],
+      },
+    };
+  }
+
   return {
-    title: "Kinship Codes",
-    description: "It’s All Related",
+    title: `MMOSH App ${user?.profile?.username} Hideout`,
+    description: user?.profile?.bio,
     openGraph: {
-      images: ["https://storage.googleapis.com/mmosh-assets/kinship_codes.png"],
+      images: [
+        user?.profile?.image ||
+        "https://storage.googleapis.com/mmosh-assets/metadata_image.png",
+      ],
     },
   };
-  // }
-
-  // return {
-  //   title: `MMOSH App ${user?.profile?.username} Hideout`,
-  //   description: user?.profile?.bio,
-  //   openGraph: {
-  //     images: [
-  //       user?.profile?.image ||
-  //         "https://storage.googleapis.com/mmosh-assets/metadata_image.png",
-  //     ],
-  //   },
-  // };
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
