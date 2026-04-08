@@ -1,5 +1,5 @@
 import Image from "next/image";
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { FrostWallet } from "@/utils/frostWallet";

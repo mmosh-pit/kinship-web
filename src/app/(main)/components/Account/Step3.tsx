@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import { onboardingStep } from "@/app/store/account";
 import ArrowBack from "@/assets/icons/ArrowBack";

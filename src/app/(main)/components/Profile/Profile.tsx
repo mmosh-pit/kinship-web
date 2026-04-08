@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import useConnection from "@/utils/connection";
 import axios from "axios";
 import { useAtom } from "jotai";

@@ -1,7 +1,7 @@
 import currencyFormatter from "@/app/lib/currencyFormatter";
 import { walletAddressShortener } from "@/app/lib/walletAddressShortener";
 import CopyIcon from "@/assets/icons/CopyIcon";
-import * as React from "react";
+import React from "react";
 import NFTs from "./NFTs";
 import Coins from "./Coins";
 import SearchBar from "../Project/Candidates/SearchBar";

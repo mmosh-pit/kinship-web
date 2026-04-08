@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import ArrowDown from "@/assets/icons/ArrowDown";
 import ArrowUp from "@/assets/icons/ArrowUp";
 import { communitiesTopics } from "@/utils/communitiesTopics";

@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React from "react";
 
 import ProfileForm from "../components/Settings/ProfileForm";
 import Apps from "../components/Settings/Apps";

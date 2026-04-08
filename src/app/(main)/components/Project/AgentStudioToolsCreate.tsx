@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import TelegramIcon from "@/assets/icons/TelegramIcon";
 import BlueskyIcon from "@/assets/icons/BlueskyIcon";

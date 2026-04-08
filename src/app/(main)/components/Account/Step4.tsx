@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { createProfile } from "@/app/lib/forge/createProfile";
 import axios from "axios";
 import { data, userWeb3Info } from "@/app/store";

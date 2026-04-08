@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { BagsCoin, BagsNFT } from "@/app/store/bags";
 import ArrowBack from "@/assets/icons/ArrowBack";
 import Image from "next/image";

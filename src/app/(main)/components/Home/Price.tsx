@@ -3,7 +3,7 @@ import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
 import { selectedDirectory } from "@/app/store/home";
 import axios from "axios";
 import { useAtom } from "jotai";
-import * as React from "react";
+import React from "react";
 import DateTypeSelector from "../common/DateTypeSelector";
 import dynamic from "next/dynamic";
 import { web3Consts } from "@/anchor/web3Consts";

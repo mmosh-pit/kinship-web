@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAtom } from "jotai";

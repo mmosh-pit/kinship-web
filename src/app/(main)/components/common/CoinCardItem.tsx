@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
 import Image from "next/image";
 import { DirectoryCoin } from "@/app/models/directoryCoin";

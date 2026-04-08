@@ -1,6 +1,6 @@
 import { Coin, CoinDetail } from "@/app/models/coin";
 import axios from "axios";
-import * as React from "react";
+import React from "react";
 import DateTypeSelector from "../common/DateTypeSelector";
 import dynamic from "next/dynamic";
 

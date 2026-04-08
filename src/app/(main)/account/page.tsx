@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import Step1 from "../components/Account/Step1";

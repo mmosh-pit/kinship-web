@@ -1,6 +1,6 @@
 import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
 import axios from "axios";
-import * as React from "react";
+import React from "react";
 
 import { Bar, BarChart, ResponsiveContainer, XAxis } from "recharts";
 import { useAtom } from "jotai";

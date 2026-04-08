@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import Button from "../components/common/Button";

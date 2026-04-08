@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import currencyFormatter from "@/app/lib/currencyFormatter";
 import { walletAddressShortener } from "@/app/lib/walletAddressShortener";
 import { BagsCoin, BagsNFT } from "@/app/store/bags";

@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import UserCard from "./UserCard";
 import { User } from "@/app/models/user";

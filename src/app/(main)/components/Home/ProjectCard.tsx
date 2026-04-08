@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Image from "next/image";
 import currencyFormatter from "@/app/lib/currencyFormatter";
 import { abbreviateNumber } from "@/app/lib/abbreviateNumber";

@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useAtom } from "jotai";

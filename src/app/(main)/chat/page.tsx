@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import ChatAgentSelector from "../components/Chat/ChatAgentSelector";
 import ChatInteractionContainer from "../components/Chat/ChatInteractionContainer";

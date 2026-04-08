@@ -1,7 +1,7 @@
 import { Connection, PublicKey, Transaction, VersionedTransaction, SendOptions, TransactionSignature, Commitment } from "@solana/web3.js";
 import axios from "axios";
 import bs58 from "bs58";
-import * as React from "react";
+import React from "react";
 
 export interface ConnectionContextState {
     connection: Connection;

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 const useWsConnection = ({ isAuth }: { isAuth: boolean }) => {
   const connected = React.useRef(false);

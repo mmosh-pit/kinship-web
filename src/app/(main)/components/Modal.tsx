@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import HomeModalSignUpForm from "./HomeModalSignUpForm";
 import HomeModalCodeForm from "./HomeModalCodeForm";
 import { useRouter } from "next/navigation";

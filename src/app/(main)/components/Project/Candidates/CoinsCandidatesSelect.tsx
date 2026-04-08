@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import { Candidate } from "@/app/models/candidate";
 import axios from "axios";

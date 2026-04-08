@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import Input from "../components/common/Input";
 import { useRouter } from "next/navigation";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";

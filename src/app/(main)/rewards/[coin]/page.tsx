@@ -1,7 +1,7 @@
 "use client";
 
 import { Connection } from "@solana/web3.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, use } from "react";
 import * as anchor from "@coral-xyz/anchor";
 import { Connectivity as UserConn } from "@/anchor/user";
 import { web3Consts } from "@/anchor/web3Consts";
@@ -11,7 +11,8 @@ import MessageBanner from "../../components/common/MessageBanner";
 import useWallet from "@/utils/wallet";
 import internalClient from "@/app/lib/internalHttpClient";
 
-const ClaimPage = ({ params }: { params: { coin: string } }) => {
+const ClaimPage = (props: { params: Promise<{ coin: string }> }) => {
+  const params = use(props.params);
   const navigate = useRouter();
   const wallet = useWallet();
   const [countDownDate, setCountDownDate] = useState(0);

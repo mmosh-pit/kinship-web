@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import { incomingReferAddress, storeFormAtom } from "@/app/store/signup";
 import SimpleInput from "./common/SimpleInput";

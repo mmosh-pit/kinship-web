@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Candidate } from "./candidate";
 import { FrostWallet } from "@/utils/frostWallet";
 import { ConnectionContextState } from "@/utils/connection";

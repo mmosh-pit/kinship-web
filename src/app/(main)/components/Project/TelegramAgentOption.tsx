@@ -1,5 +1,5 @@
 import TelegramIcon from "@/assets/icons/TelegramIcon";
-import * as React from "react";
+import React from "react";
 import Input from "../common/Input";
 import axios, { AxiosError } from "axios";
 import RemoveIcon from "@/assets/icons/RemoveIcon";

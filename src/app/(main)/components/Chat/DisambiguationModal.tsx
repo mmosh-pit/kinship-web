@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { AmbiguousRecipient, DisambiguationResponse, SelectedRecipients } from '@/app/types/disambiguation';
 
 interface DisambiguationModalProps {

@@ -1,6 +1,6 @@
 "use client";
 import { useAtom } from "jotai";
-import * as React from "react";
+import React from "react";
 
 
 import SearchBar from "../../components/Project/Candidates/SearchBar";

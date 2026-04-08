@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Radio from "../common/Radio";
 import { useAtom } from "jotai";
 import { lineage, profileFilter } from "@/app/store";

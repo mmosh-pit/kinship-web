@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import FeaturedCard from "../components/Forge/MainPage/FeaturedCard";
 import GuestPassCard from "../components/Forge/MainPage/GuestPassCard";

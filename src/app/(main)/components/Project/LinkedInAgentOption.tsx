@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import LinkedinIcon from "@/assets/icons/LinkedinIcon";
 import { AxiosError } from "axios";

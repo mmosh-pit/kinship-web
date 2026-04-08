@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React from "react";
 
 const useCheckMobileScreen = () => {
   const [isMobile, setIsMobile] = React.useState(false);

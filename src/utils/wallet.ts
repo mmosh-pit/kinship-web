@@ -1,5 +1,5 @@
 import { PublicKey, Transaction, VersionedTransaction } from "@solana/web3.js";
-import * as React from "react";
+import React from "react";
 import { FrostWallet } from "./frostWallet";
 import * as anchor from "@coral-xyz/anchor";
 import client from "@/app/lib/httpClient";

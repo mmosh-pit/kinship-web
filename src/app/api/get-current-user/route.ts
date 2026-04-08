@@ -6,7 +6,7 @@ import { db } from "@/app/lib/mongoClient";
 export async function GET(req: NextRequest) {
   const collection = db.collection("users");
 
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
 
   const session = cookieStore.get("session");
 

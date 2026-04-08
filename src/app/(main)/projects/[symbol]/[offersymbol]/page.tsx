@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, use } from "react";
 import Image from "next/image";
 import { Bars } from "react-loader-spinner";
 import { CoinDetail } from "@/app/models/coin";
@@ -20,11 +20,12 @@ import internalClient from "@/app/lib/internalHttpClient";
 import internal from "stream";
 import useConnection from "@/utils/connection";
 
-const Offer = ({
-  params,
-}: {
-  params: { symbol: string; offersymbol: string };
-}) => {
+const Offer = (
+  props: {
+    params: Promise<{ symbol: string; offersymbol: string }>;
+  }
+) => {
+  const params = use(props.params);
   const connect = useConnection();
   const drawerRef = useRef<HTMLInputElement>(null);
   const [profileInfo] = useAtom(userWeb3Info);

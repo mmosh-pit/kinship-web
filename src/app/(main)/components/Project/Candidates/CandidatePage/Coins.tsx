@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as React from "react";
+import React from "react";
 import Image from "next/image";
 
 import { DirectoryCoin } from "@/app/models/directoryCoin";

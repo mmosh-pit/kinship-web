@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Input from "./common/Input";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import EyeIcon from "@/assets/icons/EyeIcon";
