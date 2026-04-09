@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { use } from "react";
 import axios from "axios";
 
 import ArrowBack from "@/assets/icons/ArrowBack";
@@ -14,7 +14,8 @@ import Graphics from "@/app/(main)/components/Forge/CoinPage/Graphics";
 import Stats from "@/app/(main)/components/Forge/CoinPage/Stats";
 import TransactionsTable from "@/app/(main)/components/Forge/CoinPage/TransactionsTable";
 
-const Page = ({ params }: { params: { symbol: string } }) => {
+const Page = (props: { params: Promise<{ symbol: string }> }) => {
+  const params = use(props.params);
   const navigate = useRouter();
   const wallet = useWallet();
   const rendered = React.useRef(false);

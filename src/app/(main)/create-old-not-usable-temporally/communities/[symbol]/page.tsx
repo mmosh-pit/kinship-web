@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { use } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useAtom } from "jotai";
@@ -15,7 +15,8 @@ import { userWeb3Info } from "@/app/store";
 import useWallet from "@/utils/wallet";
 import Swap from "@/app/(main)/components/Forge/Community/Swap";
 
-const Page = ({ params }: { params: { symbol: string } }) => {
+const Page = (props: { params: Promise<{ symbol: string }> }) => {
+  const params = use(props.params);
   const wallet = useWallet();
 
   const [userInfo] = useAtom(userWeb3Info);

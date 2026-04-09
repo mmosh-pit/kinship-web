@@ -324,7 +324,7 @@ export default function LandingPage() {
   }, []);
 
   const scrollWithOffset = (
-    ref: React.RefObject<HTMLElement>,
+    ref: React.RefObject<HTMLElement | null>,
     offset = 120,
   ) => {
     if (!ref.current) return;

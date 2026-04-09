@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { use } from "react";
 import {
   isAuth,
   isDrawerOpen,
@@ -76,7 +76,8 @@ const defaultRoleData: any = [
   },
 ];
 
-const Project = ({ params }: { params: { symbol: string } }) => {
+const Project = (props: { params: Promise<{ symbol: string }> }) => {
+  const params = use(props.params);
   const connection = useConnection();
   const screenSize = useCheckDeviceScreenSize();
   const wallet = useWallet();

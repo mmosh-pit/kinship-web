@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { use } from "react";
 import axios from "axios";
 
 import ArrowBack from "@/assets/icons/ArrowBack";
@@ -14,7 +14,8 @@ import { Connectivity as CurveConn } from "@/anchor/curve/bonding";
 import { web3Consts } from "@/anchor/web3Consts";
 import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
 
-const Page = ({ params }: { params: { symbol: string } }) => {
+const Page = (props: { params: Promise<{ symbol: string }> }) => {
+  const params = use(props.params);
   const navigate = useRouter();
   const rendered = React.useRef(false);
 

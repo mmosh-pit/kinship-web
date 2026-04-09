@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
-const path = require("node:path");
-const webpack = require("webpack");
+import { withPayload } from "@payloadcms/next/withPayload";
+import { dirname, resolve } from "path";
+import { fileURLToPath } from "url";
+import webpack from "webpack";
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const nextConfig = {
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -31,17 +36,13 @@ module.exports = {
   },
   webpack: (config, _context) => {
     config.resolve.fallback = { fs: false };
-    config.resolve.alias["jotai"] = path.resolve(
-      __dirname,
-      "node_modules/jotai",
-    );
+    config.resolve.alias["jotai"] = resolve(__dirname, "node_modules/jotai");
 
     // Alias for problematic anchor imports
-    config.resolve.alias["@coral-xyz/anchor/dist/cjs/utils/bytes"] =
-      path.resolve(
-        __dirname,
-        "node_modules/@coral-xyz/anchor/dist/esm/utils/bytes",
-      );
+    config.resolve.alias["@coral-xyz/anchor/dist/cjs/utils/bytes"] = resolve(
+      __dirname,
+      "node_modules/@coral-xyz/anchor/dist/esm/utils/bytes",
+    );
 
     // Exclude undici from webpack processing to avoid build errors
     config.externals = config.externals || [];
@@ -56,3 +57,5 @@ module.exports = {
     return config;
   },
 };
+
+export default withPayload(nextConfig);

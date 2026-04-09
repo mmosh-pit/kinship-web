@@ -231,7 +231,9 @@ export const Step5: React.FC<Step5Props> = ({
                     type="text"
                     maxLength={1}
                     value={digit}
-                    ref={(el) => (inputRefs.current[idx] = el)}
+                    ref={(el) => {
+                      inputRefs.current[idx] = el;
+                    }}
                     onChange={(e) => handleOtpChange(e.target.value, idx)}
                     onKeyDown={(e) => handleKeyDown(e, idx)}
                     onPaste={(e) => handlePaste(e, idx)}

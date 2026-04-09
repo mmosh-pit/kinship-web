@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import React from "react";
 
 const WithTelegramNoAccount = () => {
-  const intervalRef = React.useRef<NodeJS.Timeout>();
+  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const [_, setUserStatus] = useAtom(status);
   const [userData] = useAtom(data);
 
@@ -17,7 +17,7 @@ const WithTelegramNoAccount = () => {
       setUserStatus(UserStatus.noTwitter);
     }
 
-    clearInterval(intervalRef.current);
+    clearInterval(intervalRef.current!);
   }, []);
 
   const startChecking = React.useCallback(() => {
