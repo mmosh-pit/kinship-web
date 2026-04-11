@@ -2,10 +2,10 @@ import React from "react";
 import { useAtom } from "jotai";
 
 import SearchIcon from "@/assets/icons/SearchIcon";
-import useCheckMobileScreen from "@/app/lib/useCheckMobileScreen";
-import { coinTextSearch, pair, selectedVolume } from "@/app/store/coins";
+import useCheckMobileScreen from "@/app/(main)/lib/useCheckMobileScreen";
+import { coinTextSearch, pair, selectedVolume } from "@/app/(main)/store/coins";
 import HomeMenuIcon from "@/assets/icons/HomeMenu";
-import { selectedCoinsMode } from "@/app/store/home";
+import { selectedCoinsMode } from "@/app/(main)/store/home";
 import HamburgerIcon from "@/assets/icons/HamburgerIcon";
 
 const volumeOptions = [

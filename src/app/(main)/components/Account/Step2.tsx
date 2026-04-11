@@ -2,13 +2,13 @@ import React from "react";
 import { loadStripeOnramp } from "@stripe/crypto";
 import { useAtom } from "jotai";
 
-import { onboardingStep, referredSuccess } from "@/app/store/account";
+import { onboardingStep, referredSuccess } from "@/app/(main)/store/account";
 import ArrowBack from "@/assets/icons/ArrowBack";
 import CopyIcon from "@/assets/icons/CopyIcon";
 import Button from "../common/Button";
 import useWallet from "@/utils/wallet";
 import { CryptoElements, OnrampElement } from "../atm/StripeCryptoElements";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import MessageBanner from "../common/MessageBanner";
 
 const stripeOnrampPromise = loadStripeOnramp(

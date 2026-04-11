@@ -1,5 +1,5 @@
-import { Coin } from "@/app/models/coin";
-import { Community } from "@/app/models/community";
+import { Coin } from "@/app/(main)/models/coin";
+import { Community } from "@/app/(main)/models/community";
 import { atom } from "jotai";
 
 export const defaultFirstFormState = {

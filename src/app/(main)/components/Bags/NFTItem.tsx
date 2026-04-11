@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { BagsNFT, bagsNfts } from "@/app/store/bags";
+import { BagsNFT, bagsNfts } from "@/app/(main)/store/bags";
 import { burnToken } from "@/utils/burnToken";
 import useWallet from "@/utils/wallet";
 import { useAtom } from "jotai";

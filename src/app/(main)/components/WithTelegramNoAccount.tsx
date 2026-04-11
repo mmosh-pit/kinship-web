@@ -1,4 +1,4 @@
-import { data, UserStatus, status } from "@/app/store";
+import { data, UserStatus, status } from "@/app/(main)/store";
 import axios from "axios";
 import { useAtom } from "jotai";
 import React from "react";

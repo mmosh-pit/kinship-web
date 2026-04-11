@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db, ObjectId } from "@/app/lib/mongoClient";
+import { db, ObjectId } from "@/app/(main)/lib/mongoClient";
 import axios from "axios";
 
 interface CheckpointAttribute {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/app/lib/mongoClient";
+import { db } from "@/app/(main)/lib/mongoClient";
 
 export async function GET(req: NextRequest) {
   const communitiesCollection = db.collection("mmosh-app-community");

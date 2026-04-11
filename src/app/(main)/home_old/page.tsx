@@ -7,10 +7,10 @@ import { useAtom } from "jotai";
 import KinshipBots from "@/assets/icons/KinshipBots";
 import KinshipMainIcon from "@/assets/icons/KinshipMainIcon";
 import Button from "../components/common/Button";
-import useCheckDeviceScreenSize from "@/app/lib/useCheckDeviceScreenSize";
+import useCheckDeviceScreenSize from "@/app/(main)/lib/useCheckDeviceScreenSize";
 import HomeMobileDrawer from "../components/HomeMobileDrawer";
-import { alreadyWaiting } from "@/app/store/home";
-import { signInModal, signInModalInitialStep } from "@/app/store";
+import { alreadyWaiting } from "@/app/(main)/store/home";
+import { signInModal, signInModalInitialStep } from "@/app/(main)/store";
 
 export default function LandingPage() {
   const screenSize = useCheckDeviceScreenSize();

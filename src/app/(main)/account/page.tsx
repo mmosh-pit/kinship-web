@@ -8,8 +8,8 @@ import Step2 from "../components/Account/Step2";
 import Step3 from "../components/Account/Step3";
 import Step4 from "../components/Account/Step4";
 import { useRouter } from "next/navigation";
-import { onboardingStep } from "@/app/store/account";
-import { data, isAuth, userWeb3Info } from "@/app/store";
+import { onboardingStep } from "@/app/(main)/store/account";
+import { data, isAuth, userWeb3Info } from "@/app/(main)/store";
 
 // "Onboarding"
 const Account = () => {

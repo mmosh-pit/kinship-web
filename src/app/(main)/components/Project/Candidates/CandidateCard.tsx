@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { Candidate } from "@/app/models/candidate";
+import { Candidate } from "@/app/(main)/models/candidate";
 import { states } from "@/utils/states";
 import { politicalParties } from "@/utils/politicalParties";
-import { CandidateCoinsData } from "@/app/models/candidateCoinsData";
+import { CandidateCoinsData } from "@/app/(main)/models/candidateCoinsData";
 import axios from "axios";
 
 type Props = {

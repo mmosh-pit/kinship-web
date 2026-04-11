@@ -9,7 +9,7 @@ import CoinCard from "../components/Forge/MainPage/CoinCard";
 import CommunityCard from "../components/Forge/MainPage/CommunityCard";
 import InvitationCard from "../components/Forge/MainPage/InvitationCard";
 import ProfileCard from "../components/Forge/MainPage/ProfileCard";
-import { userWeb3Info, web3InfoLoading } from "@/app/store";
+import { userWeb3Info, web3InfoLoading } from "@/app/(main)/store";
 import ProjectCard from "../components/Forge/MainPage/ProjectCard";
 
 const Forge = () => {

@@ -1,5 +1,5 @@
-import { walletAddressShortener } from "@/app/lib/walletAddressShortener";
-import { Coin } from "@/app/models/coin";
+import { walletAddressShortener } from "@/app/(main)/lib/walletAddressShortener";
+import { Coin } from "@/app/(main)/models/coin";
 import OpenInNew from "@/assets/icons/OpenInNew";
 import Image from "next/image";
 

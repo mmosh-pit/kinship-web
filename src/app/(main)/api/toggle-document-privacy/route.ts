@@ -1,4 +1,4 @@
-import { db, ObjectId } from "@/app/lib/mongoClient";
+import { db, ObjectId } from "@/app/(main)/lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(req: NextRequest) {

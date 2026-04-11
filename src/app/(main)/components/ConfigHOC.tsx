@@ -3,7 +3,7 @@ import Script from "next/script";
 import { useAtom } from "jotai";
 
 import { usePathname } from "next/navigation";
-import { settings } from "@/app/store";
+import { settings } from "@/app/(main)/store";
 
 const ConfigHOC = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();

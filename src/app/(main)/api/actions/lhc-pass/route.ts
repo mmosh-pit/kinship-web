@@ -14,7 +14,7 @@ import {
 import { web3Consts } from "@/anchor/web3Consts";
 import axios from "axios";
 import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
-import { pinFileToShadowDrive, pinFileToShadowDriveBackend } from "@/app/lib/uploadFileToShdwDrive";
+import { pinFileToShadowDrive, pinFileToShadowDriveBackend } from "@/app/(main)/lib/uploadFileToShdwDrive";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {

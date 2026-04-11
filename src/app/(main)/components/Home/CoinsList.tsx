@@ -4,10 +4,10 @@ import Image from "next/image";
 import axios from "axios";
 import { useAtom } from "jotai";
 
-import { DirectoryCoin } from "@/app/models/directoryCoin";
-import { selectedSearchFilter, typedSearchValue } from "@/app/store/home";
-import { getPriceForPTV } from "@/app/lib/forge/jupiter";
-import { pair, selectedVolume } from "@/app/store/coins";
+import { DirectoryCoin } from "@/app/(main)/models/directoryCoin";
+import { selectedSearchFilter, typedSearchValue } from "@/app/(main)/store/home";
+import { getPriceForPTV } from "@/app/(main)/lib/forge/jupiter";
+import { pair, selectedVolume } from "@/app/(main)/store/coins";
 import { useRouter } from "next/navigation";
 
 const CoinsList = () => {

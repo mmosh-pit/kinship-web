@@ -1,4 +1,4 @@
-import { data, userWeb3Info } from "@/app/store";
+import { data, userWeb3Info } from "@/app/(main)/store";
 import Input from "../common/Input";
 import axios from "axios";
 import { useAtom } from "jotai";
@@ -7,22 +7,22 @@ import React, { useState } from "react";
 import ImagePicker from "../ImagePicker";
 import BalanceBox from "../common/BalanceBox";
 import Radio from "../common/Radio";
-import { pinImageToShadowDrive } from "@/app/lib/uploadImageToShdwDrive";
+import { pinImageToShadowDrive } from "@/app/(main)/lib/uploadImageToShdwDrive";
 import { v4 as uuidv4 } from "uuid";
 import * as anchor from "@coral-xyz/anchor";
 import { Connectivity as Community } from "@/anchor/community";
 import { web3Consts } from "@/anchor/web3Consts";
-import { pinFileToShadowDriveUrl } from "@/app/lib/uploadFileToShdwDrive";
+import { pinFileToShadowDriveUrl } from "@/app/(main)/lib/uploadFileToShdwDrive";
 import { calcNonDecimalValue } from "@/anchor/curve/utils";
-import { fetchImage } from "@/app/lib/forge/fetchImage";
-import { generateCommunityInvitationImage } from "@/app/lib/forge/generateCommunityInvitationImage";
-import { uploadImageFromBlob } from "@/app/lib/uploadImageFromBlob";
+import { fetchImage } from "@/app/(main)/lib/forge/fetchImage";
+import { generateCommunityInvitationImage } from "@/app/(main)/lib/forge/generateCommunityInvitationImage";
+import { uploadImageFromBlob } from "@/app/(main)/lib/uploadImageFromBlob";
 import AgentOfferItem from "./AgentOfferItem";
 import { Bars } from "react-loader-spinner";
 import useWallet from "@/utils/wallet";
 import useConnection from "@/utils/connection";
-import internalClient from "@/app/lib/internalHttpClient";
-import { uploadFile } from "@/app/lib/firebase";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import { uploadFile } from "@/app/(main)/lib/firebase";
 
 
 const AgentOffer = ({ symbol }: { symbol?: string }) => {

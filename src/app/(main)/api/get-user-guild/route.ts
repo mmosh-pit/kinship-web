@@ -1,4 +1,4 @@
-import { Guild, GuildFilter } from "@/app/models/guild";
+import { Guild, GuildFilter } from "@/app/(main)/models/guild";
 import { db } from "../../lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
 

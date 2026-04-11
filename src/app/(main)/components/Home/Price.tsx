@@ -1,6 +1,6 @@
 "use client";
-import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
-import { selectedDirectory } from "@/app/store/home";
+import { abbreviateNumber } from "@/app/(main)/lib/abbreviateNumber";
+import { selectedDirectory } from "@/app/(main)/store/home";
 import axios from "axios";
 import { useAtom } from "jotai";
 import React from "react";

@@ -1,5 +1,5 @@
 
-import { db } from "@/app/lib/mongoClient";
+import { db } from "@/app/(main)/lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {

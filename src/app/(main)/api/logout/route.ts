@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-import { db } from "@/app/lib/mongoClient";
+import { db } from "@/app/(main)/lib/mongoClient";
 
 export async function PUT(req: NextRequest) {
   const collection = db.collection("users");

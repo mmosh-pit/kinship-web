@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import Image from "next/image";
 
-import { DirectoryCoin } from "@/app/models/directoryCoin";
+import { DirectoryCoin } from "@/app/(main)/models/directoryCoin";
 
 type Props = {
   color: string;

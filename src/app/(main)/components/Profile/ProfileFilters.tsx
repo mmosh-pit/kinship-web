@@ -1,7 +1,7 @@
 import React from "react";
 import Radio from "../common/Radio";
 import { useAtom } from "jotai";
-import { lineage, profileFilter } from "@/app/store";
+import { lineage, profileFilter } from "@/app/(main)/store";
 
 type Props = {
   isGuest: boolean;

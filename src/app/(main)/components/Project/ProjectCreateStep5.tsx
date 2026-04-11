@@ -11,7 +11,7 @@ import TimeIcon from "@/assets/icons/TimeIcon";
 import { useRouter } from "next/navigation";
 import React, { use, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { pinImageToShadowDrive } from "@/app/lib/uploadImageToShdwDrive";
+import { pinImageToShadowDrive } from "@/app/(main)/lib/uploadImageToShdwDrive";
 
 export default function ProjectCreateStep5({
   onPageChange,

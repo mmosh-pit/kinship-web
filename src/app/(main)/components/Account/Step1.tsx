@@ -6,11 +6,11 @@ import {
   onboardingStep,
   referredSuccess,
   referredUser,
-} from "@/app/store/account";
+} from "@/app/(main)/store/account";
 import { useAtom } from "jotai";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import MessageBanner from "../common/MessageBanner";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 
 const Step1 = () => {
   const [currentUser] = useAtom(data);

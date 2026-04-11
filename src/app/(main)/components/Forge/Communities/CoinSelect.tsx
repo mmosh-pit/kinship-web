@@ -3,15 +3,15 @@ import axios from "axios";
 import { useAtom } from "jotai";
 import Image from "next/image";
 
-import { Coin, CoinDetail } from "@/app/models/coin";
-import { userWeb3Info } from "@/app/store";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
+import { userWeb3Info } from "@/app/(main)/store";
 import Search from "../../common/Search";
 import RecentCoin from "../../common/RecentCoin";
 import CoinListItem from "../../common/CoinListItem";
-import { SwapCoin } from "@/app/models/swapCoin";
+import { SwapCoin } from "@/app/(main)/models/swapCoin";
 import CloseIcon from "@/assets/icons/CloseIcon";
 import useWallet from "@/utils/wallet";
-import baseCoins from "@/app/lib/baseCoins";
+import baseCoins from "@/app/(main)/lib/baseCoins";
 
 type Props = {
   selectedCoin: SwapCoin | null;

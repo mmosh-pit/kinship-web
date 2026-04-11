@@ -10,7 +10,7 @@ import { decryptData } from "@/utils/decryptData";
 import Input from "../../common/Input";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import EyeIcon from "@/assets/icons/EyeIcon";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 interface Step3Props {
   onSuccess?: () => void;

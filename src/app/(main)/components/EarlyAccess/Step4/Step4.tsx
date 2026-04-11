@@ -2,7 +2,7 @@
 import { BackArrowVW } from "@/app/(catfawn)/catfawn/components/BackArrow/BackArrowVW";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
 import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 

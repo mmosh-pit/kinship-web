@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import EyeIcon from "@/assets/icons/EyeIcon";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import KinshipCodesLogin from "@/assets/icons/KinshipCodesLogin";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 const ResetPassword = () => {
   const router = useRouter();

@@ -17,8 +17,8 @@ import { Step7 } from "../(main)/components/EarlyAccess/Step7/Step7";
 import { ErrorContainerVW } from "../(catfawn)/catfawn/components/ErrorContainer/ErrorContainerVW";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAtom } from "jotai";
-import { data, isAuth, isAuthModalOpen, isAuthOverlayOpen } from "../store";
-import client from "../lib/httpClient";
+import { data, isAuth, isAuthModalOpen, isAuthOverlayOpen } from "./store";
+import client from "./lib/httpClient";
 import WizardEditButton from "./components/AiPageEditor/WizardEditButton";
 import AiPageEditor from "./components/AiPageEditor/AiPageEditor";
 

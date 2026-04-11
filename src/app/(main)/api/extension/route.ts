@@ -1,4 +1,4 @@
-import Extension from "@/app/models/Extension";
+import Extension from "@/app/(main)/models/Extension";
 import { db } from "../../lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
 

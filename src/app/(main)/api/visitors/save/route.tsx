@@ -1,4 +1,4 @@
-import { db } from "@/app/lib/mongoClient";
+import { db } from "@/app/(main)/lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { decryptData } from "@/utils/decryptData";

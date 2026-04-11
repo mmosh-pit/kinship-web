@@ -1,4 +1,4 @@
-import { CoinDetail } from "@/app/models/coin";
+import { CoinDetail } from "@/app/(main)/models/coin";
 import { db } from "../../lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
 

@@ -1,4 +1,4 @@
-import { db } from "@/app/lib/mongoClient";
+import { db } from "@/app/(main)/lib/mongoClient";
 import { AtpAgent } from "@atproto/api";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";

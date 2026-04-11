@@ -1,4 +1,4 @@
-import { userWeb3Info } from "@/app/store";
+import { userWeb3Info } from "@/app/(main)/store";
 import { useAtom } from "jotai";
 
 const BalanceBox = () => {

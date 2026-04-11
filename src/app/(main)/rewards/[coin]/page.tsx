@@ -9,7 +9,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import MessageBanner from "../../components/common/MessageBanner";
 import useWallet from "@/utils/wallet";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const ClaimPage = (props: { params: Promise<{ coin: string }> }) => {
   const params = use(props.params);

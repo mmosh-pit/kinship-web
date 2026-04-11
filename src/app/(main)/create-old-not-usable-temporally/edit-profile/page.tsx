@@ -4,21 +4,21 @@ import React from "react";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import * as anchor from "@coral-xyz/anchor";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 import MessageBanner from "../../components/common/MessageBanner";
 import ImagePicker from "../../components/ImagePicker";
 import Input from "../../components/common/Input";
 import Button from "../../components/common/Button";
 import Select from "../../components/common/Select";
 import axios from "axios";
-import { ProfileInfo, ProfileLineage } from "@/app/models/profileInfo";
+import { ProfileInfo, ProfileLineage } from "@/app/(main)/models/profileInfo";
 import { Connectivity as UserConn } from "@/anchor/user";
 import { web3Consts } from "@/anchor/web3Consts";
 import { Connection } from "@solana/web3.js";
-import { pinImageToShadowDrive } from "@/app/lib/uploadImageToShdwDrive";
-import { pinFileToShadowDrive } from "@/app/lib/uploadFileToShdwDrive";
+import { pinImageToShadowDrive } from "@/app/(main)/lib/uploadImageToShdwDrive";
+import { pinFileToShadowDrive } from "@/app/(main)/lib/uploadFileToShdwDrive";
 import useWallet from "@/utils/wallet";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const PronounsSelectOptions = [
   {

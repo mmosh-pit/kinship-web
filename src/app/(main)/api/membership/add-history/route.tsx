@@ -1,5 +1,5 @@
-import { clickhouse } from "@/app/lib/clickhouse";
-import { db } from "@/app/lib/mongoClient";
+import { clickhouse } from "@/app/(main)/lib/clickhouse";
+import { db } from "@/app/(main)/lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {

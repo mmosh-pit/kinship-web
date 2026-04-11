@@ -4,7 +4,7 @@ import axios from "axios";
 
 import ArrowBack from "@/assets/icons/ArrowBack";
 import { useRouter } from "next/navigation";
-import { Coin, CoinDetail } from "@/app/models/coin";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
 import * as anchor from "@coral-xyz/anchor";
 import { Connection } from "@solana/web3.js";
 import { Connectivity as CurveConn } from "@/anchor/curve/bonding";

@@ -1,13 +1,13 @@
 import React from "react";
 import { useAtom } from "jotai";
 
-import { User } from "@/app/models/user";
-import { selectedSearchFilter } from "@/app/store/home";
-import { textSearch } from "@/app/store/membership";
+import { User } from "@/app/(main)/models/user";
+import { selectedSearchFilter } from "@/app/(main)/store/home";
+import { textSearch } from "@/app/(main)/store/membership";
 import UserCard from "../UserCard";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 import useWallet from "@/utils/wallet";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 const MembersList = () => {
   const [selectedFilters] = useAtom(selectedSearchFilter);

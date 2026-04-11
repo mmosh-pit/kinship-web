@@ -1,6 +1,6 @@
-import { db } from "@/app/lib/mongoClient";
+import { db } from "@/app/(main)/lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
-import { getLineage } from "@/app/lib/forge/createProfile";
+import { getLineage } from "@/app/(main)/lib/forge/createProfile";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { Connection, Keypair } from "@solana/web3.js";
 import { Connectivity as UserConn } from "@/anchor/user";

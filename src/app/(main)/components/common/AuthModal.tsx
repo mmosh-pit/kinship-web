@@ -6,7 +6,7 @@ import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import axios from "axios";
 import Button from "./Button";
 import { useAtom } from "jotai";
-import { data, isAuth, isAuthModalOpen, isAuthOverlayOpen } from "@/app/store";
+import { data, isAuth, isAuthModalOpen, isAuthOverlayOpen } from "@/app/(main)/store";
 import CloseIcon from "@/assets/icons/CloseIcon";
 import { useRouter } from "next/navigation";
 

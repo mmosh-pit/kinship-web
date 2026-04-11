@@ -6,7 +6,7 @@ import Radio from "../common/Radio";
 import useWallet from "@/utils/wallet";
 import useConnection from "@/utils/connection";
 import { useAtom } from "jotai";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 import OfferItem from "./OfferItem";
 
 const Offers = (offerData: any) => {

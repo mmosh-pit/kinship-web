@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { mergeBranch, deleteBranch } from "@/app/lib/githubClient";
-import { verifyWizard } from "@/app/lib/verifyWizard";
+import { mergeBranch, deleteBranch } from "@/app/(main)/lib/githubClient";
+import { verifyWizard } from "@/app/(main)/lib/verifyWizard";
 
 const PREVIEW_BRANCH = "landing-page-preview";
 

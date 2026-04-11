@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/app/lib/mongoClient";
-import { UserCheckpointRequest } from "@/app/types/usercheckpoints-master";
+import { db } from "@/app/(main)/lib/mongoClient";
+import { UserCheckpointRequest } from "@/app/(main)/types/usercheckpoints-master";
 export async function GET(req: Request) {
   try {
     const userId = req.headers.get("user");

@@ -3,10 +3,10 @@ import { useAtom } from "jotai";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-import { Community, CommunityAPIResult } from "@/app/models/community";
-import { data } from "@/app/store";
+import { Community, CommunityAPIResult } from "@/app/(main)/models/community";
+import { data } from "@/app/(main)/store";
 import CommunityCard from "./CommunityCard";
-import { selectedSearchFilter, typedSearchValue } from "@/app/store/home";
+import { selectedSearchFilter, typedSearchValue } from "@/app/(main)/store/home";
 
 const CommunitiesList = () => {
   const navigate = useRouter();

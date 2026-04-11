@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { useAtom } from "jotai";
 
-import { CandidateInfo } from "@/app/models/candidateInfo";
-import { AIChatMessage } from "@/app/models/AIChatMessage";
-import { data } from "@/app/store";
+import { CandidateInfo } from "@/app/(main)/models/candidateInfo";
+import { AIChatMessage } from "@/app/(main)/models/AIChatMessage";
+import { data } from "@/app/(main)/store";
 import Markdown from "react-markdown";
 import { Bars } from "react-loader-spinner";
 

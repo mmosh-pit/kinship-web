@@ -5,10 +5,10 @@ import { useAtom } from "jotai";
 import Button from "../components/common/Button";
 import Input from "../components/common/Input";
 import { useRouter } from "next/navigation";
-import { storeFormAtom } from "@/app/store/signup";
+import { storeFormAtom } from "@/app/(main)/store/signup";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import EyeIcon from "@/assets/icons/EyeIcon";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import KinshipMainIcon from "@/assets/icons/KinshipMainIcon";
 import ArrowBack from "@/assets/icons/ArrowBack";
 

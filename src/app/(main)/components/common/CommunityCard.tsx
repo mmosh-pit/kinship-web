@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Community } from "@/app/models/community";
+import { Community } from "@/app/(main)/models/community";
 
 type Props = {
   community: Omit<Community, "coin">;

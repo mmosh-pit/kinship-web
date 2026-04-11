@@ -1,7 +1,7 @@
 import React from "react";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
 import { useRouter } from "next/navigation";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 const STORAGE_KEY = "early-access-data";
 

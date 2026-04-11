@@ -4,14 +4,14 @@ import Image from "next/image";
 
 import WalletIcon from "@/assets/icons/WalletIcon";
 import CompareArrows from "@/assets/icons/CompareArrows";
-import { Coin } from "@/app/models/coin";
+import { Coin } from "@/app/(main)/models/coin";
 import Button from "../../common/Button";
-import { getSwapTokenInfo } from "@/app/lib/forge/getSwapTokenInfo";
-import { swapTokens } from "@/app/lib/forge/swapTokens";
-import { targetTokenBalance } from "@/app/store/community";
+import { getSwapTokenInfo } from "@/app/(main)/lib/forge/getSwapTokenInfo";
+import { swapTokens } from "@/app/(main)/lib/forge/swapTokens";
+import { targetTokenBalance } from "@/app/(main)/store/community";
 import { BondingPricing } from "@/anchor/curve/curves";
 import { web3Consts } from "@/anchor/web3Consts";
-import { SwapCoin } from "@/app/models/swapCoin";
+import { SwapCoin } from "@/app/(main)/models/swapCoin";
 import useWallet from "@/utils/wallet";
 import useConnection from "@/utils/connection";
 

@@ -1,12 +1,12 @@
 import React from "react";
 import { useAtom } from "jotai";
 
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import ArrowUpHome from "@/assets/icons/ArrowUpHome";
-import { selectedChatStore, chatsStore, chatsLoading } from "@/app/store/chat";
-import { Message } from "@/app/models/chat";
+import { selectedChatStore, chatsStore, chatsLoading } from "@/app/(main)/store/chat";
+import { Message } from "@/app/(main)/models/chat";
 import { Bars } from "react-loader-spinner";
 import Avatar from "../common/Avatar";
 import { useRouter } from "next/navigation";
@@ -17,8 +17,8 @@ import DisambiguationModal from "./DisambiguationModal";
 import {
   DisambiguationResponse,
   SelectedRecipients,
-} from "@/app/types/disambiguation";
-import internalClient from "@/app/lib/internalHttpClient";
+} from "@/app/(main)/types/disambiguation";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 import useWallet from "@/utils/wallet";
 import Select from "../common/Select";
 import VoiceAssistant from "./VoiceAssistant";

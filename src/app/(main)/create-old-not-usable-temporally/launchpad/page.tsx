@@ -1,6 +1,6 @@
 "use client";
 import ProjectCard from "../../components/Project/ProjectCard";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";

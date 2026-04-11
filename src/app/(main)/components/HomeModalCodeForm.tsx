@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { useAtom } from "jotai";
-import { incomingReferAddress, storeFormAtom } from "@/app/store/signup";
+import { incomingReferAddress, storeFormAtom } from "@/app/(main)/store/signup";
 import SimpleInput from "./common/SimpleInput";
 import Button from "./common/Button";
-import client from "@/app/lib/httpClient";
-import { isAuth, isAuthOverlayOpen, signInCurrentBot } from "@/app/store";
+import client from "@/app/(main)/lib/httpClient";
+import { isAuth, isAuthOverlayOpen, signInCurrentBot } from "@/app/(main)/store";
 
 type HomeModalCodeFormProps = {
   onSuccess: () => void;

@@ -1,6 +1,6 @@
-import { db } from "@/app/lib/mongoClient";
-import { Candidate } from "@/app/models/candidate";
-import { CandidateInfo } from "@/app/models/candidateInfo";
+import { db } from "@/app/(main)/lib/mongoClient";
+import { Candidate } from "@/app/(main)/models/candidate";
+import { CandidateInfo } from "@/app/(main)/models/candidateInfo";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest): Promise<NextResponse> {

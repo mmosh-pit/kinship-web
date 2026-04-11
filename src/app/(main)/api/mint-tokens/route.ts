@@ -1,4 +1,4 @@
-import { mintTokens } from "../../../utils/mintTokens";
+import { mintTokens } from "../../../../utils/mintTokens";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {

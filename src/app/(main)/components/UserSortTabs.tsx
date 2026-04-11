@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import ArrowDown from "@/assets/icons/ArrowDown";
 import ArrowUp from "@/assets/icons/ArrowUp";
-import { sortDirection, sortOption } from "@/app/store";
+import { sortDirection, sortOption } from "@/app/(main)/store";
 
 const sortOptions = [
   { label: "Royalties", value: "royalty" },

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { CheckpointMasterRequest, CheckpointMasterEntry } from "@/app/types/checkpoints-master";
+import { CheckpointMasterRequest, CheckpointMasterEntry } from "@/app/(main)/types/checkpoints-master";
 
-import { db } from "@/app/lib/mongoClient";
+import { db } from "@/app/(main)/lib/mongoClient";
 
 export async function GET() {
   try {

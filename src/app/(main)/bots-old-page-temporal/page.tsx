@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Bars } from "react-loader-spinner";
 import ProjectCard from "../components/Project/ProjectCard";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 let source: any;
 
 const Bots = () => {

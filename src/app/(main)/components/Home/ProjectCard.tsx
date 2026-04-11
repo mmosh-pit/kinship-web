@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import currencyFormatter from "@/app/lib/currencyFormatter";
-import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
+import currencyFormatter from "@/app/(main)/lib/currencyFormatter";
+import { abbreviateNumber } from "@/app/(main)/lib/abbreviateNumber";
 import ProjectCardTimer from "./ProjectCardTimer";
 
 type Props = {

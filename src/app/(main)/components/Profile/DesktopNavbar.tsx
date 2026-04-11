@@ -1,6 +1,6 @@
-import internalClient from "@/app/lib/internalHttpClient";
-import { User } from "@/app/models/user";
-import { data } from "@/app/store";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import { User } from "@/app/(main)/models/user";
+import { data } from "@/app/(main)/store";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";

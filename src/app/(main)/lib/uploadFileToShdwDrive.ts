@@ -3,7 +3,7 @@ import { ShadowFile, ShdwDrive } from "@shadow-drive/sdk";
 import { Connection, Keypair, PublicKey } from "@solana/web3.js";
 import bs58 from "bs58";
 import { v4 as uuidv4 } from "uuid";
-import Config from "./../../anchor/web3Config.json";
+import Config from "./../../../anchor/web3Config.json";
 
 export const pinFileToShadowDrive = async (jsonData: any) => {
   try {

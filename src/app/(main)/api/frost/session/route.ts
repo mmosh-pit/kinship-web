@@ -1,4 +1,4 @@
-import { getSession } from "@/app/lib/session";
+import { getSession } from "@/app/(main)/lib/session";
 import { NextRequest, NextResponse } from "next/server";
 export async function GET() {
   const session:any = await getSession();

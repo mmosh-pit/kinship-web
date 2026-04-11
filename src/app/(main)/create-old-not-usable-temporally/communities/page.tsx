@@ -5,7 +5,7 @@ import axios, { CancelTokenSource } from "axios";
 import { useRouter } from "next/navigation";
 import Search from "../../components/common/Search";
 import Card from "../../components/Forge/common/Card";
-import { Community, CommunityAPIResult } from "@/app/models/community";
+import { Community, CommunityAPIResult } from "@/app/(main)/models/community";
 
 const Communities = () => {
   const navigate = useRouter();

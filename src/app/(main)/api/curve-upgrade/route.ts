@@ -8,7 +8,7 @@ import { Connectivity as CurveConn } from "@/anchor/curve/bonding";
 import { web3Consts } from "@/anchor/web3Consts";
 import AmmImpl, { MAINNET_POOL } from '@mercurial-finance/dynamic-amm-sdk';
 import axios from "axios";
-import { Coin } from "@/app/models/coin";
+import { Coin } from "@/app/(main)/models/coin";
 
 export async function GET(req: NextRequest) {
   const collection = db.collection("mmosh-app-tokens");

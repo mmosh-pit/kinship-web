@@ -2,8 +2,8 @@ import React from "react";
 import { useAtom } from "jotai";
 
 import SearchIcon from "@/assets/icons/SearchIcon";
-import useCheckMobileScreen from "@/app/lib/useCheckMobileScreen";
-import { textSearch } from "@/app/store/membership";
+import useCheckMobileScreen from "@/app/(main)/lib/useCheckMobileScreen";
+import { textSearch } from "@/app/(main)/store/membership";
 
 const SearchBar = () => {
   const isMobile = useCheckMobileScreen();

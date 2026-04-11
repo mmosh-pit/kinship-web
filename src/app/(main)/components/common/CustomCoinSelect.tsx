@@ -5,12 +5,12 @@ import Image from "next/image";
 
 import ArrowDown from "@/assets/icons/ArrowDown";
 import ArrowUp from "@/assets/icons/ArrowUp";
-import { Coin } from "@/app/models/coin";
-import { userWeb3Info } from "@/app/store";
+import { Coin } from "@/app/(main)/models/coin";
+import { userWeb3Info } from "@/app/(main)/store";
 import CoinListItem from "./CoinListItem";
 import Search from "./Search";
 import RecentCoin from "./RecentCoin";
-import { selectOpened } from "@/app/store/community";
+import { selectOpened } from "@/app/(main)/store/community";
 
 type Props = {
   onSelect: (value: Coin) => void;

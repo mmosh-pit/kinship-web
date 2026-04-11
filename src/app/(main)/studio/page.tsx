@@ -14,8 +14,8 @@ import axios from "axios";
 import AgentStudioToolsCreate from "../components/Project/AgentStudioToolsCreate";
 import InstructAgent from "../components/Project/InstructAgent";
 import AgentOffer from "../components/Project/AgentOffer";
-import internalClient from "@/app/lib/internalHttpClient";
-import { data } from "@/app/store";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import { data } from "@/app/(main)/store";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
 

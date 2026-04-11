@@ -6,8 +6,8 @@ import React from "react";
 import SearchBar from "../../components/Project/Candidates/SearchBar";
 import AssetCard from "../../components/Inform/AssetCard";
 import axios from "axios";
-import { isDrawerOpen } from "@/app/store";
-import { bagsCoins, BagsNFT, bagsNfts, genesisProfileUser } from "@/app/store/bags";
+import { isDrawerOpen } from "@/app/(main)/store";
+import { bagsCoins, BagsNFT, bagsNfts, genesisProfileUser } from "@/app/(main)/store/bags";
 
 const Inform = () => {
   const [hasGenesisProfile] = useAtom(genesisProfileUser);

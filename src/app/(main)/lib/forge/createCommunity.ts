@@ -3,8 +3,8 @@ import { Connection } from "@solana/web3.js";
 import axios from "axios";
 
 import { Connectivity as ProjectConn } from "@/anchor/project";
-import { CreateCommunityParams } from "@/app/models/createCommunityParams";
-import { MintResultMessage } from "@/app/models/mintResultMessage";
+import { CreateCommunityParams } from "@/app/(main)/models/createCommunityParams";
+import { MintResultMessage } from "@/app/(main)/models/mintResultMessage";
 import { web3Consts } from "@/anchor/web3Consts";
 import { calcNonDecimalValue } from "@/anchor/curve/utils";
 import { pinFileToShadowDrive } from "../uploadFileToShdwDrive";

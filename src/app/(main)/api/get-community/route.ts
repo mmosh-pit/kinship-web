@@ -1,4 +1,4 @@
-import { CommunityAPIResult } from "@/app/models/community";
+import { CommunityAPIResult } from "@/app/(main)/models/community";
 import { db } from "../../lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
 

@@ -6,7 +6,7 @@ import {
   step,
   step1Form,
   step3Form,
-} from "@/app/store/community";
+} from "@/app/(main)/store/community";
 import Card from "../common/Card";
 import Input from "../../common/Input";
 import SimpleInput from "../../common/SimpleInput";
@@ -14,9 +14,9 @@ import Button from "../../common/Button";
 import StepsTitle from "../common/StepsTitle";
 import CustomCoinSelect from "../../common/CustomCoinSelect";
 import axios from "axios";
-import { userWeb3Info } from "@/app/store";
+import { userWeb3Info } from "@/app/(main)/store";
 import MessageBanner from "../../common/MessageBanner";
-import { Coin } from "@/app/models/coin";
+import { Coin } from "@/app/(main)/models/coin";
 import ArrowBack from "@/assets/icons/ArrowBack";
 
 const Step3 = () => {

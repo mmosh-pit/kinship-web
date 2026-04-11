@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
 
 import HamburgerIcon from "@/assets/icons/HamburgerIcon";
-import { data, isDrawerOpen } from "@/app/store";
+import { data, isDrawerOpen } from "@/app/(main)/store";
 
 const MobileDrawer = () => {
   const router = useRouter();

@@ -4,7 +4,7 @@ import axios from "axios";
 
 import ArrowBack from "@/assets/icons/ArrowBack";
 import { useRouter } from "next/navigation";
-import { Coin, CoinDetail } from "@/app/models/coin";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
 import Graphics from "../../components/Forge/CoinPage/Graphics";
 import Stats from "../../components/Forge/CoinPage/Stats";
 import TransactionsTable from "../../components/Forge/CoinPage/TransactionsTable";

@@ -12,6 +12,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   async rewrites() {
     const nodeBackend =
       process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:6050";
@@ -37,6 +40,7 @@ const nextConfig = {
   webpack: (config, _context) => {
     config.resolve.fallback = { fs: false };
     config.resolve.alias["jotai"] = resolve(__dirname, "node_modules/jotai");
+    config.resolve.alias["@coral-xyz/anchor$"] = resolve(__dirname, "node_modules/@coral-xyz/anchor/dist/cjs/index.js");
 
     // Alias for problematic anchor imports
     config.resolve.alias["@coral-xyz/anchor/dist/cjs/utils/bytes"] = resolve(

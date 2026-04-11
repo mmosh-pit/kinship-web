@@ -1,8 +1,8 @@
 import * as anchor from "@coral-xyz/anchor";
-import { MintCommunityPassParams } from "@/app/models/mintCommunityPassParams";
+import { MintCommunityPassParams } from "@/app/(main)/models/mintCommunityPassParams";
 import { Connection, PublicKey } from "@solana/web3.js";
 
-import { MintResultMessage } from "@/app/models/mintResultMessage";
+import { MintResultMessage } from "@/app/(main)/models/mintResultMessage";
 import { Connectivity as ProjectConn } from "@/anchor/project";
 import axios from "axios";
 import { pinFileToShadowDrive } from "../uploadFileToShdwDrive";

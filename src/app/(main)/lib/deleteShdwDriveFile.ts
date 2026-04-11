@@ -3,7 +3,7 @@ import bs58 from "bs58";
 import { ShdwDrive } from "@shadow-drive/sdk";
 
 import { Connection, Keypair, PublicKey } from "@solana/web3.js";
-import Config from "./../../anchor/web3Config.json";
+import Config from "./../../../anchor/web3Config.json";
 
 export const deleteShdwDriveFile = async (fileUrl: string) => {
   try {

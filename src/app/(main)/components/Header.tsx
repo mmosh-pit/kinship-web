@@ -27,15 +27,15 @@ const PASS_COLLECTION = "PASSES";
 const BADGE_COLLECTION = "BADGES";
 const PROFILE_COLLECTION = "PROFILES";
 import { nanoid } from "nanoid";
-import { incomingReferAddress } from "@/app/store/signup";
-import { currentGroupCommunity } from "@/app/store/community";
-import { init } from "@/app/lib/firebase";
-import useCheckDeviceScreenSize from "@/app/lib/useCheckDeviceScreenSize";
-import { ProfileLineage } from "@/app/models/profileInfo";
-import { getPriceForPTV } from "@/app/lib/forge/jupiter";
-import { AssetsHeliusResponse } from "@/app/models/assetsHeliusResponse";
-import client from "@/app/lib/httpClient";
-import internalClient from "@/app/lib/internalHttpClient";
+import { incomingReferAddress } from "@/app/(main)/store/signup";
+import { currentGroupCommunity } from "@/app/(main)/store/community";
+import { init } from "@/app/(main)/lib/firebase";
+import useCheckDeviceScreenSize from "@/app/(main)/lib/useCheckDeviceScreenSize";
+import { ProfileLineage } from "@/app/(main)/models/profileInfo";
+import { getPriceForPTV } from "@/app/(main)/lib/forge/jupiter";
+import { AssetsHeliusResponse } from "@/app/(main)/models/assetsHeliusResponse";
+import client from "@/app/(main)/lib/httpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 import {
   data,
   isAuth,
@@ -46,7 +46,7 @@ import {
   signInModalInitialStep,
   userWeb3Info,
   web3InfoLoading,
-} from "@/app/store";
+} from "@/app/(main)/store";
 import {
   bagsBalance,
   BagsCoin,
@@ -54,7 +54,7 @@ import {
   BagsNFT,
   bagsNfts,
   genesisProfileUser,
-} from "@/app/store/bags";
+} from "@/app/(main)/store/bags";
 
 const Header = () => {
   const router = useRouter();

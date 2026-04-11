@@ -8,7 +8,7 @@ import { Connection, Transaction } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
 import { Bars } from "react-loader-spinner";
 import { LaunchPad } from "../components/LaunchPad/LaunchPad";
-import { trasferUsdCoin } from "@/app/lib/forge/createProfile";
+import { trasferUsdCoin } from "@/app/(main)/lib/forge/createProfile";
 
 const LaunchPadVC = () => {
   const wallet: any = useWallet();

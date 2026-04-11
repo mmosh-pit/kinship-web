@@ -4,9 +4,9 @@ import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import KinshipMainIcon from "@/assets/icons/KinshipMainIcon";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const ForgotPassword = () => {
   const router = useRouter();

@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import EyeIcon from "@/assets/icons/EyeIcon";
 import { useAtom } from "jotai";
-import { data, isAuth, isAuthOverlayOpen } from "@/app/store";
+import { data, isAuth, isAuthOverlayOpen } from "@/app/(main)/store";
 import KinshipMainIcon from "@/assets/icons/KinshipMainIcon";
 import ArrowRight from "@/assets/icons/ArrowRight";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 const Login = () => {
   const router = useRouter();

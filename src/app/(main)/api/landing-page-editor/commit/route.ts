@@ -3,8 +3,8 @@ import {
     createOrUpdateBranch,
     getFileContent,
     commitFile,
-} from "@/app/lib/githubClient";
-import { verifyWizard } from "@/app/lib/verifyWizard";
+} from "@/app/(main)/lib/githubClient";
+import { verifyWizard } from "@/app/(main)/lib/verifyWizard";
 
 const LANDING_PAGE_PATH = "src/app/(main)/page.tsx";
 const PREVIEW_BRANCH = "landing-page-preview";

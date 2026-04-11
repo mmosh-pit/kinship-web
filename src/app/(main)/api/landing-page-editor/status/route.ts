@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { branchExists, getFileContent } from "@/app/lib/githubClient";
-import { verifyWizard } from "@/app/lib/verifyWizard";
+import { branchExists, getFileContent } from "@/app/(main)/lib/githubClient";
+import { verifyWizard } from "@/app/(main)/lib/verifyWizard";
 
 const PREVIEW_BRANCH = "landing-page-preview";
 const LANDING_PAGE_PATH = "src/app/(main)/page.tsx";

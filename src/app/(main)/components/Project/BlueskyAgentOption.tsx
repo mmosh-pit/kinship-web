@@ -4,7 +4,7 @@ import BlueskyIcon from "@/assets/icons/BlueskyIcon";
 import axios, { AxiosError } from "axios";
 import Input from "../common/Input";
 import Button from "../common/Button";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const BlueskyAgentOption = ({ project }: { project: string }) => {
   const [isLoading, setIsLoading] = React.useState(false);

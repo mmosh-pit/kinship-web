@@ -2,8 +2,8 @@ import { Connection } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
 import axios from "axios";
 
-import { CreateProjectCoinParams } from "@/app/models/createCoinParams";
-import { MintResultMessage } from "@/app/models/mintResultMessage";
+import { CreateProjectCoinParams } from "@/app/(main)/models/createCoinParams";
+import { MintResultMessage } from "@/app/(main)/models/mintResultMessage";
 import { web3Consts } from "@/anchor/web3Consts";
 import { Connectivity as CurveConn } from "@/anchor/curve/bonding";
 import {

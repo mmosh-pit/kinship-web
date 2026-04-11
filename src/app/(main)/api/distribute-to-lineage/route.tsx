@@ -1,6 +1,6 @@
-import { db } from "@/app/lib/mongoClient";
+import { db } from "@/app/(main)/lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
-import { getLineage } from "@/app/lib/forge/createProfile";
+import { getLineage } from "@/app/(main)/lib/forge/createProfile";
 import axios from "axios";
 
 export async function POST(req: NextRequest) {

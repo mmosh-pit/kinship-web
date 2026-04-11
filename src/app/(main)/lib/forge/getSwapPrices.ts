@@ -2,10 +2,10 @@ import * as anchor from "@coral-xyz/anchor";
 import { Connection } from "@solana/web3.js";
 
 import { Connectivity as CurveConn } from "@/anchor/curve/bonding";
-import { SwapCoin } from "@/app/models/swapCoin";
+import { SwapCoin } from "@/app/(main)/models/swapCoin";
 import { web3Consts } from "@/anchor/web3Consts";
 import axios from "axios";
-import { CoinDetail } from "@/app/models/coin";
+import { CoinDetail } from "@/app/(main)/models/coin";
 import { FrostWallet } from "@/utils/frostWallet";
 
 export const getSwapPrices = async (

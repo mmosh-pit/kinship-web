@@ -21,8 +21,8 @@ import { getAssociatedTokenAddressSync, unpackAccount } from "forge-spl-token";
 import { Metaplex } from "@metaplex-foundation/js";
 import { BaseSpl } from "./base/baseSpl";
 import axios from "axios";
-import internalClient from "@/app/lib/internalHttpClient";
-import { getLineage } from "@/app/lib/forge/createProfile";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import { getLineage } from "@/app/(main)/lib/forge/createProfile";
 
 const {
   systemProgram,

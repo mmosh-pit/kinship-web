@@ -1,7 +1,7 @@
 import axios from "axios";
 import { db } from "../../../lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
-import { Guild, GuildFilter } from "@/app/models/guild";
+import { Guild, GuildFilter } from "@/app/(main)/models/guild";
 
 const gensMap = {
   gen1: "lineage.promotor",

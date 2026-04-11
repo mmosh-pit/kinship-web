@@ -1,6 +1,6 @@
 
-import { db } from "@/app/lib/mongoClient";
-import { getSession } from "@/app/lib/session";
+import { db } from "@/app/(main)/lib/mongoClient";
+import { getSession } from "@/app/(main)/lib/session";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 

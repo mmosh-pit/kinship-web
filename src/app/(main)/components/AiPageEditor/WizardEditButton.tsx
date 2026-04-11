@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useAtom } from "jotai";
-import { data } from "@/app/store";
-import { isAiEditorOpen } from "@/app/store";
+import { data } from "@/app/(main)/store";
+import { isAiEditorOpen } from "@/app/(main)/store";
 
 const WizardEditButton = () => {
     const [currentUser] = useAtom(data);

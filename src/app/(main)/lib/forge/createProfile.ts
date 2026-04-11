@@ -11,7 +11,7 @@ import { getUsername } from "../forge/getUsername";
 import { updateUserData } from "../forge/updateUserData";
 import { updateTotalMints } from "../forge/updateTotalMints";
 import { pinFileToShadowDrive } from "../uploadFileToShdwDrive";
-import { uploadFile } from "@/app/lib/firebase";
+import { uploadFile } from "@/app/(main)/lib/firebase";
 import axios from "axios";
 
 export const createProfile = async ({

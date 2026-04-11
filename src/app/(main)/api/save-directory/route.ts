@@ -1,7 +1,7 @@
 import axios from "axios";
 import { db } from "../../lib/mongoClient";
 import { NextRequest, NextResponse } from "next/server";
-import { getPriceForPTV } from "@/app/lib/forge/jupiter";
+import { getPriceForPTV } from "@/app/(main)/lib/forge/jupiter";
 
 export async function POST(req: NextRequest) {
   const directoryCollection = db.collection("mmosh-app-directory");

@@ -7,9 +7,9 @@ import * as anchor from "@coral-xyz/anchor";
 import { Connectivity as CommunityConn } from "@/anchor/community";
 import { web3Consts } from "@/anchor/web3Consts";
 import axios from "axios";
-import { init, uploadFile } from "@/app/lib/firebase";
+import { init, uploadFile } from "@/app/(main)/lib/firebase";
 
-import { pinFileToShadowDriveBackend } from "@/app/lib/uploadFileToShdwDrive";
+import { pinFileToShadowDriveBackend } from "@/app/(main)/lib/uploadFileToShdwDrive";
 
 export async function GET(req: NextRequest) {
   const collection = db.collection("mmosh-app-offer-subscription");

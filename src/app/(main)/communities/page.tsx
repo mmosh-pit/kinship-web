@@ -8,7 +8,7 @@ import axios from "axios";
 import Button from "../components/common/Button";
 import SearchIcon from "@/assets/icons/SearchIcon";
 import TelegramMagentaIcon from "@/assets/icons/TelegramMagentaIcon";
-import { isDrawerOpen } from "@/app/store";
+import { isDrawerOpen } from "@/app/(main)/store";
 
 const Page = () => {
   const router = useRouter();

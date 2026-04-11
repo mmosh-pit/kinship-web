@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import SimpleMemberCard from "../common/SimpleMemberCard";
-import { AgentStats } from "@/app/models/AgentStats";
-import { User } from "@/app/models/user";
+import { AgentStats } from "@/app/(main)/models/AgentStats";
+import { User } from "@/app/(main)/models/user";
 import AgentOfferItem from "./AgentOfferItem";
 
 const AgentPageInfo = ({

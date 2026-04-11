@@ -2,7 +2,7 @@ import React from "react";
 import { useAtom } from "jotai";
 
 import HamburgerIcon from "@/assets/icons/HamburgerIcon";
-import { isDrawerOpen } from "@/app/store";
+import { isDrawerOpen } from "@/app/(main)/store";
 
 interface Props {
   scrollWithOffset: (ref: any) => void;

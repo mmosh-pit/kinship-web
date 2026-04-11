@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { getFileContent } from "@/app/lib/githubClient";
-import { verifyWizard } from "@/app/lib/verifyWizard";
+import { getFileContent } from "@/app/(main)/lib/githubClient";
+import { verifyWizard } from "@/app/(main)/lib/verifyWizard";
 
 const genAI = new GoogleGenerativeAI(process.env.GENAI_API_KEY!);
 

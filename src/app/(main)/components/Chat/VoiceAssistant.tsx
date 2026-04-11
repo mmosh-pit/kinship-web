@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useCallback } from "react";
 import useAudioVisualizer from "./AudioVisualizer";
 import Select from "../common/Select";
 import { useAtom } from "jotai";
-import { selectedChatStore } from "@/app/store/chat";
+import { selectedChatStore } from "@/app/(main)/store/chat";
 import CloseIcon from "@/assets/icons/CloseIcon";
 
 const VoiceAssistant = (props: any) => {

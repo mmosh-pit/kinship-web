@@ -5,8 +5,8 @@ import EyeIcon from "@/assets/icons/EyeIcon";
 import Button from "./common/Button";
 import { usePathname, useRouter } from "next/navigation";
 import { useAtom } from "jotai";
-import client from "@/app/lib/httpClient";
-import { data, isAuth, isAuthOverlayOpen } from "@/app/store";
+import client from "@/app/(main)/lib/httpClient";
+import { data, isAuth, isAuthOverlayOpen } from "@/app/(main)/store";
 
 type HomeModalSignUpFormProps = {
   onSuccess: () => void;

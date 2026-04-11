@@ -1,4 +1,4 @@
-import { clickhouse } from "@/app/lib/clickhouse";
+import { clickhouse } from "@/app/(main)/lib/clickhouse";
 import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {

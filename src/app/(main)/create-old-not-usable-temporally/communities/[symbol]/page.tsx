@@ -5,13 +5,13 @@ import axios from "axios";
 import Image from "next/image";
 import { useAtom } from "jotai";
 
-import { Community } from "@/app/models/community";
-import { User } from "@/app/models/user";
+import { Community } from "@/app/(main)/models/community";
+import { User } from "@/app/(main)/models/user";
 import CommunityPassMint from "@/app/(main)/components/Forge/Community/CommunityPassMint";
-import { pageCommunity } from "@/app/store/community";
+import { pageCommunity } from "@/app/(main)/store/community";
 import TelegramBox from "@/app/(main)/components/Forge/Community/TelegramBox";
-import { getCommunityProjectInfo } from "@/app/lib/forge/getCommunityProjectInfo";
-import { userWeb3Info } from "@/app/store";
+import { getCommunityProjectInfo } from "@/app/(main)/lib/forge/getCommunityProjectInfo";
+import { userWeb3Info } from "@/app/(main)/store";
 import useWallet from "@/utils/wallet";
 import Swap from "@/app/(main)/components/Forge/Community/Swap";
 

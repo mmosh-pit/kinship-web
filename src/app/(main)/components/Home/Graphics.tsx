@@ -1,13 +1,13 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-import useCheckMobileScreen from "@/app/lib/useCheckMobileScreen";
+import useCheckMobileScreen from "@/app/(main)/lib/useCheckMobileScreen";
 // import TVL from "./TVL";
 // import Volume from "./Volume";
 import Price from "./Price";
 import Button from "../common/Button";
 import { useAtom } from "jotai";
-import { selectedDirectory } from "@/app/store/home";
+import { selectedDirectory } from "@/app/(main)/store/home";
 
 const Graphics = () => {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/app/lib/mongoClient";
-import { deleteShdwDriveFile } from "@/app/lib/deleteShdwDriveFile";
+import { db } from "@/app/(main)/lib/mongoClient";
+import { deleteShdwDriveFile } from "@/app/(main)/lib/deleteShdwDriveFile";
 
 export async function PATCH(req: NextRequest) {
   const communitiesCollection = db.collection("mmosh-app-community");

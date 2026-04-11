@@ -1,4 +1,4 @@
-import { AIDocument } from "@/app/models/AIDocument";
+import { AIDocument } from "@/app/(main)/models/AIDocument";
 import DocumentIcon from "@/assets/icons/DocumentIcon";
 import DownloadIcon from "@/assets/icons/DownloadIcon";
 import GlobeIcon from "@/assets/icons/GlobeIcon";

@@ -1,6 +1,6 @@
 "use client";
 import CreateCommunity from "../../components/Forge/Communities/CreateCommunity";
-import { isDrawerOpen } from "@/app/store";
+import { isDrawerOpen } from "@/app/(main)/store";
 import { useAtom } from "jotai";
 
 const Page = () => {

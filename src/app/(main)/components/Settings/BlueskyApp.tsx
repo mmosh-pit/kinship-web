@@ -2,9 +2,9 @@ import React from "react";
 
 import Input from "../common/Input";
 import Button from "../common/Button";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import { useAtom } from "jotai";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 
 const BlueskyApp = () => {
   const [currentUser, setCurrentUser] = useAtom(data);

@@ -5,7 +5,7 @@ import axios, { AxiosError } from "axios";
 import RemoveIcon from "@/assets/icons/RemoveIcon";
 import EditIcon from "@/assets/icons/EditIcon";
 import Button from "../common/Button";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 interface TelegramGroup {
   id: string;

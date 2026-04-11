@@ -1,4 +1,4 @@
-import { BagsCoin, bagsCoins } from "@/app/store/bags";
+import { BagsCoin, bagsCoins } from "@/app/(main)/store/bags";
 import { useAtom } from "jotai";
 import CoinItem from "./CoinItem";
 

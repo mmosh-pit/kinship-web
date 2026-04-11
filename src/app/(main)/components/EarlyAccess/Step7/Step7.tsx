@@ -6,8 +6,8 @@ import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { data as userDataAtom, isAuth, isAuthOverlayOpen } from "@/app/store";
-import client from "@/app/lib/httpClient";
+import { data as userDataAtom, isAuth, isAuthOverlayOpen } from "@/app/(main)/store";
+import client from "@/app/(main)/lib/httpClient";
 
 interface Step7Props {
   onBack?: () => void;

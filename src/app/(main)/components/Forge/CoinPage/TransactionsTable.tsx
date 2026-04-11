@@ -3,13 +3,13 @@ import { useAtom } from "jotai";
 import axios from "axios";
 import Image from "next/image";
 
-import { Coin, CoinDetail } from "@/app/models/coin";
-import { coinStats } from "@/app/store/coins";
-import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
+import { coinStats } from "@/app/(main)/store/coins";
+import { abbreviateNumber } from "@/app/(main)/lib/abbreviateNumber";
 import SortIcon from "@/assets/icons/SortIcon";
-import { walletAddressShortener } from "@/app/lib/walletAddressShortener";
-import { calculateTimeForTransactionTable } from "@/app/lib/dateUtils";
-import currencyFormatter from "@/app/lib/currencyFormatter";
+import { walletAddressShortener } from "@/app/(main)/lib/walletAddressShortener";
+import { calculateTimeForTransactionTable } from "@/app/(main)/lib/dateUtils";
+import currencyFormatter from "@/app/(main)/lib/currencyFormatter";
 
 type Props = {
   coin: CoinDetail;

@@ -1,5 +1,5 @@
 "use client";
-import { data, userWeb3Info } from "@/app/store";
+import { data, userWeb3Info } from "@/app/(main)/store";
 import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import MinusIcon from "@/assets/icons/MinusIcon";
 import * as anchor from "@coral-xyz/anchor";
 import useWallet from "@/utils/wallet";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 export default function AgentTeam({
   onPageChange,

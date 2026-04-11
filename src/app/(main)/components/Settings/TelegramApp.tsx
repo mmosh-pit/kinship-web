@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Button from "../common/Button";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 import { useAtom } from "jotai";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 const TelegramApp = () => {
   const [currentUser, setCurrentUser] = useAtom(data);

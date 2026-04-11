@@ -2,8 +2,8 @@ import axios from "axios";
 import React from "react";
 import { useAtom } from "jotai";
 import UserCard from "./UserCard";
-import { User } from "@/app/models/user";
-import { connectionTypes, data, lineage, sortDirection, sortOption } from "@/app/store";
+import { User } from "@/app/(main)/models/user";
+import { connectionTypes, data, lineage, sortDirection, sortOption } from "@/app/(main)/store";
 
 const GuildList = ({
   wallet,

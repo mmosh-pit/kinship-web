@@ -1,7 +1,7 @@
 import React from "react";
 import { useAtom } from "jotai";
 import Image from "next/image";
-import { data, status, userWeb3Info, web3InfoLoading } from "@/app/store";
+import { data, status, userWeb3Info, web3InfoLoading } from "@/app/(main)/store";
 import useWallet from "@/utils/wallet";
 
 const Banner = () => {

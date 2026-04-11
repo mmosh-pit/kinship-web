@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../..//globals.css";
-import { getUserDataForMetadata } from "@/app/lib/getUserDataForMetadata";
+import { getUserDataForMetadata } from "@/app/(main)/lib/getUserDataForMetadata";
 
 type Props = {
   params: Promise<{ username: string }>;

@@ -1,4 +1,4 @@
-import { Coin, CoinDetail } from "@/app/models/coin";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
 import axios from "axios";
 import React from "react";
 import DateTypeSelector from "../common/DateTypeSelector";

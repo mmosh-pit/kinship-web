@@ -1,7 +1,7 @@
 import React from "react";
 import { useAtom } from "jotai";
 
-import { onboardingStep } from "@/app/store/account";
+import { onboardingStep } from "@/app/(main)/store/account";
 import ArrowBack from "@/assets/icons/ArrowBack";
 import Radio from "../common/Radio";
 
