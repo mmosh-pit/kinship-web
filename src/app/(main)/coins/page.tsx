@@ -1,13 +1,13 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import Graphics from "../components/Home/Graphics";
 import SearchBar from "../components/CoinDirectory/SearchBar";
 import CoinsTable from "../components/CoinDirectory/CoinsTable";
 import CoinsList from "../components/Home/CoinsList";
-import { selectedCoinsMode } from "@/app/store/home";
-import useCheckMobileScreen from "@/app/lib/useCheckMobileScreen";
+import { selectedCoinsMode } from "@/app/(main)/store/home";
+import useCheckMobileScreen from "@/app/(main)/lib/useCheckMobileScreen";
 
 const HomePage = () => {
   const [coinsMode] = useAtom(selectedCoinsMode);

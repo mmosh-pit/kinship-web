@@ -1,18 +1,18 @@
 import Image from "next/image";
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { FrostWallet } from "@/utils/frostWallet";
-import { User } from "@/app/models/user";
-import { data } from "@/app/store";
+import { User } from "@/app/(main)/models/user";
+import { data } from "@/app/(main)/store";
 import { useRouter } from "next/navigation";
 import { Connection } from "@solana/web3.js";
 import useWallet from "@/utils/wallet";
 import * as anchor from "@coral-xyz/anchor";
 import { Connectivity as UserConn } from "@/anchor/user";
 import { web3Consts } from "@/anchor/web3Consts";
-import { bagsConfirmation, bagsModalAck, bagsNotifier } from "@/app/store/bags";
-import internalClient from "@/app/lib/internalHttpClient";
+import { bagsConfirmation, bagsModalAck, bagsNotifier } from "@/app/(main)/store/bags";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 type Props = {
   user: any;

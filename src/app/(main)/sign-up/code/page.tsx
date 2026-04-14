@@ -1,13 +1,13 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import axios from "axios";
 import Button from "../../components/common/Button";
-import { incomingReferAddress, storeFormAtom } from "@/app/store/signup";
+import { incomingReferAddress, storeFormAtom } from "@/app/(main)/store/signup";
 import SimpleInput from "../../components/common/SimpleInput";
 import { useRouter } from "next/navigation";
 import KinshipMainIcon from "@/assets/icons/KinshipMainIcon";
-import { onboardingStep } from "@/app/store/account";
+import { onboardingStep } from "@/app/(main)/store/account";
 
 function codeIsValid(myString: string) {
   return /\d/.test(myString);

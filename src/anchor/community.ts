@@ -47,7 +47,7 @@ import {
   createCreateMetadataAccountV3Instruction,
 } from "@metaplex-foundation/mpl-token-metadata";
 import { createMintInstructions } from "@strata-foundation/spl-utils";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 import {
   SystemProgram,
@@ -56,7 +56,7 @@ import {
 } from "@solana/web3.js";
 import { NATIVE_MINT, ASSOCIATED_TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { Token } from "./curve/spl-token-curve/index";
-import { getLineage } from "@/app/lib/forge/createProfile";
+import { getLineage } from "@/app/(main)/lib/forge/createProfile";
 import { ConnectionContextState } from "@/utils/connection";
 import { FrostWallet } from "@/utils/frostWallet";
 

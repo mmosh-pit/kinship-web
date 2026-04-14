@@ -1,17 +1,17 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useAtom } from "jotai";
 
-import { Coin, CoinDetail } from "@/app/models/coin";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
 import Search from "../common/Search";
 import CoinListItem from "../common/CoinListItem";
-import { SwapCoin } from "@/app/models/swapCoin";
+import { SwapCoin } from "@/app/(main)/models/swapCoin";
 import SimpleArrowDown from "@/assets/icons/SimpleArrowDown";
 import CloseIcon from "@/assets/icons/CloseIcon";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 import RecentCoin from "../common/RecentCoin";
-import baseCoins from "@/app/lib/baseCoins";
+import baseCoins from "@/app/(main)/lib/baseCoins";
 
 type Props = {
   selectedCoin: SwapCoin | null;

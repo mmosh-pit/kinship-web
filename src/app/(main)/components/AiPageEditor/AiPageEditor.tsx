@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useAtom } from "jotai";
-import { isAiEditorOpen } from "@/app/store";
-import client from "@/app/lib/internalHttpClient";
+import { isAiEditorOpen } from "@/app/(main)/store";
+import client from "@/app/(main)/lib/internalHttpClient";
 
 type EditorState =
   | "idle"

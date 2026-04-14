@@ -1,7 +1,7 @@
-import currencyFormatter from "@/app/lib/currencyFormatter";
-import { walletAddressShortener } from "@/app/lib/walletAddressShortener";
+import currencyFormatter from "@/app/(main)/lib/currencyFormatter";
+import { walletAddressShortener } from "@/app/(main)/lib/walletAddressShortener";
 import CopyIcon from "@/assets/icons/CopyIcon";
-import * as React from "react";
+import React from "react";
 import NFTs from "./NFTs";
 import Coins from "./Coins";
 import SearchBar from "../Project/Candidates/SearchBar";
@@ -12,14 +12,14 @@ import {
   bagsModalAck,
   BagsNFT,
   bagsNotifier,
-} from "@/app/store/bags";
+} from "@/app/(main)/store/bags";
 import SwapIcon from "@/assets/icons/SwapIcon";
 import { useRouter } from "next/navigation";
 import BuyIcon from "@/assets/icons/BuyIcon";
 import ReceiveIcon from "@/assets/icons/ReceiveIcon";
 import RewardsIcon from "@/assets/icons/RewardsIcon";
 import SendWalletIcon from "@/assets/icons/SendWalletIcon";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import VaultIcon from "@/assets/icons/VaultIcon";
 import Bots from "./Bots";
 import Connections from "./Connections";

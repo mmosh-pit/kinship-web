@@ -1,15 +1,15 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import ChatAgentSelector from "../components/Chat/ChatAgentSelector";
 import ChatInteractionContainer from "../components/Chat/ChatInteractionContainer";
 import MessageBanner from "../components/common/MessageBanner";
 import useWallet from "@/utils/wallet";
-import useWsConnection from "@/app/lib/useWsConnection";
-import { isAuth } from "@/app/store";
-import internalClient from "@/app/lib/internalHttpClient";
-import { chatsStore, selectedChatStore } from "@/app/store/chat";
+import useWsConnection from "@/app/(main)/lib/useWsConnection";
+import { isAuth } from "@/app/(main)/store";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import { chatsStore, selectedChatStore } from "@/app/(main)/store/chat";
 
 export default function OPOS() {
   const [_, setChats] = useAtom(chatsStore);

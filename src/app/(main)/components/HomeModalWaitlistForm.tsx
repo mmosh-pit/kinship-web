@@ -1,9 +1,9 @@
-import * as React from "react";
+import React from "react";
 import Input from "./common/Input";
 import Button from "./common/Button";
 import { useAtom } from "jotai";
-import client from "@/app/lib/httpClient";
-import { alreadyWaiting } from "@/app/store/home";
+import client from "@/app/(main)/lib/httpClient";
+import { alreadyWaiting } from "@/app/(main)/store/home";
 
 type HomeModalWaitlistFormProps = {
   onSuccess: () => void;

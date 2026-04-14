@@ -1,9 +1,9 @@
-import * as React from "react";
+import React from "react";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
 import Image from "next/image";
-import { DirectoryCoin } from "@/app/models/directoryCoin";
+import { DirectoryCoin } from "@/app/(main)/models/directoryCoin";
 import { useRouter } from "next/navigation";
-import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
+import { abbreviateNumber } from "@/app/(main)/lib/abbreviateNumber";
 
 type Props = {
   coin: DirectoryCoin;

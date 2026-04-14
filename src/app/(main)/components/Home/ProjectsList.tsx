@@ -1,11 +1,11 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-import { data } from "@/app/store";
-import { selectedSearchFilter, typedSearchValue } from "@/app/store/home";
-import { Project } from "@/app/models/project";
+import { data } from "@/app/(main)/store";
+import { selectedSearchFilter, typedSearchValue } from "@/app/(main)/store/home";
+import { Project } from "@/app/(main)/models/project";
 import ProjectCard from "./ProjectCard";
 
 const ProjectsList = () => {

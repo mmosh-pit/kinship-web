@@ -1,8 +1,8 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import SearchIcon from "@/assets/icons/SearchIcon";
-import { selectedSearchFilter, typedSearchValue } from "@/app/store/home";
+import { selectedSearchFilter, typedSearchValue } from "@/app/(main)/store/home";
 
 type Props = {
   placeholder?: string;

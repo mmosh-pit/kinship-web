@@ -1,4 +1,4 @@
-import { AIDocument } from "@/app/models/AIDocument";
+import { AIDocument } from "@/app/(main)/models/AIDocument";
 import DocumentIcon from "@/assets/icons/DocumentIcon";
 import DownloadIcon from "@/assets/icons/DownloadIcon";
 import GlobeIcon from "@/assets/icons/GlobeIcon";
@@ -7,7 +7,7 @@ import MovieIcon from "@/assets/icons/MovieIcon";
 import PictureIcon from "@/assets/icons/PictureIcon";
 import RemoveIcon from "@/assets/icons/RemoveIcon";
 import axios from "axios";
-import * as React from "react";
+import React from "react";
 
 type Props = {
   aiDocument: AIDocument;

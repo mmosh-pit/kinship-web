@@ -1,13 +1,13 @@
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 
-import { onboardingForm } from "@/app/store/account";
+import { onboardingForm } from "@/app/(main)/store/account";
 import BoldIcon from "@/assets/icons/BoldIcon";
 import EmojiIcon from "@/assets/icons/EmojiIcon";
 import ItalicIcon from "@/assets/icons/ItalicIcon";
 import UnderlineIcon from "@/assets/icons/UnderlineIcon";
 import { useAtom } from "jotai";
-import * as React from "react";
+import React from "react";
 
 const RichTextEditor = () => {
   const [selectedModes, setSelectedModes] = React.useState<string[]>([]);

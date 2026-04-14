@@ -1,11 +1,11 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import { Bars } from "react-loader-spinner";
 
-import { chatsStore, selectedChatStore, chatsLoading } from "@/app/store/chat";
-import { data } from "@/app/store";
+import { chatsStore, selectedChatStore, chatsLoading } from "@/app/(main)/store/chat";
+import { data } from "@/app/(main)/store";
 import KinshipIcon from "@/assets/icons/KinshipIcon";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import moment from "moment";
 import PersonalIcon from "@/assets/icons/PersonalIcon";
 import Avatar from "../common/Avatar";

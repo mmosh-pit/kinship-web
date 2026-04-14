@@ -1,4 +1,4 @@
-import { BagsNFT, bagsNfts } from "@/app/store/bags";
+import { BagsNFT, bagsNfts } from "@/app/(main)/store/bags";
 import { useAtom } from "jotai";
 import NFTItem from "./NFTItem";
 

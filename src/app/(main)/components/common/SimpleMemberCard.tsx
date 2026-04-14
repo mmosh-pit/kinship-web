@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import Image from "next/image";
 
 import TwitterDarkIcon from "@/assets/icons/TwitterDarkIcon";
 import TelegramDarkIcon from "@/assets/icons/TelegramDarkIcon";
-import { User } from "@/app/models/user";
+import { User } from "@/app/(main)/models/user";
 
 type Props = {
   user: User;

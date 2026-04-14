@@ -7,7 +7,7 @@ import Radio from "../common/Radio";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
-import { pinImageToShadowDrive } from "@/app/lib/uploadImageToShdwDrive";
+import { pinImageToShadowDrive } from "@/app/(main)/lib/uploadImageToShdwDrive";
 import ArrowDown from "@/assets/icons/ArrowDown";
 import Modal from "react-modal";
 import SearchIcon from "@/assets/icons/SearchIcon";

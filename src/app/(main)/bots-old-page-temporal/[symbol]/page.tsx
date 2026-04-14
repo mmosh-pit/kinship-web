@@ -1,13 +1,13 @@
 "use client";
 
-import * as React from "react";
+import React, { use } from "react";
 import {
   isAuth,
   isDrawerOpen,
   signInCurrentBot,
   signInModal,
   signInModalInitialStep,
-} from "@/app/store";
+} from "@/app/(main)/store";
 import { useAtom } from "jotai";
 import axios from "axios";
 import Image from "next/image";
@@ -19,8 +19,8 @@ import { Connectivity as ProjectConn } from "@/anchor/community";
 import { Connectivity as UserConn } from "@/anchor/user";
 import { web3Consts } from "@/anchor/web3Consts";
 import AgentPageInfo from "../../components/Project/AgentPageInfo";
-import useCheckDeviceScreenSize from "@/app/lib/useCheckDeviceScreenSize";
-import internalClient from "@/app/lib/internalHttpClient";
+import useCheckDeviceScreenSize from "@/app/(main)/lib/useCheckDeviceScreenSize";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 import Input from "../../components/common/Input";
 import Button from "../../components/common/Button";
 import { Bars } from "react-loader-spinner";
@@ -76,7 +76,8 @@ const defaultRoleData: any = [
   },
 ];
 
-const Project = ({ params }: { params: { symbol: string } }) => {
+const Project = (props: { params: Promise<{ symbol: string }> }) => {
+  const params = use(props.params);
   const connection = useConnection();
   const screenSize = useCheckDeviceScreenSize();
   const wallet = useWallet();

@@ -1,6 +1,6 @@
-import * as React from "react";
+import React from "react";
 
-import { Candidate } from "@/app/models/candidate";
+import { Candidate } from "@/app/(main)/models/candidate";
 import axios from "axios";
 import ArrowDown from "@/assets/icons/ArrowDown";
 import ArrowUp from "@/assets/icons/ArrowUp";

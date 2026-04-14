@@ -1,12 +1,12 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import CustomSelect from "../../common/CustomSelect";
-import { step, step2Form } from "@/app/store/community";
+import { step, step2Form } from "@/app/(main)/store/community";
 import Button from "../../common/Button";
 import StepsTitle from "../common/StepsTitle";
 import axios from "axios";
-import { userWeb3Info } from "@/app/store";
+import { userWeb3Info } from "@/app/(main)/store";
 import MessageBanner from "../../common/MessageBanner";
 import ArrowBack from "@/assets/icons/ArrowBack";
 

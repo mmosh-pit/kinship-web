@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 
@@ -6,11 +6,11 @@ import ImagePicker from "../../ImagePicker";
 import Input from "../../common/Input";
 import Button from "../../common/Button";
 import StepsTitle from "../common/StepsTitle";
-import { step, step1Form } from "@/app/store/community";
-import { pinImageToShadowDrive } from "@/app/lib/uploadImageToShdwDrive";
-import { data, userWeb3Info } from "@/app/store";
+import { step, step1Form } from "@/app/(main)/store/community";
+import { pinImageToShadowDrive } from "@/app/(main)/lib/uploadImageToShdwDrive";
+import { data, userWeb3Info } from "@/app/(main)/store";
 import MessageBanner from "../../common/MessageBanner";
-import { deleteShdwDriveFile } from "@/app/lib/deleteShdwDriveFile";
+import { deleteShdwDriveFile } from "@/app/(main)/lib/deleteShdwDriveFile";
 
 const Step1 = () => {
   const [currentUser] = useAtom(data);

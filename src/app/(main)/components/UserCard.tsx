@@ -1,10 +1,10 @@
 import Image from "next/image";
-import * as React from "react";
+import React from "react";
 
 import TwitterDarkIcon from "@/assets/icons/TwitterDarkIcon";
 import TelegramDarkIcon from "@/assets/icons/TelegramDarkIcon";
-import internalClient from "@/app/lib/internalHttpClient";
-import { User } from "@/app/models/user";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import { User } from "@/app/(main)/models/user";
 
 type Props = {
   user: User;

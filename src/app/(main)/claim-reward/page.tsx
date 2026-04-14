@@ -8,9 +8,9 @@ import { Connectivity as UserConn } from "@/anchor/user";
 import { web3Consts } from "@/anchor/web3Consts";
 import { Bars } from "react-loader-spinner";
 import { useAtom } from "jotai";
-import internalClient from "@/app/lib/internalHttpClient";
-import { userWeb3Info } from "@/app/store";
-import { getLineage } from "@/app/lib/forge/createProfile";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import { userWeb3Info } from "@/app/(main)/store";
+import { getLineage } from "@/app/(main)/lib/forge/createProfile";
 
 const ClaimPage = () => {
   const wallet = useWallet();

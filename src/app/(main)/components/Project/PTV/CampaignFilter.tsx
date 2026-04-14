@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 
-import { selectedCampaigns } from "@/app/store/candidates";
+import { selectedCampaigns } from "@/app/(main)/store/candidates";
 
 const CampaignFilter = ({}) => {
   const [selectedCandidateFilter, setSelectedCandidateFilter] =

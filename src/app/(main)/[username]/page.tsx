@@ -1,8 +1,10 @@
-"use client";
+"use client";;
+import { use } from "react";
 
 import Profile from "../components/Profile/Profile";
 
-const Page = ({ params }: { params: { username: string } }) => {
+const Page = (props: { params: Promise<{ username: string }> }) => {
+  const params = use(props.params);
   return <Profile username={params.username} />;
 };
 

@@ -2,7 +2,7 @@
 import { BackArrowVW } from "@/app/(catfawn)/catfawn/components/BackArrow/BackArrowVW";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
 import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -231,7 +231,9 @@ export const Step5: React.FC<Step5Props> = ({
                     type="text"
                     maxLength={1}
                     value={digit}
-                    ref={(el) => (inputRefs.current[idx] = el)}
+                    ref={(el) => {
+                      inputRefs.current[idx] = el;
+                    }}
                     onChange={(e) => handleOtpChange(e.target.value, idx)}
                     onKeyDown={(e) => handleKeyDown(e, idx)}
                     onPaste={(e) => handlePaste(e, idx)}

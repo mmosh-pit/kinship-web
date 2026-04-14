@@ -1,12 +1,12 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import { useRouter, useSearchParams } from "next/navigation";
 import EyeIcon from "@/assets/icons/EyeIcon";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import KinshipCodesLogin from "@/assets/icons/KinshipCodesLogin";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 const ResetPassword = () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ const ResetPassword = () => {
       if (result.data) {
         router.replace("/");
       }
-    } catch (error) {}
+    } catch (error) { }
   }, []);
 
   const submit = React.useCallback(
@@ -45,7 +45,7 @@ const ResetPassword = () => {
 
       setIsLoading(true);
       try {
-        await client.post("/api/reset-password", {
+        await client.post("/reset-password", {
           password,
           code: search,
         });
@@ -56,7 +56,7 @@ const ResetPassword = () => {
 
       setIsLoading(false);
     },
-    [passwordConfirmation, password]
+    [passwordConfirmation, password],
   );
 
   React.useEffect(() => {
@@ -132,7 +132,7 @@ const ResetPassword = () => {
       <div className="w-[60%] md:w-[35%] lg:w-[20%] mb-4 mt-8">
         <Button
           title="Reset your Password"
-          action={() => {}}
+          action={() => { }}
           size="large"
           isPrimary
           type="submit"

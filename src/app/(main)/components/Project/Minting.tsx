@@ -7,8 +7,8 @@ import Radio from "../common/Radio";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { pinImageToShadowDrive } from "@/app/lib/uploadImageToShdwDrive";
-import { uploadFile } from "@/app/lib/firebase";
+import { pinImageToShadowDrive } from "@/app/(main)/lib/uploadImageToShdwDrive";
+import { uploadFile } from "@/app/(main)/lib/firebase";
 
 
 export default function Minting({ onMenuChange, createMessage }: { onMenuChange: any, createMessage: any }) {

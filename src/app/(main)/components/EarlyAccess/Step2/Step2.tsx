@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Spinner from "@/app/(catfawn)/catfawn/components/Spinner";
 import { BackArrowVW } from "@/app/(catfawn)/catfawn/components/BackArrow/BackArrowVW";
 import { EarlyAccessCircleVW } from "@/app/(catfawn)/catfawn/components/EarlyAccessCircle/EarlyAccessCircleVW";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 interface Step2Props {
   onSuccess?: () => void;

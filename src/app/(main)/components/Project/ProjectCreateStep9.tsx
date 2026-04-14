@@ -1,13 +1,13 @@
 "use client";
 
 import FilePicker from "../FilePicker";
-import { init, uploadFile } from "@/app/lib/firebase";
+import { init, uploadFile } from "@/app/(main)/lib/firebase";
 import ArrowUpHome from "@/assets/icons/ArrowUpHome";
 import axios from "axios";
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import AssetItem from "./AssetItem";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 export default function ProjectCreateStep9({ symbol }: { symbol: any }) {
   const [loading, setLoading] = useState(false);

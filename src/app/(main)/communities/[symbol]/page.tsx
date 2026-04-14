@@ -1,16 +1,17 @@
 "use client";
-import * as React from "react";
+import React, { use } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
 
-import { isDrawerOpen } from "@/app/store";
+import { isDrawerOpen } from "@/app/(main)/store";
 import Button from "../../components/common/Button";
-import { currentGroupCommunity } from "@/app/store/community";
-import { Coin } from "@/app/models/coin";
+import { currentGroupCommunity } from "@/app/(main)/store/community";
+import { Coin } from "@/app/(main)/models/coin";
 
-const Page = ({ params }: { params: { symbol: string } }) => {
+const Page = (props: { params: Promise<{ symbol: string }> }) => {
+  const params = use(props.params);
   const router = useRouter();
 
   const [isDrawerShown] = useAtom(isDrawerOpen);

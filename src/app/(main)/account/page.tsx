@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import Step1 from "../components/Account/Step1";
@@ -8,8 +8,8 @@ import Step2 from "../components/Account/Step2";
 import Step3 from "../components/Account/Step3";
 import Step4 from "../components/Account/Step4";
 import { useRouter } from "next/navigation";
-import { onboardingStep } from "@/app/store/account";
-import { data, isAuth, userWeb3Info } from "@/app/store";
+import { onboardingStep } from "@/app/(main)/store/account";
+import { data, isAuth, userWeb3Info } from "@/app/(main)/store";
 
 // "Onboarding"
 const Account = () => {

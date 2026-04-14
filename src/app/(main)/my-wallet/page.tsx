@@ -1,8 +1,8 @@
 "use client";
-import * as React from "react";
+import React from "react";
 
 import { useAtom } from "jotai";
-import { bagsBalance, BagsCoin, BagsNFT } from "@/app/store/bags";
+import { bagsBalance, BagsCoin, BagsNFT } from "@/app/(main)/store/bags";
 import useWallet from "@/utils/wallet";
 import Bags from "../components/Bags/Bags";
 import SelectedCoin from "../components/Bags/SelectedCoin";

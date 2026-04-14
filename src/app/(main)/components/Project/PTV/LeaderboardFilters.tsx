@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 
 import SearchBar from "../Candidates/SearchBar";
-import { filterText } from "@/app/store/candidates";
+import { filterText } from "@/app/(main)/store/candidates";
 import CampaignFilter from "./CampaignFilter";
 
 const LeaderboardFilters = () => {

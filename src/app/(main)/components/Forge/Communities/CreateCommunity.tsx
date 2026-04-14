@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 
@@ -11,13 +11,13 @@ import SimpleInput from "../../common/SimpleInput";
 import Radio from "../../common/Radio";
 import AddIcon from "@/assets/icons/AddIcon";
 import MinusIcon from "@/assets/icons/MinusIcon";
-import { SwapCoin } from "@/app/models/swapCoin";
+import { SwapCoin } from "@/app/(main)/models/swapCoin";
 import CoinSelect from "./CoinSelect";
-import { generateGroupCommunityPass } from "@/app/lib/forge/generateGroupCommunityPass";
-import { uploadImageFromBlob } from "@/app/lib/uploadImageFromBlob";
-import { deleteShdwDriveFile } from "@/app/lib/deleteShdwDriveFile";
-import { data } from "@/app/store";
-import internalClient from "@/app/lib/internalHttpClient";
+import { generateGroupCommunityPass } from "@/app/(main)/lib/forge/generateGroupCommunityPass";
+import { uploadImageFromBlob } from "@/app/(main)/lib/uploadImageFromBlob";
+import { deleteShdwDriveFile } from "@/app/(main)/lib/deleteShdwDriveFile";
+import { data } from "@/app/(main)/store";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const CreateCommunity = () => {
   const router = useRouter();

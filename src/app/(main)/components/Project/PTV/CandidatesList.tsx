@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 
 import CandidateCard from "../Candidates/CandidateCard";
-import { Candidate } from "@/app/models/candidate";
-import { filterText, selectedCampaigns } from "@/app/store/candidates";
+import { Candidate } from "@/app/(main)/models/candidate";
+import { filterText, selectedCampaigns } from "@/app/(main)/store/candidates";
 
 const CandidatesList = () => {
   const [candidates, setCandidates] = React.useState<Candidate[]>([]);

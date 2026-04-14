@@ -1,4 +1,4 @@
-import { Coin } from "@/app/models/coin";
+import { Coin } from "@/app/(main)/models/coin";
 import Image from "next/image";
 
 type Props = Coin & {

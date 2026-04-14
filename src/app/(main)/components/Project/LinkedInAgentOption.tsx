@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 
 import LinkedinIcon from "@/assets/icons/LinkedinIcon";
 import { AxiosError } from "axios";
 import Input from "../common/Input";
 import Button from "../common/Button";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const LinkedInAgentOption = ({ project }: { project: string }) => {
   const [isLoading, setIsLoading] = React.useState(false);

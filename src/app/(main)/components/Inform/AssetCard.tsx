@@ -1,12 +1,12 @@
-import * as React from "react";
+import React from "react";
 import Image from "next/image";
 
-import { BagsCoin, BagsNFT } from "@/app/store/bags";
+import { BagsCoin, BagsNFT } from "@/app/(main)/store/bags";
 import axios from "axios";
 import InformDocument from "./InformDocument";
-import { AIDocument } from "@/app/models/AIDocument";
-import { uploadFile } from "@/app/lib/firebase";
-import internalClient from "@/app/lib/internalHttpClient";
+import { AIDocument } from "@/app/(main)/models/AIDocument";
+import { uploadFile } from "@/app/(main)/lib/firebase";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 type Props = {
   asset: BagsNFT | BagsCoin;

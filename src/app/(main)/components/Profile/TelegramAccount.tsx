@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 
-import { User } from "@/app/models/user";
+import { User } from "@/app/(main)/models/user";
 import TelegramMagentaIcon from "@/assets/icons/TelegramMagentaIcon";
 import useWallet from "@/utils/wallet";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 type Props = {
   isMyProfile: boolean;

@@ -1,13 +1,13 @@
-import * as React from "react";
+import React from "react";
 import Image from "next/image";
 import { useAtom } from "jotai";
 
-import { Coin } from "@/app/models/coin";
+import { Coin } from "@/app/(main)/models/coin";
 import Input from "../../common/Input";
 import Button from "../../common/Button";
-import { mintCommunityPass } from "@/app/lib/forge/mintCommunityPass";
-import { pageCommunity, targetTokenBalance } from "@/app/store/community";
-import { userWeb3Info } from "@/app/store";
+import { mintCommunityPass } from "@/app/(main)/lib/forge/mintCommunityPass";
+import { pageCommunity, targetTokenBalance } from "@/app/(main)/store/community";
+import { userWeb3Info } from "@/app/(main)/store";
 import useWallet from "@/utils/wallet";
 
 type Props = {

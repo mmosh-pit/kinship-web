@@ -1,6 +1,6 @@
 "use client";
 import React, { FormEvent, useState } from "react";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import Input from "../components/common/Input";
 
 const DeleteAccountForm = () => {

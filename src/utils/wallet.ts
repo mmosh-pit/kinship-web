@@ -1,8 +1,8 @@
 import { PublicKey, Transaction, VersionedTransaction } from "@solana/web3.js";
-import * as React from "react";
+import React from "react";
 import { FrostWallet } from "./frostWallet";
 import * as anchor from "@coral-xyz/anchor";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 
 const useWallet = () => {
   const [wallet, setWallet] = React.useState<FrostWallet>();

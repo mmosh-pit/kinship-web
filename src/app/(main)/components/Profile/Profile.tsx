@@ -1,24 +1,24 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import useConnection from "@/utils/connection";
 import axios from "axios";
 import { useAtom } from "jotai";
 import Image from "next/image";
 
-import { init } from "@/app/lib/firebase";
-import { UserStatus, data, profileFilter, status } from "@/app/store";
-import { User } from "@/app/models/user";
+import { init } from "@/app/(main)/lib/firebase";
+import { UserStatus, data, profileFilter, status } from "@/app/(main)/store";
+import { User } from "@/app/(main)/models/user";
 
 import { Connectivity as Community } from "@/anchor/community";
 import * as anchor from "@coral-xyz/anchor";
 import { web3Consts } from "@/anchor/web3Consts";
-import { pinFileToShadowDriveUrl } from "@/app/lib/uploadFileToShdwDrive";
+import { pinFileToShadowDriveUrl } from "@/app/(main)/lib/uploadFileToShdwDrive";
 import { calcNonDecimalValue } from "@/anchor/curve/utils";
 import useWallet from "@/utils/wallet";
 import ProfileFilters from "./ProfileFilters";
 import GuildList from "../GuildList";
-import internalClient from "@/app/lib/internalHttpClient";
-import useCheckDeviceScreenSize from "@/app/lib/useCheckDeviceScreenSize";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import useCheckDeviceScreenSize from "@/app/(main)/lib/useCheckDeviceScreenSize";
 
 const Profile = ({ username }: { username: any }) => {
   const screenSize = useCheckDeviceScreenSize();

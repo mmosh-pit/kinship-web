@@ -1,15 +1,15 @@
-import * as React from "react";
-import { BagsCoin, BagsNFT } from "@/app/store/bags";
+import React from "react";
+import { BagsCoin, BagsNFT } from "@/app/(main)/store/bags";
 import ArrowBack from "@/assets/icons/ArrowBack";
 import Image from "next/image";
 import Input from "../common/Input";
 import Button from "../common/Button";
 import { transferAsset } from "@/utils/transferAsset";
 import useWallet from "@/utils/wallet";
-import { walletAddressShortener } from "@/app/lib/walletAddressShortener";
+import { walletAddressShortener } from "@/app/(main)/lib/walletAddressShortener";
 import axios from "axios";
 import useConnection from "@/utils/connection";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 type Props = {
   selectedCoin: BagsCoin | BagsNFT;

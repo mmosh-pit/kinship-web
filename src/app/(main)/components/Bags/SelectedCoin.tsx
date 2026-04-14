@@ -1,7 +1,7 @@
-import * as React from "react";
-import currencyFormatter from "@/app/lib/currencyFormatter";
-import { walletAddressShortener } from "@/app/lib/walletAddressShortener";
-import { BagsCoin, BagsNFT } from "@/app/store/bags";
+import React from "react";
+import currencyFormatter from "@/app/(main)/lib/currencyFormatter";
+import { walletAddressShortener } from "@/app/(main)/lib/walletAddressShortener";
+import { BagsCoin, BagsNFT } from "@/app/(main)/store/bags";
 import ArrowBack from "@/assets/icons/ArrowBack";
 import useWallet from "@/utils/wallet";
 import CopyIcon from "@/assets/icons/CopyIcon";

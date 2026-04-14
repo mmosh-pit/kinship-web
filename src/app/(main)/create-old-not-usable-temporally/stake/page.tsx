@@ -11,10 +11,10 @@ import * as anchor from "@coral-xyz/anchor";
 import useConnection from "@/utils/connection";
 import useWallet from "@/utils/wallet";
 import { web3Consts } from "@/anchor/web3Consts";
-import { userWeb3Info } from "@/app/store";
+import { userWeb3Info } from "@/app/(main)/store";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const CommunityStake = () => {
   const navigate = useRouter();

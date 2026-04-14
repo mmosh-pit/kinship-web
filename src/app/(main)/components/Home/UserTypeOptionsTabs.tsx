@@ -1,4 +1,4 @@
-import { userType } from "@/app/store";
+import { userType } from "@/app/(main)/store";
 import { useAtom } from "jotai";
 
 const userTypeOptions = [

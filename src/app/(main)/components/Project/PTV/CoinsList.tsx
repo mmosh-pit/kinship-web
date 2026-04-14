@@ -1,11 +1,11 @@
-import * as React from "react";
+import React from "react";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
 import Image from "next/image";
 import axios from "axios";
 import { useAtom } from "jotai";
 
-import { DirectoryCoin } from "@/app/models/directoryCoin";
-import { selectedSearchFilter, typedSearchValue } from "@/app/store/home";
+import { DirectoryCoin } from "@/app/(main)/models/directoryCoin";
+import { selectedSearchFilter, typedSearchValue } from "@/app/(main)/store/home";
 import { useRouter } from "next/navigation";
 
 const CoinsList = () => {

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import EditIcon from "@/assets/icons/EditIcon";
@@ -10,8 +10,8 @@ import axios from "axios";
 import Input from "../common/Input";
 import Button from "../common/Button";
 import Select from "../common/Select";
-import internalClient from "@/app/lib/internalHttpClient";
-import { selectedChatStore } from "@/app/store/chat";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
+import { selectedChatStore } from "@/app/(main)/store/chat";
 
 interface CheckpointAttribute {
   id: string;

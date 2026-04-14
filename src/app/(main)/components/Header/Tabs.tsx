@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
 import { useAtom } from "jotai";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 
 const Tabs = () => {
   const router = useRouter();

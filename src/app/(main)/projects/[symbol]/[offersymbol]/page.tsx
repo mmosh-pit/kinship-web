@@ -1,11 +1,11 @@
 "use client";
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, use } from "react";
 import Image from "next/image";
 import { Bars } from "react-loader-spinner";
-import { CoinDetail } from "@/app/models/coin";
+import { CoinDetail } from "@/app/(main)/models/coin";
 import { useAtom } from "jotai";
-import { userWeb3Info } from "@/app/store";
+import { userWeb3Info } from "@/app/(main)/store";
 import useWallet from "@/utils/wallet";
 import { Connection, PublicKey } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
@@ -16,15 +16,16 @@ import { token } from "@metaplex-foundation/js";
 import ArrowBack from "@/assets/icons/ArrowBack";
 import Input from "@/app/(main)/components/common/Input";
 import moment from "moment";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 import internal from "stream";
 import useConnection from "@/utils/connection";
 
-const Offer = ({
-  params,
-}: {
-  params: { symbol: string; offersymbol: string };
-}) => {
+const Offer = (
+  props: {
+    params: Promise<{ symbol: string; offersymbol: string }>;
+  }
+) => {
+  const params = use(props.params);
   const connect = useConnection();
   const drawerRef = useRef<HTMLInputElement>(null);
   const [profileInfo] = useAtom(userWeb3Info);

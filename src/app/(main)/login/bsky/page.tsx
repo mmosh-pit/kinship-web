@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import Input from "../../components/common/Input";
 import Button from "../../components/common/Button";
 import { useRouter } from "next/navigation";
@@ -7,7 +7,7 @@ import axios from "axios";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import EyeIcon from "@/assets/icons/EyeIcon";
 import KinshipCodesLogin from "@/assets/icons/KinshipCodesLogin";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const Bsky = () => {
   const router = useRouter();

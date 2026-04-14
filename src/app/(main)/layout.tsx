@@ -6,6 +6,7 @@ import "../globals.css";
 // import Footer from "./components/Footer";
 import ConfigHOC from "./components/ConfigHOC";
 import Footer from "./footer";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -173,7 +174,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className}`}>
         <ConfigHOC>
-          <main className="grow">{children}</main>
+          <Suspense>
+            <main className="grow">{children}</main>
+          </Suspense>
           <Footer />
         </ConfigHOC>
       </body>

@@ -1,13 +1,13 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import Image from "next/image";
 
 import TwitterDarkIcon from "@/assets/icons/TwitterDarkIcon";
 import TelegramDarkIcon from "@/assets/icons/TelegramDarkIcon";
-import { User } from "@/app/models/user";
+import { User } from "@/app/(main)/models/user";
 import EmptyHeartSvg from "../Profile/EmptyHeartSvg";
 import * as anchor from "@coral-xyz/anchor";
-import { pinFileToShadowDriveUrl } from "@/app/lib/uploadFileToShdwDrive";
+import { pinFileToShadowDriveUrl } from "@/app/(main)/lib/uploadFileToShdwDrive";
 import { calcNonDecimalValue } from "@/anchor/curve/utils";
 import { web3Consts } from "@/anchor/web3Consts";
 import { Connection } from "@solana/web3.js";
@@ -15,10 +15,10 @@ import { Connectivity as Community } from "@/anchor/community";
 import HeartSvg from "../Profile/HeartSvg";
 import LinkedHeartSvg from "../Profile/LinkedHeartSvg";
 import InBoundHeart from "../Profile/InBoundHeart";
-import { data } from "@/app/store";
+import { data } from "@/app/(main)/store";
 import { useAtom } from "jotai";
 import { FrostWallet } from "@/utils/frostWallet";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 type Props = {
   user: User;

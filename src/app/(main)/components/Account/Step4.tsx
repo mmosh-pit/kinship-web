@@ -1,7 +1,7 @@
-import * as React from "react";
-import { createProfile } from "@/app/lib/forge/createProfile";
+import React from "react";
+import { createProfile } from "@/app/(main)/lib/forge/createProfile";
 import axios from "axios";
-import { data, userWeb3Info } from "@/app/store";
+import { data, userWeb3Info } from "@/app/(main)/store";
 import { useAtom } from "jotai";
 import useWallet from "@/utils/wallet";
 import { Connection, LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
@@ -14,16 +14,16 @@ import {
   onboardingForm,
   onboardingStep,
   referredUser,
-} from "@/app/store/account";
-import client from "@/app/lib/httpClient";
+} from "@/app/(main)/store/account";
+import client from "@/app/(main)/lib/httpClient";
 import { useRouter } from "next/navigation";
 import ImageAccountPicker from "./ImageAccountPicker";
-import { uploadFile } from "@/app/lib/firebase";
-import useCheckMobileScreen from "@/app/lib/useCheckMobileScreen";
+import { uploadFile } from "@/app/(main)/lib/firebase";
+import useCheckMobileScreen from "@/app/(main)/lib/useCheckMobileScreen";
 import { getAccount, getAssociatedTokenAddress } from "forge-spl-token";
-import { storeFormAtom } from "@/app/store/signup";
+import { storeFormAtom } from "@/app/(main)/store/signup";
 import Radio from "../common/Radio";
-import internalClient from "@/app/lib/internalHttpClient";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 import useConnection from "@/utils/connection";
 
 const Step4 = () => {

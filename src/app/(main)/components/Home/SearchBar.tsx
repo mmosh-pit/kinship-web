@@ -1,13 +1,13 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import SearchIcon from "@/assets/icons/SearchIcon";
-import useCheckMobileScreen from "@/app/lib/useCheckMobileScreen";
+import useCheckMobileScreen from "@/app/(main)/lib/useCheckMobileScreen";
 import {
   coinTextSearch,
   selectedUSDCCoin,
   selectedVolume,
-} from "@/app/store/coins";
+} from "@/app/(main)/store/coins";
 
 const volumeOptions = [
   {

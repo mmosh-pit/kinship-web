@@ -1,5 +1,5 @@
 import DocIcon from "@/assets/icons/DocIcon";
-import * as React from "react";
+import React from "react";
 
 type Props = {
   files: File[];

@@ -1,8 +1,8 @@
-import * as React from "react";
+import React from "react";
 import Image from "next/image";
 
-import { BagsCoin } from "@/app/store/bags";
-import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
+import { BagsCoin } from "@/app/(main)/store/bags";
+import { abbreviateNumber } from "@/app/(main)/lib/abbreviateNumber";
 
 type Props = {
   coin: BagsCoin;

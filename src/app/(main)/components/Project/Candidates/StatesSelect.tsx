@@ -1,8 +1,8 @@
-import * as React from "react";
+import React from "react";
 import ArrowDown from "@/assets/icons/ArrowDown";
 import ArrowUp from "@/assets/icons/ArrowUp";
 import { states } from "@/utils/states";
-import useCheckMobileScreen from "@/app/lib/useCheckMobileScreen";
+import useCheckMobileScreen from "@/app/(main)/lib/useCheckMobileScreen";
 
 type Props = {
   onChange: (value: string) => void;

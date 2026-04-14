@@ -3,7 +3,7 @@
 import { useAtom } from "jotai";
 import { usePathname, useRouter } from "next/navigation";
 
-import { isAuthOverlayOpen } from "@/app/store";
+import { isAuthOverlayOpen } from "@/app/(main)/store";
 import CloseIcon from "@/assets/icons/CloseIcon";
 import AuthModal from "./AuthModal";
 

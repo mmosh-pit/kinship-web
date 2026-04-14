@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { AmbiguousRecipient, DisambiguationResponse, SelectedRecipients } from '@/app/types/disambiguation';
+import React from 'react';
+import { AmbiguousRecipient, DisambiguationResponse, SelectedRecipients } from '@/app/(main)/types/disambiguation';
 
 interface DisambiguationModalProps {
   data: DisambiguationResponse;

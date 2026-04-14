@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 import axios from "axios";
 
-import { coinStats } from "@/app/store/coins";
-import { Coin, CoinDetail } from "@/app/models/coin";
-import { User } from "@/app/models/user";
+import { coinStats } from "@/app/(main)/store/coins";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
+import { User } from "@/app/(main)/models/user";
 import { useRouter } from "next/navigation";
 
 import { Connectivity as CurveConn } from "@/anchor/curve/bonding";

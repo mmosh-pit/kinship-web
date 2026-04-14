@@ -1,13 +1,13 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 
 import CoinsTable from "../../components/CoinDirectory/CoinsTable";
 import Price from "../../components/CoinDirectory/Price";
 import SearchBar from "../../components/CoinDirectory/SearchBar";
 import TVL from "../../components/CoinDirectory/TVL";
 import Volume from "../../components/CoinDirectory/Volume";
-import useCheckMobileScreen from "@/app/lib/useCheckMobileScreen";
+import useCheckMobileScreen from "@/app/(main)/lib/useCheckMobileScreen";
 
 const Coins = () => {
   const [selectedTab, setSelectedTab] = React.useState("tvl");

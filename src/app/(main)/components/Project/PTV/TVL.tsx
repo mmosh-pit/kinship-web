@@ -1,10 +1,10 @@
 import axios from "axios";
-import * as React from "react";
+import React from "react";
 
 import { Area, AreaChart, ResponsiveContainer, XAxis } from "recharts";
 
-import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
-import { Coin } from "@/app/models/coin";
+import { abbreviateNumber } from "@/app/(main)/lib/abbreviateNumber";
+import { Coin } from "@/app/(main)/models/coin";
 
 type Props = {
   isBlue: boolean;

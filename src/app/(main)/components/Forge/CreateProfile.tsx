@@ -1,12 +1,12 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { data, userWeb3Info, web3InfoLoading } from "@/app/store";
+import { data, userWeb3Info, web3InfoLoading } from "@/app/(main)/store";
 import MessageBanner from "../common/MessageBanner";
 import ImagePicker from "../ImagePicker";
-import { buyMembership, createProfile } from "@/app/lib/forge/createProfile";
+import { buyMembership, createProfile } from "@/app/(main)/lib/forge/createProfile";
 import Input from "../common/Input";
 import Select from "../common/Select";
 import Button from "../common/Button";

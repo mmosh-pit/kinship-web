@@ -1,5 +1,5 @@
 import Image from "next/image";
-import * as React from "react";
+import React from "react";
 import {Camera} from "react-camera-pro";
 import { v4 as uuidv4 } from "uuid";
 

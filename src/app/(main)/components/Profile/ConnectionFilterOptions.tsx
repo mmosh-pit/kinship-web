@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 
-import { connectionTypes } from "@/app/store";
+import { connectionTypes } from "@/app/(main)/store";
 import { Hearts } from "react-loader-spinner";
 import HeartSvg from "./HeartSvg";
 import EmptyHeartSvg from "./EmptyHeartSvg";

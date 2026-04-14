@@ -1,9 +1,9 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import DateTypeSelector from "../../common/DateTypeSelector";
-import { Coin, CoinDetail } from "@/app/models/coin";
-import { coinStats, selectedDateType } from "@/app/store/coins";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
+import { coinStats, selectedDateType } from "@/app/(main)/store/coins";
 import TVL from "../../CoinDirectory/TVL";
 import Volume from "../../CoinDirectory/Volume";
 import Price from "../../CoinDirectory/Price";

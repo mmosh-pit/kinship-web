@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 
-import { lineage } from "@/app/store";
+import { lineage } from "@/app/(main)/store";
 
 const LineageFilterOptions = () => {
   const [lineageOptions, setLineageOptions] = useAtom(lineage);

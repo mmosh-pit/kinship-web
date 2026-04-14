@@ -1,10 +1,10 @@
 "use client";
-import * as React from "react";
+import React, { use } from "react";
 import axios from "axios";
 
 import ArrowBack from "@/assets/icons/ArrowBack";
 import { useRouter } from "next/navigation";
-import { Coin, CoinDetail } from "@/app/models/coin";
+import { Coin, CoinDetail } from "@/app/(main)/models/coin";
 import * as anchor from "@coral-xyz/anchor";
 import { Connection } from "@solana/web3.js";
 import { Connectivity as CurveConn } from "@/anchor/curve/bonding";
@@ -14,7 +14,8 @@ import Graphics from "@/app/(main)/components/Forge/CoinPage/Graphics";
 import Stats from "@/app/(main)/components/Forge/CoinPage/Stats";
 import TransactionsTable from "@/app/(main)/components/Forge/CoinPage/TransactionsTable";
 
-const Page = ({ params }: { params: { symbol: string } }) => {
+const Page = (props: { params: Promise<{ symbol: string }> }) => {
+  const params = use(props.params);
   const navigate = useRouter();
   const wallet = useWallet();
   const rendered = React.useRef(false);

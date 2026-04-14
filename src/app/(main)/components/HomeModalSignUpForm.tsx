@@ -1,11 +1,11 @@
-import * as React from "react";
+import React from "react";
 import Input from "./common/Input";
 import { useAtom } from "jotai";
 import EyeLineIcon from "@/assets/icons/EyeLineIcon";
 import EyeIcon from "@/assets/icons/EyeIcon";
 import Button from "./common/Button";
-import { storeFormAtom } from "@/app/store/signup";
-import client from "@/app/lib/httpClient";
+import { storeFormAtom } from "@/app/(main)/store/signup";
+import client from "@/app/(main)/lib/httpClient";
 
 type HomeModalSignUpFormProps = {
   onSuccess: () => void;

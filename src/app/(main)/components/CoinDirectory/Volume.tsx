@@ -1,11 +1,11 @@
-import { abbreviateNumber } from "@/app/lib/abbreviateNumber";
+import { abbreviateNumber } from "@/app/(main)/lib/abbreviateNumber";
 import axios from "axios";
-import * as React from "react";
+import React from "react";
 
 import { Bar, BarChart, ResponsiveContainer, XAxis } from "recharts";
 import DateTypeSelector from "../common/DateTypeSelector";
 import { useAtom } from "jotai";
-import { selectedDateType } from "@/app/store/coins";
+import { selectedDateType } from "@/app/(main)/store/coins";
 
 type Props = {
   bonding?: string;

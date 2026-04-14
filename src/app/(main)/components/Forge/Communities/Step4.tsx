@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import SimpleInput from "../../common/SimpleInput";
@@ -8,7 +8,7 @@ import Image from "next/image";
 import Button from "../../common/Button";
 import BalanceBox from "../../common/BalanceBox";
 import MessageBanner from "../../common/MessageBanner";
-import { createCommunity } from "@/app/lib/forge/createCommunity";
+import { createCommunity } from "@/app/(main)/lib/forge/createCommunity";
 import {
   defaultFirstFormState,
   defaultThirdFormState,
@@ -16,13 +16,13 @@ import {
   step1Form,
   step2Form,
   step3Form,
-} from "@/app/store/community";
-import { data, userWeb3Info } from "@/app/store";
+} from "@/app/(main)/store/community";
+import { data, userWeb3Info } from "@/app/(main)/store";
 import ArrowBack from "@/assets/icons/ArrowBack";
 import { useRouter } from "next/navigation";
-import { generateCommunityGenesisImage } from "@/app/lib/forge/generateCommunityGenesisImage";
-import { fetchImage } from "@/app/lib/forge/fetchImage";
-import { generateCommunityInvitationImage } from "@/app/lib/forge/generateCommunityInvitationImage";
+import { generateCommunityGenesisImage } from "@/app/(main)/lib/forge/generateCommunityGenesisImage";
+import { fetchImage } from "@/app/(main)/lib/forge/fetchImage";
+import { generateCommunityInvitationImage } from "@/app/(main)/lib/forge/generateCommunityInvitationImage";
 import useWallet from "@/utils/wallet";
 
 const Step4 = () => {

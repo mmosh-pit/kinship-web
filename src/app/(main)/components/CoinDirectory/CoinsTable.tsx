@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import * as React from "react";
+import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import axios, { CancelTokenSource } from "axios";
@@ -10,12 +10,12 @@ import {
   pair,
   selectedUSDCCoin,
   selectedVolume,
-} from "@/app/store/coins";
+} from "@/app/(main)/store/coins";
 import SortIcon from "@/assets/icons/SortIcon";
-import { DirectoryCoin } from "@/app/models/directoryCoin";
+import { DirectoryCoin } from "@/app/(main)/models/directoryCoin";
 import ArrowUp from "@/assets/icons/ArrowUp";
 import ArrowDown from "@/assets/icons/ArrowDown";
-import { getPriceForPTV } from "@/app/lib/forge/jupiter";
+import { getPriceForPTV } from "@/app/(main)/lib/forge/jupiter";
 
 const CoinsTable = () => {
   const navigate = useRouter();

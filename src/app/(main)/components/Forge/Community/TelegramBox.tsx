@@ -1,6 +1,6 @@
 import EditIcon from "@/assets/icons/EditIcon";
 import axios from "axios";
-import * as React from "react";
+import React from "react";
 import Button from "../../common/Button";
 
 type Props = {

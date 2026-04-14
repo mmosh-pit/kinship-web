@@ -1,14 +1,14 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 
-import { isDrawerOpen, userWeb3Info, web3InfoLoading } from "@/app/store";
-// import Step1 from "@/app/components/Forge/Communities/Step1";
-// import Step2 from "@/app/components/Forge/Communities/Step2";
-// import Step3 from "@/app/components/Forge/Communities/Step3";
-// import Step4 from "@/app/components/Forge/Communities/Step4";
-import { step, step1Form, step2Form, step3Form } from "@/app/store/community";
+import { isDrawerOpen, userWeb3Info, web3InfoLoading } from "@/app/(main)/store";
+// import Step1 from "@/app/(main)/components/Forge/Communities/Step1";
+// import Step2 from "@/app/(main)/components/Forge/Communities/Step2";
+// import Step3 from "@/app/(main)/components/Forge/Communities/Step3";
+// import Step4 from "@/app/(main)/components/Forge/Communities/Step4";
+import { step, step1Form, step2Form, step3Form } from "@/app/(main)/store/community";
 import CreateCommunity from "../../components/Forge/Communities/CreateCommunity";
 
 // const componentsList = [<Step1 />, <Step2 />, <Step3 />, <Step4 />];

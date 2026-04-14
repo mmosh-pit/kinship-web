@@ -8,8 +8,8 @@ import * as anchor from "@coral-xyz/anchor";
 import { Connectivity as UserConn } from "@/anchor/user";
 import { web3Consts } from "@/anchor/web3Consts";
 import { useAtom } from "jotai";
-import { bagsConfirmation, bagsModalAck, bagsNotifier } from "@/app/store/bags";
-import internalClient from "@/app/lib/internalHttpClient";
+import { bagsConfirmation, bagsModalAck, bagsNotifier } from "@/app/(main)/store/bags";
+import internalClient from "@/app/(main)/lib/internalHttpClient";
 
 const TeamItem = (projectData: any) => {
   const wallet = useWallet();

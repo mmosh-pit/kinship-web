@@ -1,29 +1,29 @@
-import * as React from "react";
+import React from "react";
 
-import { onboardingStep } from "@/app/store/account";
+import { onboardingStep } from "@/app/(main)/store/account";
 import ArrowBack from "@/assets/icons/ArrowBack";
 import WalletIcon from "@/assets/icons/WalletIcon";
 import { useAtom } from "jotai";
 import CoinSelect from "../Swap/CoinSelect";
 import Button from "../common/Button";
-import { SwapCoin } from "@/app/models/swapCoin";
-import baseCoins from "@/app/lib/baseCoins";
+import { SwapCoin } from "@/app/(main)/models/swapCoin";
+import baseCoins from "@/app/(main)/lib/baseCoins";
 import CompareArrows from "@/assets/icons/CompareArrows";
 
-import { swapTokens } from "@/app/lib/forge/swapTokens";
+import { swapTokens } from "@/app/(main)/lib/forge/swapTokens";
 import { web3Consts } from "@/anchor/web3Consts";
 import {
   getSwapPrices,
   getSwapPricesForJup,
-} from "@/app/lib/forge/getSwapPrices";
-import { getquote, getSwapTransaction } from "@/app/lib/forge/jupiter";
+} from "@/app/(main)/lib/forge/getSwapPrices";
+import { getquote, getSwapTransaction } from "@/app/(main)/lib/forge/jupiter";
 
 import { Connection } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
 import { Connectivity as UserConn } from "@/anchor/user";
 import useWallet from "@/utils/wallet";
 import { BondingPricing } from "@/anchor/curve/curves";
-import client from "@/app/lib/httpClient";
+import client from "@/app/(main)/lib/httpClient";
 import useConnection from "@/utils/connection";
 
 const defaultBaseToken = {

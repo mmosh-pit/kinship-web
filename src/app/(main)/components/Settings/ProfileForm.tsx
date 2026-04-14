@@ -1,29 +1,29 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { data, userWeb3Info } from "@/app/store";
+import { data, userWeb3Info } from "@/app/(main)/store";
 import MessageBanner from "../common/MessageBanner";
 import ImagePicker from "../ImagePicker";
-import { buyMembership, createProfile } from "@/app/lib/forge/createProfile";
+import { buyMembership, createProfile } from "@/app/(main)/lib/forge/createProfile";
 import Input from "../common/Input";
 import Button from "../common/Button";
 import useWallet from "@/utils/wallet";
 import { Connection, LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
 import ImageAccountPicker from "../Account/ImageAccountPicker";
-import { uploadFile } from "@/app/lib/firebase";
-import client from "@/app/lib/httpClient";
+import { uploadFile } from "@/app/(main)/lib/firebase";
+import client from "@/app/(main)/lib/httpClient";
 import { getAccount, getAssociatedTokenAddress } from "forge-spl-token";
 import { Connectivity as UserConn } from "@/anchor/user";
 import { web3Consts } from "@/anchor/web3Consts";
-import { pinImageToShadowDrive } from "@/app/lib/uploadImageToShdwDrive";
-import { pinFileToShadowDrive } from "@/app/lib/uploadFileToShdwDrive";
+import { pinImageToShadowDrive } from "@/app/(main)/lib/uploadImageToShdwDrive";
+import { pinFileToShadowDrive } from "@/app/(main)/lib/uploadFileToShdwDrive";
 import * as anchor from "@coral-xyz/anchor";
-import { updateUserData } from "@/app/lib/forge/updateUserData";
+import { updateUserData } from "@/app/(main)/lib/forge/updateUserData";
 import Radio from "../common/Radio";
 import useConnection from "@/utils/connection";
-import { ProfileLineage } from "@/app/models/profileInfo";
+import { ProfileLineage } from "@/app/(main)/models/profileInfo";
 
 const ProfileForm = () => {
   const connection = useConnection()
