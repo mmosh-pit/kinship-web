@@ -24,7 +24,7 @@ export class ObjectId {
 // Connection pool
 // ─────────────────────────────────────────────
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URI,
 });
 
 // ─────────────────────────────────────────────
@@ -50,7 +50,13 @@ async function ensureTable(tableName: string): Promise<void> {
 
 function collectionNameToTable(name: string): string {
   // mmosh-app-users  →  pg_mmosh_app_users
-  return "pg_" + name.replace(/-/g, "_").replace(/[^a-z0-9_]/gi, "_").toLowerCase();
+  return (
+    "pg_" +
+    name
+      .replace(/-/g, "_")
+      .replace(/[^a-z0-9_]/gi, "_")
+      .toLowerCase()
+  );
 }
 
 // ─────────────────────────────────────────────
@@ -71,12 +77,21 @@ function ser(v: any): string | null {
 function jsonPath(key: string): string {
   const parts = key.split(".");
   if (parts.length === 1) return `data->>'${key}'`;
-  const mid = parts.slice(0, -1).map((p) => `->'${p}'`).join("");
+  const mid = parts
+    .slice(0, -1)
+    .map((p) => `->'${p}'`)
+    .join("");
   return `data${mid}->>'${parts[parts.length - 1]}'`;
 }
 
 function jsonPathRaw(key: string): string {
-  return "data->" + key.split(".").map((p) => `'${p}'`).join("->");
+  return (
+    "data->" +
+    key
+      .split(".")
+      .map((p) => `'${p}'`)
+      .join("->")
+  );
 }
 
 // ─────────────────────────────────────────────
@@ -84,7 +99,7 @@ function jsonPathRaw(key: string): string {
 // ─────────────────────────────────────────────
 function buildWhere(
   filter: any,
-  ctx: { values: any[]; n: number } = { values: [], n: 1 }
+  ctx: { values: any[]; n: number } = { values: [], n: 1 },
 ): string {
   if (!filter || Object.keys(filter).length === 0) return "TRUE";
 
@@ -107,7 +122,9 @@ function buildWhere(
     if (key === "_id") {
       const idStr =
         value instanceof ObjectId ||
-        (value && typeof value === "object" && value.constructor?.name === "ObjectId")
+          (value &&
+            typeof value === "object" &&
+            value.constructor?.name === "ObjectId")
           ? value.toString()
           : String(value);
       ctx.values.push(idStr);
@@ -189,7 +206,7 @@ function buildWhere(
 
           case "$in": {
             const inVals = (opVal as any[]).map((v) =>
-              v instanceof RegExp ? v.source : ser(v)
+              v instanceof RegExp ? v.source : ser(v),
             );
             ctx.values.push(inVals);
             parts.push(`${field} = ANY($${ctx.n++}::text[])`);
@@ -200,7 +217,7 @@ function buildWhere(
             const ninVals = (opVal as any[]).map(ser);
             ctx.values.push(ninVals);
             parts.push(
-              `(${field} IS NULL OR ${field} != ALL($${ctx.n++}::text[]))`
+              `(${field} IS NULL OR ${field} != ALL($${ctx.n++}::text[]))`,
             );
             break;
           }
@@ -210,25 +227,24 @@ function buildWhere(
               parts.push(
                 key.includes(".")
                   ? `${jsonPathRaw(key)} IS NOT NULL`
-                  : `data ? '${key}'`
+                  : `data ? '${key}'`,
               );
             } else {
               parts.push(
                 key.includes(".")
                   ? `${jsonPathRaw(key)} IS NULL`
-                  : `NOT (data ? '${key}')`
+                  : `NOT (data ? '${key}')`,
               );
             }
             break;
 
           case "$regex": {
-            const src =
-              opVal instanceof RegExp ? opVal.source : String(opVal);
+            const src = opVal instanceof RegExp ? opVal.source : String(opVal);
             ctx.values.push(src);
             parts.push(
               regexOptions.includes("i")
                 ? `${field} ~* $${ctx.n++}`
-                : `${field} ~ $${ctx.n++}`
+                : `${field} ~ $${ctx.n++}`,
             );
             break;
           }
@@ -257,7 +273,9 @@ function buildWhere(
       parts.push(`(${field})::timestamptz = $${ctx.n++}`);
     } else if (
       value instanceof ObjectId ||
-      (value && typeof value === "object" && value.constructor?.name === "ObjectId")
+      (value &&
+        typeof value === "object" &&
+        value.constructor?.name === "ObjectId")
     ) {
       ctx.values.push(value.toString());
       parts.push(`${field} = $${ctx.n++}`);
@@ -266,7 +284,7 @@ function buildWhere(
       parts.push(
         value.flags.includes("i")
           ? `${field} ~* $${ctx.n++}`
-          : `${field} ~ $${ctx.n++}`
+          : `${field} ~ $${ctx.n++}`,
       );
     } else if (typeof value === "number") {
       ctx.values.push(value);
@@ -344,13 +362,15 @@ function applyUpdate(doc: any, update: any): any {
         cur.filter((item: any) =>
           typeof v === "object"
             ? !Object.entries(v).every(([ek, ev]) => item[ek] === ev)
-            : item !== v
-        )
+            : item !== v,
+        ),
       );
     }
   }
   if (update.$addToSet) {
-    for (const [k, v] of Object.entries(update.$addToSet as Record<string, any>)) {
+    for (const [k, v] of Object.entries(
+      update.$addToSet as Record<string, any>,
+    )) {
       const cur = getNested(result, k) || [];
       if (v && typeof v === "object" && "$each" in v) {
         for (const item of (v as any).$each)
@@ -370,7 +390,7 @@ function applyUpdate(doc: any, update: any): any {
 // ─────────────────────────────────────────────
 function toJson(doc: any): string {
   return JSON.stringify(doc, (_, v) =>
-    v instanceof Date ? v.toISOString() : v
+    v instanceof Date ? v.toISOString() : v,
   );
 }
 
@@ -450,14 +470,16 @@ function matches(doc: any, filter: any): boolean {
               return false;
             break;
           case "$exists":
-            if (opVal && (docVal === undefined || docVal === null)) return false;
+            if (opVal && (docVal === undefined || docVal === null))
+              return false;
             if (!opVal && docVal !== undefined && docVal !== null) return false;
             break;
           case "$regex": {
-            const src =
-              opVal instanceof RegExp ? opVal.source : String(opVal);
-            const flags = ops["$options"] || (opVal instanceof RegExp ? opVal.flags : "");
-            if (!new RegExp(src, flags).test(String(docVal ?? ""))) return false;
+            const src = opVal instanceof RegExp ? opVal.source : String(opVal);
+            const flags =
+              ops["$options"] || (opVal instanceof RegExp ? opVal.flags : "");
+            if (!new RegExp(src, flags).test(String(docVal ?? "")))
+              return false;
             break;
           }
           case "$options":
@@ -476,7 +498,8 @@ function matches(doc: any, filter: any): boolean {
     }
 
     if (value instanceof Date) {
-      if (!docVal || new Date(docVal).getTime() !== value.getTime()) return false;
+      if (!docVal || new Date(docVal).getTime() !== value.getTime())
+        return false;
       continue;
     }
 
@@ -543,7 +566,7 @@ class FindCursor {
       const parts = Object.entries(this._sort).map(([k, v]) =>
         k === "_id"
           ? `id ${(v as number) === -1 ? "DESC" : "ASC"}`
-          : `${jsonPath(k)} ${(v as number) === -1 ? "DESC" : "ASC"}`
+          : `${jsonPath(k)} ${(v as number) === -1 ? "DESC" : "ASC"}`,
       );
       q += ` ORDER BY ${parts.join(", ")}`;
     }
@@ -594,7 +617,7 @@ class AggregateCursor {
       const where = buildWhere(firstStage.$match, ctx);
       const res = await pool.query(
         `SELECT id, data FROM ${this.table} WHERE ${where}`,
-        ctx.values
+        ctx.values,
       );
       docs = res.rows.map(toDoc);
     } else {
@@ -626,7 +649,7 @@ class AggregateCursor {
             const where = buildWhere({ [foreignField]: localVal }, ctx);
             const res = await pool.query(
               `SELECT id, data FROM ${tgt} WHERE ${where}`,
-              ctx.values
+              ctx.values,
             );
             doc[as] = res.rows.map(toDoc);
           }
@@ -635,8 +658,7 @@ class AggregateCursor {
 
         case "$unwind": {
           const raw = stage.$unwind;
-          const path =
-            typeof raw === "string" ? raw : raw.path;
+          const path = typeof raw === "string" ? raw : raw.path;
           const field = path.startsWith("$") ? path.slice(1) : path;
           const preserve =
             typeof raw === "object" && raw.preserveNullAndEmptyArrays;
@@ -670,7 +692,7 @@ class AggregateCursor {
             const g = groups.get(keyStr)!;
 
             for (const [accKey, accDef] of Object.entries(
-              accDefs as Record<string, any>
+              accDefs as Record<string, any>,
             )) {
               const [accOp, accArg] = Object.entries(accDef as object)[0];
               const val =
@@ -712,12 +734,16 @@ class AggregateCursor {
         case "$project": {
           const proj = stage.$project;
           const hasInclusion = Object.values(proj).some(
-            (v) => v === 1 || (typeof v === "string" && (v as string).startsWith("$"))
+            (v) =>
+              v === 1 ||
+              (typeof v === "string" && (v as string).startsWith("$")),
           );
           docs = docs.map((doc) => {
             const result: any = {};
             if (hasInclusion) {
-              for (const [k, v] of Object.entries(proj as Record<string, any>)) {
+              for (const [k, v] of Object.entries(
+                proj as Record<string, any>,
+              )) {
                 if (v === 0) continue;
                 if (v === 1) {
                   result[k] = k === "_id" ? doc._id : getNested(doc, k);
@@ -732,7 +758,9 @@ class AggregateCursor {
               }
             } else {
               Object.assign(result, doc);
-              for (const [k, v] of Object.entries(proj as Record<string, any>)) {
+              for (const [k, v] of Object.entries(
+                proj as Record<string, any>,
+              )) {
                 if (v === 0) delete result[k];
               }
             }
@@ -755,8 +783,8 @@ class AggregateCursor {
                 typeof av === "string"
                   ? av.localeCompare(bv)
                   : av < bv
-                  ? -1
-                  : 1;
+                    ? -1
+                    : 1;
               return (dir as number) === 1 ? cmp : -cmp;
             }
             return 0;
@@ -822,7 +850,10 @@ function evalExpr(doc: any, expr: any): any {
       return new Date(evalExpr(doc, arg)).getDate();
     case "$sum":
       if (Array.isArray(arg))
-        return arg.reduce((acc: number, v: any) => acc + (Number(evalExpr(doc, v)) || 0), 0);
+        return arg.reduce(
+          (acc: number, v: any) => acc + (Number(evalExpr(doc, v)) || 0),
+          0,
+        );
       return Number(evalExpr(doc, arg)) || 0;
     case "$toObjectId":
       return evalExpr(doc, arg);
@@ -847,31 +878,35 @@ class Collection {
     const where = buildWhere(filter, ctx);
     const res = await pool.query(
       `SELECT id, data FROM ${this.name} WHERE ${where} LIMIT 1`,
-      ctx.values
+      ctx.values,
     );
     return toDoc(res.rows[0]);
   }
 
   find<T = any>(filter: any = {}, options?: any): FindCursor {
     // Eagerly schedule table creation
-    ensureTable(this.name).catch(() => {});
+    ensureTable(this.name).catch(() => { });
     return new FindCursor(this.name, filter, options);
   }
 
-  async insertOne(doc: any): Promise<{ insertedId: ObjectId; acknowledged: boolean }> {
+  async insertOne(
+    doc: any,
+  ): Promise<{ insertedId: ObjectId; acknowledged: boolean }> {
     await ensureTable(this.name);
     const id = randomUUID();
     const data = { ...doc, _id: id };
     await pool.query(
       `INSERT INTO ${this.name} (id, data) VALUES ($1::uuid, $2::jsonb)`,
-      [id, toJson(data)]
+      [id, toJson(data)],
     );
     return { insertedId: new ObjectId(id), acknowledged: true };
   }
 
-  async insertMany(
-    docs: any[]
-  ): Promise<{ insertedIds: Record<number, ObjectId>; insertedCount: number; acknowledged: boolean }> {
+  async insertMany(docs: any[]): Promise<{
+    insertedIds: Record<number, ObjectId>;
+    insertedCount: number;
+    acknowledged: boolean;
+  }> {
     const ids: Record<number, ObjectId> = {};
     for (let i = 0; i < docs.length; i++) {
       const r = await this.insertOne(docs[i]);
@@ -886,7 +921,7 @@ class Collection {
     const where = buildWhere(filter, ctx);
     const res = await pool.query(
       `SELECT id, data FROM ${this.name} WHERE ${where} LIMIT 1`,
-      ctx.values
+      ctx.values,
     );
 
     if (res.rows.length === 0) {
@@ -895,18 +930,36 @@ class Collection {
           ...(update.$set || {}),
           ...(update.$setOnInsert || {}),
         });
-        return { matchedCount: 0, modifiedCount: 0, upsertedCount: 1, upsertedId: inserted.insertedId, acknowledged: true };
+        return {
+          matchedCount: 0,
+          modifiedCount: 0,
+          upsertedCount: 1,
+          upsertedId: inserted.insertedId,
+          acknowledged: true,
+        };
       }
-      return { matchedCount: 0, modifiedCount: 0, upsertedCount: 0, upsertedId: null, acknowledged: true };
+      return {
+        matchedCount: 0,
+        modifiedCount: 0,
+        upsertedCount: 0,
+        upsertedId: null,
+        acknowledged: true,
+      };
     }
 
     const row = res.rows[0];
     const newData = applyUpdate(row.data, update);
     await pool.query(
       `UPDATE ${this.name} SET data = $1::jsonb WHERE id = $2::uuid`,
-      [toJson(newData), row.id]
+      [toJson(newData), row.id],
     );
-    return { matchedCount: 1, modifiedCount: 1, upsertedCount: 0, upsertedId: null, acknowledged: true };
+    return {
+      matchedCount: 1,
+      modifiedCount: 1,
+      upsertedCount: 0,
+      upsertedId: null,
+      acknowledged: true,
+    };
   }
 
   async updateMany(filter: any, update: any, options?: any) {
@@ -915,7 +968,7 @@ class Collection {
     const where = buildWhere(filter, ctx);
     const res = await pool.query(
       `SELECT id, data FROM ${this.name} WHERE ${where}`,
-      ctx.values
+      ctx.values,
     );
 
     let count = 0;
@@ -923,7 +976,7 @@ class Collection {
       const newData = applyUpdate(row.data, update);
       await pool.query(
         `UPDATE ${this.name} SET data = $1::jsonb WHERE id = $2::uuid`,
-        [toJson(newData), row.id]
+        [toJson(newData), row.id],
       );
       count++;
     }
@@ -938,7 +991,7 @@ class Collection {
       `DELETE FROM ${this.name} WHERE id IN (
          SELECT id FROM ${this.name} WHERE ${where} LIMIT 1
        )`,
-      ctx.values
+      ctx.values,
     );
     return { deletedCount: res.rowCount ?? 0, acknowledged: true };
   }
@@ -949,7 +1002,7 @@ class Collection {
     const where = buildWhere(filter, ctx);
     const res = await pool.query(
       `DELETE FROM ${this.name} WHERE ${where}`,
-      ctx.values
+      ctx.values,
     );
     return { deletedCount: res.rowCount ?? 0, acknowledged: true };
   }
@@ -960,7 +1013,7 @@ class Collection {
     const where = buildWhere(filter, ctx);
     const res = await pool.query(
       `SELECT COUNT(*)::int AS cnt FROM ${this.name} WHERE ${where}`,
-      ctx.values
+      ctx.values,
     );
     return res.rows[0]?.cnt ?? 0;
   }
