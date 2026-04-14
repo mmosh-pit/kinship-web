@@ -130,6 +130,52 @@ const Homepage: GlobalConfig = {
   ],
 };
 
+const SiteHeader: GlobalConfig = {
+  slug: "site-header",
+  label: "Site Header",
+  admin: { group: "Content" },
+  fields: [
+    {
+      name: "navItems",
+      type: "array",
+      label: "Navigation Items",
+      fields: [
+        {
+          name: "label",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "actionType",
+          type: "select",
+          required: true,
+          defaultValue: "scroll",
+          options: [
+            { label: "Scroll to section", value: "scroll" },
+            { label: "Navigate to page", value: "link" },
+          ],
+        },
+        {
+          name: "sectionId",
+          type: "text",
+          admin: {
+            condition: (_, siblingData) => siblingData?.actionType === "scroll",
+            description: "ID of the section to scroll to, e.g. origin-story",
+          },
+        },
+        {
+          name: "url",
+          type: "text",
+          admin: {
+            condition: (_, siblingData) => siblingData?.actionType === "link",
+            description: "Page URL to navigate to, e.g. /blog",
+          },
+        },
+      ],
+    },
+  ],
+};
+
 // ─── Seed data ────────────────────────────────────────────────────────────────
 
 const homepageSeed = [
@@ -344,12 +390,21 @@ const homepageSeed = [
   },
 ];
 
+const siteHeaderSeed = {
+  navItems: [
+    { label: "Launch Video", actionType: "scroll", sectionId: "origin-story" },
+    { label: "A New Choice", actionType: "scroll", sectionId: "ai-infrastructure" },
+    { label: "Circular Economy", actionType: "scroll", sectionId: "creator-economy" },
+    { label: "Service Tiers", actionType: "scroll", sectionId: "pricing" },
+  ],
+};
+
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 export default buildConfig({
   admin: { user: "users" },
   collections: [Users, Media, Posts],
-  globals: [Homepage],
+  globals: [Homepage, SiteHeader],
   editor: lexicalEditor({}),
   plugins: [
     gcsStorage({
@@ -386,6 +441,19 @@ export default buildConfig({
       }
     } catch (err) {
       payload.logger.warn(`Homepage seed skipped: ${err}`);
+    }
+    try {
+      const siteHeader = await payload.findGlobal({ slug: "site-header", overrideAccess: true });
+      if (!siteHeader?.navItems?.length) {
+        await payload.updateGlobal({
+          slug: "site-header",
+          overrideAccess: true,
+          data: siteHeaderSeed,
+        });
+        payload.logger.info("Site header seeded with default nav items.");
+      }
+    } catch (err) {
+      payload.logger.warn(`Site header seed skipped: ${err}`);
     }
   },
 });

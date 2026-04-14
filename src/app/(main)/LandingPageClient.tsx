@@ -22,12 +22,19 @@ import client from "./lib/httpClient";
 import WizardEditButton from "./components/AiPageEditor/WizardEditButton";
 import AiPageEditor from "./components/AiPageEditor/AiPageEditor";
 import { BlockRenderer } from "./components/BlockRenderer";
+import type { NavItem } from "./page";
 
 const STORAGE_KEY = "early-access-data";
 
 type CMSBlock = Record<string, any> & { blockType: string; blockName?: string };
 
-export default function LandingPage({ layout = [] }: { layout?: CMSBlock[] }) {
+export default function LandingPage({
+  layout = [],
+  navItems = [],
+}: {
+  layout?: CMSBlock[];
+  navItems?: NavItem[];
+}) {
   const searchParams = useSearchParams();
   const [isUserAuthenticated, setIsUserAuthenticated] = useAtom(isAuth);
   const router = useRouter();
@@ -176,51 +183,24 @@ export default function LandingPage({ layout = [] }: { layout?: CMSBlock[] }) {
           </button>
 
           <div className="flex xl:hidden flex-col items-center justify-center">
-            <LandingPageDrawer scrollToId={scrollToId} />
+            <LandingPageDrawer scrollToId={scrollToId} navItems={navItems} />
           </div>
           <div className="hidden xl:flex justify-center items-center rounded-full border-[#FFFFFF47] border-[1px] bg-[#FFFFFF0F] px-4 py-2">
-            <a
-              className="text-base text-white cursor-pointer"
-              onClick={() => scrollToId("origin-story")}
-            >
-              Launch Video
-            </a>
-
-            <div className="xl:mx-4 md:mx-2" />
-
-            <a
-              className="text-base text-white cursor-pointer"
-              onClick={() => scrollToId("ai-infrastructure")}
-            >
-              A New Choice
-            </a>
-
-            <div className="xl:mx-4 md:mx-2" />
-
-            <a
-              className="text-base text-white cursor-pointer"
-              onClick={() => scrollToId("creator-economy")}
-            >
-              Circular Economy
-            </a>
-
-            <div className="xl:mx-4 md:mx-2" />
-
-            <a
-              className="text-base text-white cursor-pointer"
-              onClick={() => scrollToId("pricing")}
-            >
-              Service Tiers{" "}
-            </a>
-
-            <div className="xl:mx-4 md:mx-2" />
-
-            <a
-              className="text-base text-white cursor-pointer"
-              href="/nightpapers"
-            >
-              Nightpapers{" "}
-            </a>
+            {navItems.map((item, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && <div className="xl:mx-4 md:mx-2" />}
+                <a
+                  className="text-base text-white cursor-pointer"
+                  onClick={() =>
+                    item.actionType === "scroll"
+                      ? scrollToId(item.sectionId ?? "")
+                      : router.push(item.url ?? "/")
+                  }
+                >
+                  {item.label}
+                </a>
+              </React.Fragment>
+            ))}
           </div>
 
           <div className="flex items-center gap-3">
