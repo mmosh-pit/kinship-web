@@ -149,7 +149,7 @@ export const metadata: Metadata = {
     title: "Build Agents. Not Apps.",
     description:
       "Design, develop, and deploy intelligent agents that listen, learn, and cooperate. A decentralized marketplace for coherent, cohesive agents that care.",
-    url: "https://kinship.today",
+    url: "https://kinship.systems",
     type: "website",
   },
 };

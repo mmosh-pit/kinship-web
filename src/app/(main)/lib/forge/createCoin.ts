@@ -232,7 +232,7 @@ export const createCoin = async ({
 
       return {
         message:
-          "Congrats! Your coin is minted and tradable in [swap](https://www.kinship.today/swap)",
+          "Congrats! Your coin is minted and tradable in [swap](https://www.kinship.systems/swap)",
         type: "success",
       };
     } else {

@@ -10,8 +10,8 @@ const Privacy = () => (
       This privacy policy ("Privacy Policy") explains how Kinship Media
       Syndicate (“KMS,” "our," "we," or "us") collects, uses, and discloses
       information about you. This Privacy Policy applies when you{" "}
-      <a href="https://kinship.today" target="_blank">
-        https://kinship.today
+      <a href="https://kinship.systems" target="_blank">
+        https://kinship.systems
       </a>{" "}
       (the "Website"), use our mobile app, interact with any of our AI agents,
       contact our team by email or Telegram, engage with us on social media, or

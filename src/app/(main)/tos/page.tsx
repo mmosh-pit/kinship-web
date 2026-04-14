@@ -33,8 +33,8 @@ const TOS = () => {
         Kinship Media Syndicate (“Kinship,” “KMS,” “we,” “us” or “our”)
         concerning use of the our services (the “Service”), including this
         website{" "}
-        <a href="https://kinship.today" target="_blank">
-          https://kinship.today
+        <a href="https://kinship.systems" target="_blank">
+          https://kinship.systems
         </a>{" "}
         as well as any other media form, media channel, agent, app or mobile
         website related, linked, or otherwise connected thereto (collectively,
@@ -48,7 +48,7 @@ const TOS = () => {
         activities of persons who develop and use applications on KAP, the
         distribution of royalties on KAP, or use of KAP. KAP is an open-source
         protocol that was developed and is maintained by KMS. The genesis
-        ecosystem for the KAP is Kinship Today. Any third party may develop
+        ecosystem for the KAP is Kinship Systems. Any third party may develop
         applications, protocols, networks and services that use KAP, so our
         tokens and other materials may appear in various contexts outside our
         control.
@@ -302,7 +302,7 @@ const TOS = () => {
         our slogans and the look and feel of the Service are trademarks of KMS
         and may not be copied, imitated or used, in whole or in part, without
         our prior written permission, which may be obtained by emailing Kinship
-        Bots Club, our technical partners, at support@kinship.today. All other
+        Bots Club, our technical partners, at support@kinship.systems. All other
         trademarks, registered trademarks, product names and company names or
         logos mentioned on the Service are the property of their respective
         owners. Reference to any products, services, processes or other
@@ -338,25 +338,25 @@ const TOS = () => {
         security, (collectively, “Disputes”) resolved in court. Instead, for any
         Dispute that you have against KMS you agree to first contact KMS and
         attempt to resolve the claim informally by sending a written notice of
-        your claim (“Notice”) to KMS by email at support@kinship.today or by US
-        mail addressed to Kinship Media Syndicate, P.O. Box 2085, Shepherdstown,
-        WV 25443. The Notice must (a) include your name, residence address,
-        email address, and telephone number; (b) describe the nature and basis
-        of the Dispute; and (c) set forth the specific relief sought. Our notice
-        to you will be similar in form to that described above. If you and KMS
-        cannot reach an agreement to resolve the Dispute within thirty (30) days
-        after such Notice is received, then either party may submit the Dispute
-        to binding arbitration administered by JAMS or, under the limited
-        circumstances set forth above, in court. All Disputes submitted to JAMS
-        will be resolved through confidential, binding arbitration before one
-        arbitrator. Arbitration proceedings will be held in Martinsburg, WV. You
-        and KMS agree that Disputes will be held in accordance with the JAMS
-        Streamlined Arbitration Rules and Procedures (“JAMS Rules”). The most
-        recent version of the JAMS Rules are available on the JAMS website and
-        are hereby incorporated by reference. You either acknowledge and agree
-        that you have read and understand the JAMS Rules or waive your
-        opportunity to read the JAMS Rules and waive any claim that the JAMS
-        Rules are unfair or should not apply for any reason.
+        your claim (“Notice”) to KMS by email at support@kinship.systems or by
+        US mail addressed to Kinship Media Syndicate, P.O. Box 2085,
+        Shepherdstown, WV 25443. The Notice must (a) include your name,
+        residence address, email address, and telephone number; (b) describe the
+        nature and basis of the Dispute; and (c) set forth the specific relief
+        sought. Our notice to you will be similar in form to that described
+        above. If you and KMS cannot reach an agreement to resolve the Dispute
+        within thirty (30) days after such Notice is received, then either party
+        may submit the Dispute to binding arbitration administered by JAMS or,
+        under the limited circumstances set forth above, in court. All Disputes
+        submitted to JAMS will be resolved through confidential, binding
+        arbitration before one arbitrator. Arbitration proceedings will be held
+        in Martinsburg, WV. You and KMS agree that Disputes will be held in
+        accordance with the JAMS Streamlined Arbitration Rules and Procedures
+        (“JAMS Rules”). The most recent version of the JAMS Rules are available
+        on the JAMS website and are hereby incorporated by reference. You either
+        acknowledge and agree that you have read and understand the JAMS Rules
+        or waive your opportunity to read the JAMS Rules and waive any claim
+        that the JAMS Rules are unfair or should not apply for any reason.
       </p>
 
       <p>
@@ -603,9 +603,9 @@ const TOS = () => {
 
       <p>
         You may withdraw your consent to receive Communications under this EULA
-        by contacting us at support@kinship.today. We will process your request
-        to withdraw your consent to receive electronic Communications in a
-        reasonable time. After we process your request, your access and use of
+        by contacting us at support@kinship.systems. We will process your
+        request to withdraw your consent to receive electronic Communications in
+        a reasonable time. After we process your request, your access and use of
         the Service will terminate.
       </p>
 
@@ -613,7 +613,7 @@ const TOS = () => {
 
       <p>
         You may request that we mail a paper copy of any electronic
-        Communication by contacting us at support@kinship.today. We may charge
+        Communication by contacting us at support@kinship.systems. We may charge
         you fees associated with processing and mailing your request. We will
         send a copy of the Communication to you within a reasonable timeframe.
       </p>
@@ -665,7 +665,7 @@ const TOS = () => {
       <p>
         In order to resolve a complaint regarding the Site or to receive further
         information regarding use of the Service, please contact us at:
-        support@kinship.today.
+        support@kinship.systems.
       </p>
     </div>
   );

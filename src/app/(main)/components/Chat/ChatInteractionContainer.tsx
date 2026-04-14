@@ -5,7 +5,11 @@ import { data } from "@/app/(main)/store";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import ArrowUpHome from "@/assets/icons/ArrowUpHome";
-import { selectedChatStore, chatsStore, chatsLoading } from "@/app/(main)/store/chat";
+import {
+  selectedChatStore,
+  chatsStore,
+  chatsLoading,
+} from "@/app/(main)/store/chat";
 import { Message } from "@/app/(main)/models/chat";
 import { Bars } from "react-loader-spinner";
 import Avatar from "../common/Avatar";
@@ -33,7 +37,7 @@ const ChatInteractionContainer = (props: any) => {
     startSession,
     isSpeaking,
     stopSession,
-    isLoadingSession
+    isLoadingSession,
   } = useVoiceSession();
 
   const [currentUser] = useAtom(data);
@@ -45,7 +49,7 @@ const ChatInteractionContainer = (props: any) => {
   const [disambiguationData, setDisambiguationData] =
     React.useState<DisambiguationResponse | null>(null);
   const [pendingMessage, setPendingMessage] = React.useState<string | null>(
-    null
+    null,
   );
 
   const [isSessionActive, setIsSessionActive] = React.useState<boolean>(false);
@@ -84,7 +88,7 @@ const ChatInteractionContainer = (props: any) => {
         },
         body: JSON.stringify({
           recipient_wallets: Object.values(selected).flatMap((recipients) =>
-            recipients.map((r) => r.wallet)
+            recipients.map((r) => r.wallet),
           ),
           message: pendingMessage,
           agentId: selectedChat.chatAgent!.id,
@@ -131,7 +135,7 @@ const ChatInteractionContainer = (props: any) => {
         setSelectedChat(updatedSelectedChat);
 
         const updatedChats = chats.map((chat) =>
-          chat.id === selectedChat!.id ? updatedSelectedChat : chat
+          chat.id === selectedChat!.id ? updatedSelectedChat : chat,
         );
         setChats(updatedChats);
         // Save the chat conversation to the database
@@ -158,7 +162,7 @@ const ChatInteractionContainer = (props: any) => {
 
           if (!saveResponse.ok) {
             console.warn(
-              `Failed to save chat: ${saveResponse.status} ${saveResponse.statusText}`
+              `Failed to save chat: ${saveResponse.status} ${saveResponse.statusText}`,
             );
           } else {
             console.log("Chat saved successfully to database");
@@ -200,7 +204,7 @@ const ChatInteractionContainer = (props: any) => {
 
       return "https://storage.googleapis.com/mmosh-assets/aunt-bea.png";
     },
-    [currentUser, selectedChat]
+    [currentUser, selectedChat],
   );
 
   const getMessageUsername = React.useCallback(
@@ -219,7 +223,7 @@ const ChatInteractionContainer = (props: any) => {
 
       return selectedChat?.chatAgent?.name;
     },
-    [currentUser, selectedChat]
+    [currentUser, selectedChat],
   );
 
   const formatChatHistory = (messages: Message[]) => {
@@ -272,7 +276,7 @@ const ChatInteractionContainer = (props: any) => {
 
       // Update the chats array
       const updatedChats = chats.map((chat) =>
-        chat.id === selectedChat.id ? updatedSelectedChat : chat
+        chat.id === selectedChat.id ? updatedSelectedChat : chat,
       );
       setChats(updatedChats);
 
@@ -369,7 +373,7 @@ const ChatInteractionContainer = (props: any) => {
                     const disambiguationChats = chats.map((chat) =>
                       chat.id === selectedChat.id
                         ? disambiguationSelectedChat
-                        : chat
+                        : chat,
                     );
                     setChats(disambiguationChats);
 
@@ -397,7 +401,9 @@ const ChatInteractionContainer = (props: any) => {
 
                     // Update the chats array
                     const streamingChats = chats.map((chat) =>
-                      chat.id === selectedChat.id ? streamingSelectedChat : chat
+                      chat.id === selectedChat.id
+                        ? streamingSelectedChat
+                        : chat,
                     );
                     setChats(streamingChats);
                   } else if (data.type === "complete") {
@@ -420,7 +426,7 @@ const ChatInteractionContainer = (props: any) => {
 
                     // Update the chats array
                     const finalChats = chats.map((chat) =>
-                      chat.id === selectedChat.id ? finalSelectedChat : chat
+                      chat.id === selectedChat.id ? finalSelectedChat : chat,
                     );
                     setChats(finalChats);
 
@@ -446,13 +452,13 @@ const ChatInteractionContainer = (props: any) => {
                             Authorization: `Bearer ${window.localStorage.getItem("token")}`,
                           },
                           body: JSON.stringify(saveChatData),
-                        }
+                        },
                       );
                       await props.checkUsage();
 
                       if (!saveResponse.ok) {
                         console.warn(
-                          `Failed to save chat: ${saveResponse.status} ${saveResponse.statusText}`
+                          `Failed to save chat: ${saveResponse.status} ${saveResponse.statusText}`,
                         );
                       } else {
                         console.log("Chat saved successfully to database");
@@ -460,7 +466,7 @@ const ChatInteractionContainer = (props: any) => {
                     } catch (saveError) {
                       console.error(
                         "Error saving chat to database:",
-                        saveError
+                        saveError,
                       );
                       // Note: We don't want to show this error to the user as the main functionality (chat) worked
                     }
@@ -505,7 +511,7 @@ const ChatInteractionContainer = (props: any) => {
 
         // Update the chats array
         const finalChats = chats.map((chat) =>
-          chat.id === selectedChat.id ? finalSelectedChat : chat
+          chat.id === selectedChat.id ? finalSelectedChat : chat,
         );
         setChats(finalChats);
       }
@@ -517,7 +523,7 @@ const ChatInteractionContainer = (props: any) => {
       setChats,
       setSelectedChat,
       props.selectedModel,
-    ]
+    ],
   );
 
   const handleEnter = (evt: any) => {
@@ -556,7 +562,11 @@ const ChatInteractionContainer = (props: any) => {
 
   if (isSessionActive || isLoadingSession)
     return (
-      <VoiceAssistant setIsSessionActive={setIsSessionActive} isSessionActive={isSessionActive} selectedModel={props.selectedModel}/>
+      <VoiceAssistant
+        setIsSessionActive={setIsSessionActive}
+        isSessionActive={isSessionActive}
+        selectedModel={props.selectedModel}
+      />
       // <AudioInteraction
       //   isSpeaking={isSpeaking}
       //   stopSession={stopSession}
@@ -695,7 +705,7 @@ const ChatInteractionContainer = (props: any) => {
                               {
                                 hour: "2-digit",
                                 minute: "2-digit",
-                              }
+                              },
                             )}
                           </span>
                         </div>
@@ -703,11 +713,10 @@ const ChatInteractionContainer = (props: any) => {
                         <div
                           className={`
                         px-4 py-3 rounded-2xl 
-                        ${
-                          message.type === "user"
-                            ? "bg-[#25235a] text-white rounded-tr-md"
-                            : "bg-[#00073a] text-white rounded-tl-md"
-                        }
+                        ${message.type === "user"
+                              ? "bg-[#25235a] text-white rounded-tr-md"
+                              : "bg-[#00073a] text-white rounded-tl-md"
+                            }
                         ${message.is_loading ? "min-h-[60px] flex items-center justify-center" : ""}
                       `}
                         >
@@ -730,22 +739,22 @@ const ChatInteractionContainer = (props: any) => {
                             <div className="text-base leading-relaxed prose prose-invert max-w-none">
                               <Markdown remarkPlugins={[remarkGfm]}>
                                 {message.type === "bot" &&
-                                message.content.includes("Thought:")
+                                  message.content.includes("Thought:")
                                   ? message.content
-                                      .replace(
-                                        /Thought:/g,
-                                        "\n\n> *Thought:*\n"
-                                      )
-                                      .replace(/Action:/g, "\n\n> *Action:*\n")
-                                      .replace(
-                                        /^((?!Thought:|Action:).+)/gm,
-                                        (match) => {
-                                          return match.startsWith(">")
-                                            ? match
-                                            : `**${match}**`;
-                                        }
-                                      )
-                                      .trim()
+                                    .replace(
+                                      /Thought:/g,
+                                      "\n\n> *Thought:*\n",
+                                    )
+                                    .replace(/Action:/g, "\n\n> *Action:*\n")
+                                    .replace(
+                                      /^((?!Thought:|Action:).+)/gm,
+                                      (match) => {
+                                        return match.startsWith(">")
+                                          ? match
+                                          : `**${match}**`;
+                                      },
+                                    )
+                                    .trim()
                                   : message.content}
                               </Markdown>
                             </div>
@@ -753,7 +762,7 @@ const ChatInteractionContainer = (props: any) => {
                         </div>
                       </div>
                     </div>
-                  )
+                  ),
               )
             )}
           </div>
@@ -803,10 +812,9 @@ const ChatInteractionContainer = (props: any) => {
               <button
                 className={`
                   flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-200 
-                  ${
-                    !props.hasAllowed || !text.trim() || isLoading
-                      ? "bg-[#565656] cursor-not-allowed"
-                      : "bg-[#4A4B6C] hover:bg-[#5A5B7C] transform hover:scale-105"
+                  ${!props.hasAllowed || !text.trim() || isLoading
+                    ? "bg-[#565656] cursor-not-allowed"
+                    : "bg-[#4A4B6C] hover:bg-[#5A5B7C] transform hover:scale-105"
                   }
                 `}
                 disabled={!props.hasAllowed || !text.trim() || isLoading}

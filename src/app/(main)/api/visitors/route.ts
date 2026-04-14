@@ -103,7 +103,7 @@ async function sendCodeEmail(email: string, code: string) {
   const msg = {
     to: email,
     from: {
-      email: "security@kinship.today",
+      email: "security@kinship.systems",
       name: "Kinship Intelligence",
     },
     subject: "Your Verification Code",

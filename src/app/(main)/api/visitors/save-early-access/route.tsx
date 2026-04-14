@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
     await sgMail.send({
       to: "david.levine@kinship.systems",
       from: {
-        email: "security@kinship.today",
+        email: "security@kinship.systems",
         name: "Kinship Intelligence",
       },
       subject: "New Early Access Registration",

@@ -177,7 +177,7 @@ export default function LandingPage() {
               <div className="lg:mx-4 md:mx-2" />
               <a
                 className="text-base text-white cursor-pointer"
-                href="https://docs.kinship.today"
+                href="https://docs.kinship.systems"
                 target="_blank"
               >
                 Docs

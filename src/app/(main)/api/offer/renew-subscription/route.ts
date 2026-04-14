@@ -189,7 +189,7 @@ export async function GET(req: NextRequest) {
       description: offerData.desc,
       image: offerData.image,
       enternal_url:
-        "https://www.kinship.today/" +
+        "https://www.kinship.systems/" +
         projectData.symbol +
         "/" +
         offerData.symbol,

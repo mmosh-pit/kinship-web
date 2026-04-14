@@ -101,7 +101,7 @@ export default function ProjectCreateStep9({ symbol }: { symbol: any }) {
       const metadata = `${projectKey}-${id}`;
 
       await internalClient.delete(
-        `https://ai-files.kinship.today/delete_by_metadata?metadata=${encodeURIComponent(metadata)}`,
+        `https://ai-files.kinship.systems/delete_by_metadata?metadata=${encodeURIComponent(metadata)}`,
       );
     },
     [projectDetail],
@@ -136,7 +136,7 @@ export default function ProjectCreateStep9({ symbol }: { symbol: any }) {
         formData.append("text", "None");
 
         await axios.post(
-          "https://ai-files.kinship.today/upload",
+          "https://ai-files.kinship.systems/upload",
           formData,
         );
 
@@ -189,7 +189,7 @@ export default function ProjectCreateStep9({ symbol }: { symbol: any }) {
       formData.append("metadata", metadata);
 
       await axios.post(
-        "https://ai-files.kinship.today/upload",
+        "https://ai-files.kinship.systems/upload",
         formData,
       );
     }
@@ -225,7 +225,7 @@ export default function ProjectCreateStep9({ symbol }: { symbol: any }) {
     formData.append("metadata", metadata);
 
     await axios.post(
-      "https://ai-files.kinship.today/upload",
+      "https://ai-files.kinship.systems/upload",
       formData,
     );
 

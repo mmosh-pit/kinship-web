@@ -7,7 +7,7 @@ export const EarlyAccessCircleVW = () => {
 
       <div className="text-[1rem] font-avenir max-md:px-5 text-[#FFFFFFE5] leading-[130%] max-md:text-sm font-normal max-lg:text-start text-wrap max-lg:mb-3">
         <p className="font-avenir">
-          Be among the first to experience Kinship Today as it comes to life.
+          Be among the first to experience Kinship Systems as it comes to life.
         </p>
 
         <p className="font-avenir">As an early access member, you&apos;ll:</p>

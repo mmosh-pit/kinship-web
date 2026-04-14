@@ -433,10 +433,10 @@ const sendTelegramNotification = async (
       reply_markup: {
         inline_keyboard: [
           [
-            { text: "Swap", url: "https://www.kinship.today/swap" },
+            { text: "Swap", url: "https://www.kinship.systems/swap" },
             {
               text: "View",
-              url: "https://www.kinship.today/coins/" + params.targetsymbol,
+              url: "https://www.kinship.systems/coins/" + params.targetsymbol,
             },
           ],
         ],

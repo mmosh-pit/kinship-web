@@ -228,7 +228,7 @@ const VoiceAssistant = (props: any) => {
             JSON.stringify({
               type: "system_prompt",
               content: systemPrompt,
-            })
+            }),
           );
           await initAudioContext();
           await setupAudioWorklet(micStream);
@@ -239,7 +239,7 @@ const VoiceAssistant = (props: any) => {
           setIsInitiated(false);
           console.error("Error setting up audio:", error);
           showError(
-            `Failed to initialize audio processing: ${error?.message ?? error}`
+            `Failed to initialize audio processing: ${error?.message ?? error}`,
           );
           stopRecording();
         }
@@ -256,7 +256,7 @@ const VoiceAssistant = (props: any) => {
       ws.onclose = (event) => {
         setIsInitiated(false);
         console.log(
-          `WebSocket closed. Code: ${event.code}, Reason: ${event.reason}`
+          `WebSocket closed. Code: ${event.code}, Reason: ${event.reason}`,
         );
         if (!userInitiatedStopRef.current) {
           showError("Connection lost. Please restart recording.");
@@ -267,7 +267,7 @@ const VoiceAssistant = (props: any) => {
       setIsInitiated(false);
       console.error("Error getting user media:", err);
       showError(
-        "Could not access microphone. Please grant permission and try again."
+        "Could not access microphone. Please grant permission and try again.",
       );
       updateButtonState("idle");
     }
@@ -292,14 +292,14 @@ const VoiceAssistant = (props: any) => {
     if (micWorkletNodeRef.current) {
       try {
         micWorkletNodeRef.current.disconnect();
-      } catch (e) {}
+      } catch (e) { }
       micWorkletNodeRef.current = null;
     }
 
     if (ttsWorkletNodeRef.current) {
       try {
         ttsWorkletNodeRef.current.disconnect();
-      } catch (e) {}
+      } catch (e) { }
       ttsWorkletNodeRef.current = null;
     }
 
@@ -322,11 +322,11 @@ const VoiceAssistant = (props: any) => {
     // stop visualization audio context via hook stop()
     try {
       stop();
-    } catch (e) {}
+    } catch (e) { }
 
     // close audioContext if exists
     if (audioContextRef.current) {
-      audioContextRef.current.close().catch(() => {});
+      audioContextRef.current.close().catch(() => { });
       audioContextRef.current = null;
     }
 
@@ -347,9 +347,9 @@ const VoiceAssistant = (props: any) => {
 
     micWorkletNodeRef.current = new (window.AudioWorkletNode ||
       (audioContextRef.current as any).AudioWorkletNode)(
-      audioContextRef.current,
-      "pcm-worklet-processor"
-    );
+        audioContextRef.current,
+        "pcm-worklet-processor",
+      );
 
     // Buffer logic
     let audioBufferChunks: Int16Array[] = [];
@@ -377,7 +377,7 @@ const VoiceAssistant = (props: any) => {
           }
 
           const dataBuffer = new ArrayBuffer(
-            combinedBuffer.byteLength + headerBytes
+            combinedBuffer.byteLength + headerBytes,
           );
           const dataView = new DataView(dataBuffer);
           const dataInt16 = new Int16Array(dataBuffer, headerBytes);
@@ -440,7 +440,7 @@ const VoiceAssistant = (props: any) => {
   `;
 
     return URL.createObjectURL(
-      new Blob([processorCode], { type: "application/javascript" })
+      new Blob([processorCode], { type: "application/javascript" }),
     );
   }
 
@@ -453,9 +453,9 @@ const VoiceAssistant = (props: any) => {
 
     ttsWorkletNodeRef.current = new (window.AudioWorkletNode ||
       (audioContextRef.current as any).AudioWorkletNode)(
-      audioContextRef.current,
-      "tts-playback-processor"
-    );
+        audioContextRef.current,
+        "tts-playback-processor",
+      );
 
     ttsWorkletNodeRef.current.port.onmessage = (event: any) => {
       const { type } = event.data;
@@ -559,7 +559,7 @@ const VoiceAssistant = (props: any) => {
   `;
 
     return URL.createObjectURL(
-      new Blob([processorCode], { type: "application/javascript" })
+      new Blob([processorCode], { type: "application/javascript" }),
     );
   }
 
@@ -685,7 +685,7 @@ const VoiceAssistant = (props: any) => {
       const resampledData = await resampleInt16Array(
         int16Data,
         openAiSampleRate,
-        outputSampleRate
+        outputSampleRate,
       );
 
       if (ttsWorkletNodeRef.current) {
@@ -713,7 +713,7 @@ const VoiceAssistant = (props: any) => {
   async function resampleInt16Array(
     int16Array: Int16Array,
     inputSampleRate: number,
-    outputSampleRate: number
+    outputSampleRate: number,
   ): Promise<Int16Array> {
     if (inputSampleRate === outputSampleRate) {
       return int16Array;
@@ -728,14 +728,14 @@ const VoiceAssistant = (props: any) => {
     const offlineContext = new OfflineAudioContext(
       1,
       Math.ceil((float32Array.length * outputSampleRate) / inputSampleRate),
-      outputSampleRate
+      outputSampleRate,
     );
 
     const bufferSource = offlineContext.createBufferSource();
     const audioBuffer = offlineContext.createBuffer(
       1,
       float32Array.length,
-      inputSampleRate
+      inputSampleRate,
     );
 
     audioBuffer.copyToChannel(float32Array, 0);
