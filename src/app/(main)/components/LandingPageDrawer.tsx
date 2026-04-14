@@ -1,15 +1,19 @@
 import React from "react";
 import { useAtom } from "jotai";
+import { useRouter } from "next/navigation";
 
 import HamburgerIcon from "@/assets/icons/HamburgerIcon";
 import { isDrawerOpen } from "@/app/(main)/store";
+import type { NavItem } from "@/app/(main)/page";
 
 interface Props {
   scrollToId: (id: string) => void;
+  navItems: NavItem[];
 }
 
-const LandingPageDrawer = ({ scrollToId }: Props) => {
+const LandingPageDrawer = ({ scrollToId, navItems }: Props) => {
   const [, setIsDrawerOpen] = useAtom(isDrawerOpen);
+  const router = useRouter();
 
   const handleClick = (action?: () => void) => {
     action?.();
@@ -40,37 +44,22 @@ const LandingPageDrawer = ({ scrollToId }: Props) => {
 
         <div className="flex flex-col menu p-8 w-80 min-h-full bg-[#09073A] text-base-content">
           <div className="flex flex-col gap-8">
-            <label
-              htmlFor="my-drawer"
-              className="text-base text-white cursor-pointer"
-              onClick={() => handleClick(() => scrollToId("origin-story"))}
-            >
-              Launch Video
-            </label>
-
-            <label
-              htmlFor="my-drawer"
-              className="text-base text-white cursor-pointer"
-              onClick={() => handleClick(() => scrollToId("ai-infrastructure"))}
-            >
-              A New Choice
-            </label>
-
-            <label
-              htmlFor="my-drawer"
-              className="text-base text-white cursor-pointer"
-              onClick={() => handleClick(() => scrollToId("creator-economy"))}
-            >
-              Circular Economy
-            </label>
-
-            <label
-              htmlFor="my-drawer"
-              className="text-base text-white cursor-pointer"
-              onClick={() => handleClick(() => scrollToId("pricing"))}
-            >
-              Service Tiers{" "}
-            </label>
+            {navItems.map((item, i) => (
+              <label
+                key={i}
+                htmlFor="my-drawer"
+                className="text-base text-white cursor-pointer"
+                onClick={() =>
+                  handleClick(() =>
+                    item.actionType === "scroll"
+                      ? scrollToId(item.sectionId ?? "")
+                      : router.push(item.url ?? "/")
+                  )
+                }
+              >
+                {item.label}
+              </label>
+            ))}
           </div>
 
           <div className="h-[1px] w-[90%] bg-white mt-8" />
