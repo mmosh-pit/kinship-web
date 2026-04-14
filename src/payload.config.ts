@@ -176,6 +176,64 @@ const SiteHeader: GlobalConfig = {
   ],
 };
 
+const EarlyAccessPage: GlobalConfig = {
+  slug: "early-access-page",
+  label: "Early Access Page",
+  admin: { group: "Content" },
+  fields: [
+    {
+      name: "heading",
+      type: "text",
+    },
+    {
+      name: "description",
+      type: "textarea",
+    },
+    {
+      name: "youtubeUrl",
+      type: "text",
+      label: "YouTube Embed URL",
+    },
+    {
+      name: "socialLinks",
+      type: "array",
+      fields: [
+        {
+          name: "platform",
+          type: "select",
+          required: true,
+          options: [
+            { label: "Bluesky", value: "bluesky" },
+            { label: "LinkedIn", value: "linkedin" },
+            { label: "Substack", value: "substack" },
+            { label: "Instagram", value: "instagram" },
+            { label: "Facebook", value: "facebook" },
+            { label: "Threads", value: "threads" },
+            { label: "YouTube", value: "youtube" },
+            { label: "TikTok", value: "tiktok" },
+            { label: "X", value: "x" },
+          ],
+        },
+        {
+          name: "label",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "url",
+          type: "text",
+          admin: { description: "Leave empty to show the button as disabled" },
+        },
+      ],
+    },
+    {
+      name: "bottomImageUrl",
+      type: "text",
+      label: "Bottom Decorative Image URL",
+    },
+  ],
+};
+
 // ─── Seed data ────────────────────────────────────────────────────────────────
 
 const homepageSeed = [
@@ -390,6 +448,25 @@ const homepageSeed = [
   },
 ];
 
+const earlyAccessPageSeed = {
+  heading: "Welcome Home",
+  description:
+    "We're still building out our platform, and we'll let you know as soon as we're ready to greet you. Until then, please enjoy our Origin Story video and come join us on your favorite social networks. We'll be adding the links below as we set up accounts.",
+  youtubeUrl: "https://www.youtube.com/embed/o-VRMB0-R98?si=8oxsdk9dn3fsP8aO",
+  socialLinks: [
+    { platform: "bluesky", label: "Bluesky", url: "" },
+    { platform: "linkedin", label: "LinkedIn", url: "" },
+    { platform: "substack", label: "Substack", url: "" },
+    { platform: "instagram", label: "Instagram", url: "" },
+    { platform: "facebook", label: "Facebook", url: "" },
+    { platform: "threads", label: "Threads", url: "" },
+    { platform: "youtube", label: "Youtube", url: "" },
+    { platform: "tiktok", label: "TikTok", url: "" },
+    { platform: "x", label: "X", url: "" },
+  ],
+  bottomImageUrl: "https://storage.googleapis.com/mmosh-assets/home/home_logged_in.png",
+};
+
 const siteHeaderSeed = {
   navItems: [
     { label: "Launch Video", actionType: "scroll", sectionId: "origin-story" },
@@ -404,7 +481,7 @@ const siteHeaderSeed = {
 export default buildConfig({
   admin: { user: "users" },
   collections: [Users, Media, Posts],
-  globals: [Homepage, SiteHeader],
+  globals: [Homepage, SiteHeader, EarlyAccessPage],
   editor: lexicalEditor({}),
   plugins: [
     gcsStorage({
@@ -454,6 +531,19 @@ export default buildConfig({
       }
     } catch (err) {
       payload.logger.warn(`Site header seed skipped: ${err}`);
+    }
+    try {
+      const earlyPage = await payload.findGlobal({ slug: "early-access-page", overrideAccess: true });
+      if (!earlyPage?.heading) {
+        await payload.updateGlobal({
+          slug: "early-access-page",
+          overrideAccess: true,
+          data: earlyAccessPageSeed,
+        });
+        payload.logger.info("Early access page seeded with default content.");
+      }
+    } catch (err) {
+      payload.logger.warn(`Early access page seed skipped: ${err}`);
     }
   },
 });
