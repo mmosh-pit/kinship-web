@@ -3,6 +3,8 @@ import Image from "next/image";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Blog",
   description: "Latest posts and updates",

@@ -6,6 +6,8 @@ import { convertLexicalToHTML } from "@payloadcms/richtext-lexical/html";
 import config from "@payload-config";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
   params: Promise<{ slug: string }>;
 };

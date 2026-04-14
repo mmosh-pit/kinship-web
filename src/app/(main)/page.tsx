@@ -2,6 +2,8 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import LandingPage from "./LandingPageClient";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   const payload = await getPayload({ config });
 
