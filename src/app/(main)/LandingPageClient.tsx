@@ -212,6 +212,15 @@ export default function LandingPage({ layout = [] }: { layout?: CMSBlock[] }) {
             >
               Service Tiers{" "}
             </a>
+
+            <div className="xl:mx-4 md:mx-2" />
+
+            <a
+              className="text-base text-white cursor-pointer"
+              href="/nightpapers"
+            >
+              Nightpapers{" "}
+            </a>
           </div>
 
           <div className="flex items-center gap-3">

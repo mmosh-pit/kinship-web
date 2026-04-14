@@ -64,8 +64,11 @@ export default async function BlogPostPage({ params }: Props) {
     <div className="background-content flex flex-col">
       <div className="w-full flex flex-col items-center px-6 md:px-12 py-16">
         <article className="w-full max-w-3xl flex flex-col gap-8">
-          <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">
-            ← Back to Blog
+          <Link
+            href="/nightpapers"
+            className="text-sm text-gray-400 hover:text-white transition-colors"
+          >
+            ← Back to Nightpapers
           </Link>
 
           {image?.url && (

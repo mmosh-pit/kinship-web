@@ -23,7 +23,7 @@ export default async function BlogPage() {
   return (
     <div className="background-content flex flex-col">
       <div className="w-full flex flex-col items-center px-6 md:px-12 py-16">
-        <h1 className="text-3xl font-bold mb-12">Blog</h1>
+        <h1 className="text-3xl font-bold mb-12">Nightpapers</h1>
 
         {posts.length === 0 && (
           <p className="text-gray-400">No posts published yet.</p>
@@ -32,15 +32,14 @@ export default async function BlogPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
           {posts.map((post) => {
             const image =
-              post.featuredImage &&
-              typeof post.featuredImage === "object"
+              post.featuredImage && typeof post.featuredImage === "object"
                 ? post.featuredImage
                 : null;
 
             return (
               <Link
                 key={post.id}
-                href={`/blog/${post.slug}`}
+                href={`/nightpapers/${post.slug}`}
                 className="flex flex-col rounded-xl overflow-hidden border border-white/10 hover:border-white/30 transition-colors bg-white/5"
               >
                 {image?.url && (
