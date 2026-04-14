@@ -5,20 +5,10 @@ import HamburgerIcon from "@/assets/icons/HamburgerIcon";
 import { isDrawerOpen } from "@/app/(main)/store";
 
 interface Props {
-  scrollWithOffset: (ref: any) => void;
-  originStoryRef: any;
-  kinshipIntelligenceRef: any;
-  collectiveEconomicsRef: any;
-  foundingCreatorsRef: any;
+  scrollToId: (id: string) => void;
 }
 
-const LandingPageDrawer = ({
-  scrollWithOffset,
-  originStoryRef,
-  kinshipIntelligenceRef,
-  collectiveEconomicsRef,
-  foundingCreatorsRef,
-}: Props) => {
+const LandingPageDrawer = ({ scrollToId }: Props) => {
   const [, setIsDrawerOpen] = useAtom(isDrawerOpen);
 
   const handleClick = (action?: () => void) => {
@@ -53,9 +43,7 @@ const LandingPageDrawer = ({
             <label
               htmlFor="my-drawer"
               className="text-base text-white cursor-pointer"
-              onClick={() =>
-                handleClick(() => scrollWithOffset(originStoryRef))
-              }
+              onClick={() => handleClick(() => scrollToId("origin-story"))}
             >
               Launch Video
             </label>
@@ -63,9 +51,7 @@ const LandingPageDrawer = ({
             <label
               htmlFor="my-drawer"
               className="text-base text-white cursor-pointer"
-              onClick={() =>
-                handleClick(() => scrollWithOffset(kinshipIntelligenceRef))
-              }
+              onClick={() => handleClick(() => scrollToId("ai-infrastructure"))}
             >
               A New Choice
             </label>
@@ -73,9 +59,7 @@ const LandingPageDrawer = ({
             <label
               htmlFor="my-drawer"
               className="text-base text-white cursor-pointer"
-              onClick={() =>
-                handleClick(() => scrollWithOffset(collectiveEconomicsRef))
-              }
+              onClick={() => handleClick(() => scrollToId("creator-economy"))}
             >
               Circular Economy
             </label>
@@ -83,9 +67,7 @@ const LandingPageDrawer = ({
             <label
               htmlFor="my-drawer"
               className="text-base text-white cursor-pointer"
-              onClick={() =>
-                handleClick(() => scrollWithOffset(foundingCreatorsRef))
-              }
+              onClick={() => handleClick(() => scrollToId("pricing"))}
             >
               Service Tiers{" "}
             </label>
