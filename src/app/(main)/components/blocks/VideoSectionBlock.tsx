@@ -3,9 +3,13 @@
 type Props = { block: Record<string, any> };
 
 export function VideoSectionBlock({ block }: Props) {
+  const sectionId =
+    block.sectionId ||
+    (block.blockName ? block.blockName.toLowerCase().replace(/\s+/g, "-") : undefined);
+
   return (
     <section
-      id={block.blockName ? block.blockName.toLowerCase().replace(/\s+/g, "-") : undefined}
+      id={sectionId}
       className="mb-8 md:mt-12 mt-8 flex flex-col w-full h-full px-4 md:px-8 pt-4 pb-2 justify-center items-center scroll-mt-[120px]"
     >
       {block.title && (
