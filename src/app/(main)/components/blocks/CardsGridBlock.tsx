@@ -9,9 +9,9 @@ type Props = {
 
 export function CardsGridBlock({ block, onScrollToEarlyAccess }: Props) {
   const cards: Card[] = block.cards || [];
-  const sectionId = block.blockName
-    ? block.blockName.toLowerCase().replace(/\s+/g, "-")
-    : undefined;
+  const sectionId =
+    block.sectionId ||
+    (block.blockName ? block.blockName.toLowerCase().replace(/\s+/g, "-") : undefined);
 
   const colsClass =
     cards.length >= 4

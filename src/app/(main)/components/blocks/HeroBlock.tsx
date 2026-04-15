@@ -10,9 +10,14 @@ export function HeroBlock({ block, onScrollToEarlyAccess }: Props) {
     (typeof block.backgroundImage === "object" ? block.backgroundImage?.url : block.backgroundImage) ||
     "/background/RetreatCenterhero.jpg";
 
+  const sectionId =
+    block.sectionId ||
+    (block.blockName ? block.blockName.toLowerCase().replace(/\s+/g, "-") : undefined);
+
   return (
     <div
-      className="text-center relative min-h-screen flex justify-center items-center bg-cover bg-center bg-no-repeat py-[6.875rem]"
+      id={sectionId}
+      className="text-center relative min-h-screen flex justify-center items-center bg-cover bg-center bg-no-repeat py-[6.875rem] scroll-mt-[120px]"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="m-auto max-w-[85%] xl:w-[50.063rem] border-[0.031rem] border-[#FFFFFF] bg-[#3F3E3E54] md:backdrop-filter backdrop-blur-[30px] rounded-[3rem] xl:p-[20px] p-[10px]">

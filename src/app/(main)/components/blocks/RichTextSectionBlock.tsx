@@ -16,9 +16,9 @@ export function RichTextSectionBlock({ block, onScrollToEarlyAccess }: Props) {
     block.imageUrl ||
     null;
 
-  const sectionId = block.blockName
-    ? block.blockName.toLowerCase().replace(/\s+/g, "-")
-    : undefined;
+  const sectionId =
+    block.sectionId ||
+    (block.blockName ? block.blockName.toLowerCase().replace(/\s+/g, "-") : undefined);
 
   // Image + text layout (e.g. "Message from Moto")
   if (imageUrl) {
