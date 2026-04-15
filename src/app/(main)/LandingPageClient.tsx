@@ -127,9 +127,11 @@ export default function LandingPage({
 
   const scrollToId = (id: string, offset = 120) => {
     const el = document.getElementById(id);
+    console.log("Scrolling to ID: ", id, el);
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({ top: top - offset, behavior: "smooth" });
+    // const top = el.offsetTop;
+    // window.scrollTo({ top: top, behavior: "scooth" });
+    el.scrollIntoView({ behavior: "smooth" });
   };
 
   React.useEffect(() => {
