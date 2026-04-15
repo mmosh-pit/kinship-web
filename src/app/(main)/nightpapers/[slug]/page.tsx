@@ -5,6 +5,7 @@ import { getPayload } from "payload";
 import { convertLexicalToHTML } from "@payloadcms/richtext-lexical/html";
 import config from "@payload-config";
 import type { Metadata } from "next";
+import PageHeader from "@/app/(main)/components/PageHeader";
 
 export const dynamic = "force-dynamic";
 
@@ -62,7 +63,8 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="background-content flex flex-col">
-      <div className="w-full flex flex-col items-center px-6 md:px-12 py-16">
+      <PageHeader />
+      <div className="w-full flex flex-col items-center px-6 md:px-12 pt-32 pb-16">
         <article className="w-full max-w-3xl flex flex-col gap-8">
           <Link
             href="/nightpapers"

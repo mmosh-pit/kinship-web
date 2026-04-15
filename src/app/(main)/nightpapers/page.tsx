@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import PageHeader from "@/app/(main)/components/PageHeader";
 
 export const dynamic = "force-dynamic";
 
@@ -22,7 +23,8 @@ export default async function BlogPage() {
 
   return (
     <div className="background-content flex flex-col">
-      <div className="w-full flex flex-col items-center px-6 md:px-12 py-16">
+      <PageHeader />
+      <div className="w-full flex flex-col items-center px-6 md:px-12 pt-32 pb-16">
         <h1 className="text-3xl font-bold mb-12">Nightpapers</h1>
 
         {posts.length === 0 && (
