@@ -15,11 +15,11 @@ body {
 }
 
 footer {
-  background: #09073a;
+  background: #050824;
 }
 
 main {
-  background: #09073a;
+  background: #050824;
 }
 
 p {
@@ -114,11 +114,11 @@ h6 {
 }
 
 .common-bg {
-  background: #09073a;
+  background: #050824;
 }
 
 .bg-without-picture {
-  background: #09073a;
+  background: #050824;
 }
 
 .common-bg:before {
@@ -132,7 +132,7 @@ h6 {
 }
 
 .bg-profile {
-  background: #09073a;
+  background: #050824;
 
   background-size: auto;
   background-repeat: repeat;
@@ -142,14 +142,14 @@ h6 {
   overflow-y: auto;
   overflow-x: hidden;
   /* background: url("https://storage.googleapis.com/hellbenders-public-c095b-assets/hellbendersWebAssets/texture.png"); */
-  background: #09073a;
+  background: #050824;
 }
 
 .background-content-full-bg {
   overflow-y: auto;
   overflow-x: hidden;
   min-height: 100vh;
-  background: #09073a;
+  background: #050824;
 }
 
 /* .bg-profile::before { */
