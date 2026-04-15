@@ -6,7 +6,7 @@ import config from "@payload-config";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Blog",
+  title: "Nightpapers",
   description: "Latest posts and updates",
 };
 
