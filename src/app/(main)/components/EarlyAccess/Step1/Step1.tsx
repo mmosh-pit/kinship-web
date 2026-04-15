@@ -143,8 +143,8 @@ export const Step1: React.FC<Step1Props> = ({
 
   return (
     <>
-      <div ref={earlyAccessRef} className="bg-[#09073A] py-10 my-10">
-        <div className="lg:flex items-center justify-center px-3">
+      <div ref={earlyAccessRef} className="bg-[#09073A] py-10 px-4 md:px-8 my-10">
+        <div className="lg:flex items-center justify-center">
           <EarlyAccessCircleVW />
 
           <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-[#100E59] rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">

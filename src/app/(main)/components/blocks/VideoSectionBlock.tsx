@@ -6,7 +6,7 @@ export function VideoSectionBlock({ block }: Props) {
   return (
     <section
       id={block.blockName ? block.blockName.toLowerCase().replace(/\s+/g, "-") : undefined}
-      className="mb-8 md:mt-12 mt-8 flex flex-col w-full h-full px-2 pt-4 pb-2 justify-center items-center scroll-mt-[120px]"
+      className="mb-8 md:mt-12 mt-8 flex flex-col w-full h-full px-4 md:px-8 pt-4 pb-2 justify-center items-center scroll-mt-[120px]"
     >
       {block.title && (
         <h1 className="text-center font-bold xl:px-5 leading-[1] xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy">
