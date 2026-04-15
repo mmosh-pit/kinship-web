@@ -25,7 +25,7 @@ export function RichTextSectionBlock({ block, onScrollToEarlyAccess }: Props) {
     return (
       <section
         id={sectionId}
-        className="max-md:pt-7 max-md:pb-0 pb-16 max-w-[1144px] mx-auto px-4 scroll-mt-[120px]"
+        className="max-md:pt-7 max-md:pb-0 pb-16 max-w-[1144px] mx-auto px-4 md:px-8 scroll-mt-[120px]"
       >
         {block.heading && (
           <h3 className="transition duration-300 place-self-center sm:text-left md:text-[3.125rem] max-md:text-xl max-md:leading-relaxed sm:text-[52px] font-goudy font-bold leading-[3.75rem] tracking-[-1.04px] bg-[linear-gradient(143deg,#FFF_18.17%,rgba(255,255,255,0)_152.61%)] bg-clip-text text-transparent stroke-text">
@@ -56,7 +56,7 @@ export function RichTextSectionBlock({ block, onScrollToEarlyAccess }: Props) {
   return (
     <div
       id={sectionId}
-      className="mt-[3rem] max-md:mt-8 max-md:px-3 scroll-mt-[120px]"
+      className="mt-[3rem] max-md:mt-8 px-4 md:px-8 scroll-mt-[120px]"
     >
       {block.heading && (
         <h1 className="text-center font-bold xl:px-12 leading-[1.2] xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl max-md:leading-relaxed m-auto font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text">

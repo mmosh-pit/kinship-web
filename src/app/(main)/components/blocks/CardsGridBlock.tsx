@@ -21,7 +21,7 @@ export function CardsGridBlock({ block, onScrollToEarlyAccess }: Props) {
   return (
     <div
       id={sectionId}
-      className="px-3 mt-[3rem] max-md:mt-8 scroll-mt-[120px]"
+      className="px-4 md:px-8 mt-[3rem] max-md:mt-8 scroll-mt-[120px]"
     >
       {block.sectionTitle && (
         <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text">
