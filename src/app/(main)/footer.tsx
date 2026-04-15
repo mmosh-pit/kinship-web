@@ -42,7 +42,7 @@ const Footer = () => {
           <KinshipBots />
         </div>
 
-        <ul className="flex max-xl:flex-col max-xl:gap-2 gap-8 xl:justify-between font-normal mt-8 xl:mt-0">
+        <ul className="flex max-md:flex-col max-xl:gap-2 gap-8 xl:justify-between font-normal mt-8 xl:mt-0">
           <li>
             <a
               className="cursor-pointer"
@@ -79,17 +79,6 @@ const Footer = () => {
               Founding Sages{" "}
             </a>
           </li>
-          <li>
-            <a
-              href="https://Kinship.systems"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer"
-            >
-              {" "}
-              Go Deeper
-            </a>
-          </li>{" "}
         </ul>
       </div>
 
