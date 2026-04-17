@@ -8,7 +8,7 @@
     "start": "next start --webpack",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "generate:types": "payload generate:types",
+    "generate:types": "payload generate:types --use-swc",
     "generate:importmap": "payload generate:importmap --use-swc"
   },
   "dependencies": {
