@@ -132,7 +132,18 @@ const CardsGridBlock: Block = {
 
 const Homepage: GlobalConfig = {
   slug: "homepage",
-  admin: { group: "Content" },
+  versions: { drafts: { autosave: { interval: 800 } } },
+  admin: {
+    group: "Content",
+    livePreview: {
+      url: ({ req }) => `${req.protocol}://${req.host}/?preview=1`,
+      breakpoints: [
+        { name: "mobile", width: 375, height: 667, label: "Mobile" },
+        { name: "tablet", width: 768, height: 1024, label: "Tablet" },
+        { name: "desktop", width: 1440, height: 900, label: "Desktop" },
+      ],
+    },
+  },
   fields: [
     {
       name: "layout",

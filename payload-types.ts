@@ -467,6 +467,7 @@ export interface Homepage {
           }
       )[]
     | null;
+  _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -587,6 +588,7 @@ export interface HomepageSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
+  _status?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
