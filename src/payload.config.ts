@@ -531,9 +531,13 @@ export default buildConfig({
       acl: "Public",
       bucket: process.env.GCS_BUCKET || "",
       options: {
-        credentials: JSON.parse(
-          Buffer.from(process.env.GCS_CREDENTIALS_BASE64 || "", "base64").toString("utf-8")
-        ),
+        ...(process.env.GCS_CREDENTIALS_BASE64
+          ? {
+              credentials: JSON.parse(
+                Buffer.from(process.env.GCS_CREDENTIALS_BASE64, "base64").toString("utf-8"),
+              ),
+            }
+          : {}),
       },
     }),
   ],
@@ -549,7 +553,7 @@ export default buildConfig({
         await payload.updateGlobal({
           slug: "homepage",
           overrideAccess: true,
-          data: { layout: homepageSeed },
+          data: { layout: homepageSeed } as any,
         });
         payload.logger.info("Homepage seeded with default content.");
       }
@@ -562,7 +566,7 @@ export default buildConfig({
         await payload.updateGlobal({
           slug: "site-header",
           overrideAccess: true,
-          data: siteHeaderSeed,
+          data: siteHeaderSeed as any,
         });
         payload.logger.info("Site header seeded with default nav items.");
       }
@@ -575,7 +579,7 @@ export default buildConfig({
         await payload.updateGlobal({
           slug: "early-access-page",
           overrideAccess: true,
-          data: earlyAccessPageSeed,
+          data: earlyAccessPageSeed as any,
         });
         payload.logger.info("Early access page seeded with default content.");
       }
