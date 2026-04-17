@@ -21,6 +21,6 @@ Next.js 16 + Payload 3.82, React 19, TypeScript, Tailwind + daisyUI. Postgres vi
 ## Commands
 - `npm run dev` — start local dev server.
 - `npm run typecheck` — TypeScript check (added in this PR).
-- `npm run generate:types` — regenerate `src/payload-types.ts` (added in this PR).
+- `npm run generate:types` — regenerate `payload-types.ts` at repo root (added in this PR).
 - `npm run generate:importmap` — Payload import map.
 - `npm run build` — production build.
