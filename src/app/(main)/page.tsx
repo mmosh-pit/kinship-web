@@ -21,7 +21,7 @@ export default async function Page({ searchParams }: Props) {
 
   const payload = await getPayload({ config });
 
-  let layout: Record<string, any>[] = [];
+  let layout: (Record<string, any> & { blockType: string })[] = [];
   let navItems: NavItem[] = [];
 
   try {
