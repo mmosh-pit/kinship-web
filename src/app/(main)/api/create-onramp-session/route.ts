@@ -8,9 +8,17 @@ const OnrampSessionResource = Stripe.StripeResource.extend({
   }),
 });
 
-const stripe = new Stripe(process.env.STRIPE_KEY!);
-
 export async function POST(req: NextRequest): Promise<NextResponse> {
+  const stripeKey = process.env.STRIPE_KEY;
+  if (!stripeKey) {
+    return NextResponse.json(
+      { error: "Onramp is not configured" },
+      { status: 503 },
+    );
+  }
+
+  const stripe = new Stripe(stripeKey);
+
   const { transaction_details } = await req.json();
 
   const forwardedFor = req.headers.get("x-forwarded-for");
