@@ -520,9 +520,13 @@ export default buildConfig({
       acl: "Public",
       bucket: process.env.GCS_BUCKET || "",
       options: {
-        credentials: JSON.parse(
-          Buffer.from(process.env.GCS_CREDENTIALS_BASE64 || "", "base64").toString("utf-8")
-        ),
+        ...(process.env.GCS_CREDENTIALS_BASE64
+          ? {
+              credentials: JSON.parse(
+                Buffer.from(process.env.GCS_CREDENTIALS_BASE64, "base64").toString("utf-8"),
+              ),
+            }
+          : {}),
       },
     }),
   ],
