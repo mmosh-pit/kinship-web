@@ -505,6 +505,9 @@ const siteHeaderSeed = {
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 export default buildConfig({
+  serverURL: process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_APP_MAIN_URL || "",
   admin: { user: "users" },
   collections: [Users, Media, Posts],
   globals: [Homepage, SiteHeader, EarlyAccessPage],
