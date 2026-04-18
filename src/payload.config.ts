@@ -128,6 +128,34 @@ const CardsGridBlock: Block = {
   ],
 };
 
+const PullQuoteBlock: Block = {
+  slug: "pullQuote",
+  labels: { singular: "Pull Quote", plural: "Pull Quotes" },
+  fields: [
+    sectionIdField,
+    {
+      name: "quote",
+      type: "richText",
+      label: "Quote",
+      required: true,
+      editor: lexicalEditor({}),
+    },
+    { name: "attribution", type: "text", label: "Attribution" },
+    { name: "attributionRole", type: "text", label: "Attribution Role" },
+    {
+      name: "alignment",
+      type: "select",
+      label: "Alignment",
+      defaultValue: "center",
+      options: [
+        { label: "Left", value: "left" },
+        { label: "Center", value: "center" },
+        { label: "Right", value: "right" },
+      ],
+    },
+  ],
+};
+
 // ─── Globals ──────────────────────────────────────────────────────────────────
 
 const Homepage: GlobalConfig = {
@@ -138,7 +166,7 @@ const Homepage: GlobalConfig = {
       name: "layout",
       type: "blocks",
       label: "Page Sections",
-      blocks: [HeroBlock, VideoSectionBlock, RichTextSectionBlock, CardsGridBlock],
+      blocks: [HeroBlock, VideoSectionBlock, RichTextSectionBlock, CardsGridBlock, PullQuoteBlock],
     },
   ],
 };
