@@ -1,6 +1,5 @@
 import { gcsStorage } from "@payloadcms/storage-gcs";
-import { postgresAdapter, sql } from "@payloadcms/db-postgres";
-import type { MigrateUpArgs } from "@payloadcms/db-postgres";
+import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import type { Block, CollectionConfig, GlobalConfig } from "payload";
 import { buildConfig } from "payload";
@@ -565,44 +564,35 @@ export default buildConfig({
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI || "" },
     schemaName: "payload",
-    prodMigrations: [
-      {
-        name: "20260423_add_home_hero_block",
-        up: async ({ db }: MigrateUpArgs) => {
-          await db.execute(sql`
-            CREATE TABLE IF NOT EXISTS "payload"."homepage_blocks_home_hero" (
-              "_order" integer NOT NULL,
-              "_parent_id" integer NOT NULL,
-              "_path" text NOT NULL,
-              "id" varchar PRIMARY KEY NOT NULL,
-              "section_id" varchar,
-              "headline" varchar NOT NULL,
-              "subhead" varchar,
-              "body_paragraph_one" varchar NOT NULL,
-              "body_paragraph_two" varchar NOT NULL,
-              "cta_label" varchar NOT NULL DEFAULT 'Get Early Access',
-              "cta_href" varchar NOT NULL DEFAULT '/early-access',
-              "sub_cta_text" varchar DEFAULT 'Start a Movement · Join a Movement',
-              "block_name" varchar,
-              CONSTRAINT "homepage_blocks_home_hero_parent_id_fk"
-                FOREIGN KEY ("_parent_id") REFERENCES "payload"."homepage" ("id") ON DELETE CASCADE
-            );
-            CREATE INDEX IF NOT EXISTS "homepage_blocks_home_hero_order_idx"
-              ON "payload"."homepage_blocks_home_hero" USING btree ("_order");
-            CREATE INDEX IF NOT EXISTS "homepage_blocks_home_hero_parent_id_idx"
-              ON "payload"."homepage_blocks_home_hero" USING btree ("_parent_id");
-            CREATE INDEX IF NOT EXISTS "homepage_blocks_home_hero_path_idx"
-              ON "payload"."homepage_blocks_home_hero" USING btree ("_path");
-          `);
-        },
-        down: async ({ db }: MigrateUpArgs) => {
-          await db.execute(sql`DROP TABLE IF EXISTS "payload"."homepage_blocks_home_hero";`);
-        },
-      },
-    ],
   }),
   secret: process.env.PAYLOAD_SECRET || "",
   onInit: async (payload) => {
+    // Ensure the homeHero block table exists (no migration system in this project)
+    try {
+      await (payload.db as any).execute({
+        drizzle: (payload.db as any).drizzle,
+        raw: `CREATE TABLE IF NOT EXISTS "payload"."homepage_blocks_home_hero" (
+          "_order" integer NOT NULL,
+          "_parent_id" integer NOT NULL,
+          "_path" text NOT NULL,
+          "id" varchar PRIMARY KEY NOT NULL,
+          "section_id" varchar,
+          "headline" varchar NOT NULL,
+          "subhead" varchar,
+          "body_paragraph_one" varchar NOT NULL,
+          "body_paragraph_two" varchar NOT NULL,
+          "cta_label" varchar NOT NULL DEFAULT 'Get Early Access',
+          "cta_href" varchar NOT NULL DEFAULT '/early-access',
+          "sub_cta_text" varchar DEFAULT 'Start a Movement · Join a Movement',
+          "block_name" varchar,
+          CONSTRAINT "homepage_blocks_home_hero_parent_id_fk"
+            FOREIGN KEY ("_parent_id") REFERENCES "payload"."homepage" ("id") ON DELETE CASCADE
+        )`,
+      });
+      payload.logger.info("homeHero block table ensured.");
+    } catch (err) {
+      payload.logger.warn(`homeHero table creation skipped: ${err}`);
+    }
     try {
       const homepage = await payload.findGlobal({ slug: "homepage", overrideAccess: true });
       if (!homepage?.layout?.length) {
