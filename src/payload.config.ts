@@ -1,5 +1,6 @@
 import { gcsStorage } from "@payloadcms/storage-gcs";
 import { postgresAdapter } from "@payloadcms/db-postgres";
+import type { MigrateUpArgs } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import type { Block, CollectionConfig, GlobalConfig } from "payload";
 import { buildConfig } from "payload";
@@ -564,6 +565,16 @@ export default buildConfig({
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI || "" },
     schemaName: "payload",
+    prodMigrations: [
+      {
+        name: "20260423_push_schema",
+        up: async ({ payload }: MigrateUpArgs) => {
+          const { pushDevSchema } = await import("@payloadcms/drizzle");
+          await pushDevSchema(payload.db as any);
+        },
+        down: async () => {},
+      },
+    ],
   }),
   secret: process.env.PAYLOAD_SECRET || "",
   onInit: async (payload) => {
