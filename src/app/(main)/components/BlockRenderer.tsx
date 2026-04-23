@@ -5,6 +5,7 @@ import { HeroBlock } from "./blocks/HeroBlock";
 import { VideoSectionBlock } from "./blocks/VideoSectionBlock";
 import { RichTextSectionBlock } from "./blocks/RichTextSectionBlock";
 import { CardsGridBlock } from "./blocks/CardsGridBlock";
+import { HomeHeroBlock } from "./blocks/HomeHeroBlock";
 
 type BlockProps = {
   block: Record<string, any>;
@@ -16,6 +17,7 @@ const blockComponents: Record<string, React.ComponentType<BlockProps>> = {
   videoSection: VideoSectionBlock,
   richTextSection: RichTextSectionBlock,
   cardsGrid: CardsGridBlock,
+  homeHero: HomeHeroBlock,
 };
 
 export function BlockRenderer({ block, onScrollToEarlyAccess }: BlockProps) {

@@ -15,6 +15,7 @@ export default async function Page() {
   const payload = await getPayload({ config });
 
   let layout: Record<string, any>[] = [];
+  let heroBlocks: Record<string, any>[] = [];
   let navItems: NavItem[] = [];
 
   try {
@@ -23,10 +24,11 @@ export default async function Page() {
       payload.findGlobal({ slug: "site-header", overrideAccess: true }),
     ]);
     layout = (homepage?.layout as any[]) ?? [];
+    heroBlocks = ((homepage as any)?.heroBlocks as any[]) ?? [];
     navItems = (siteHeader?.navItems as NavItem[]) ?? [];
   } catch {
     // DB not yet migrated — fall through to empty defaults
   }
 
-  return <LandingPage layout={layout} navItems={navItems} />;
+  return <LandingPage layout={layout} heroBlocks={heroBlocks} navItems={navItems} />;
 }

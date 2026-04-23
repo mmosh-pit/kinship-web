@@ -30,9 +30,11 @@ type CMSBlock = Record<string, any> & { blockType: string; blockName?: string };
 
 export default function LandingPage({
   layout = [],
+  heroBlocks = [],
   navItems = [],
 }: {
   layout?: CMSBlock[];
+  heroBlocks?: CMSBlock[];
   navItems?: NavItem[];
 }) {
   const searchParams = useSearchParams();
@@ -259,6 +261,14 @@ export default function LandingPage({
         className="bg-[#050824] text-white min-h-screen mx-auto overflow-hidden top-0 w-full"
         ref={mainSection}
       >
+        {heroBlocks.map((block, i) => (
+          <BlockRenderer
+            key={`hero-${block.id || i}`}
+            block={block}
+            onScrollToEarlyAccess={() => scrollWithOffset(earlyAccessRef)}
+          />
+        ))}
+
         {layout.map((block, i) => (
           <BlockRenderer
             key={block.id || i}

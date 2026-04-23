@@ -108,6 +108,21 @@ const RichTextSectionBlock: Block = {
   ],
 };
 
+const HomeHeroBlock: Block = {
+  slug: "homeHero",
+  labels: { singular: "Home Hero", plural: "Home Heroes" },
+  fields: [
+    sectionIdField,
+    { name: "headline", type: "text", required: true, label: "Headline" },
+    { name: "subhead", type: "text", label: "Subhead" },
+    { name: "bodyParagraphOne", type: "textarea", required: true, label: "Body Paragraph 1" },
+    { name: "bodyParagraphTwo", type: "textarea", required: true, label: "Body Paragraph 2" },
+    { name: "ctaLabel", type: "text", required: true, defaultValue: "Get Early Access", label: "CTA Label" },
+    { name: "ctaHref", type: "text", required: true, defaultValue: "/early-access", label: "CTA Link" },
+    { name: "subCtaText", type: "text", defaultValue: "Start a Movement \u00b7 Join a Movement", label: "Sub-CTA Text" },
+  ],
+};
+
 const CardsGridBlock: Block = {
   slug: "cardsGrid",
   labels: { singular: "Cards Grid", plural: "Cards Grids" },
@@ -134,6 +149,12 @@ const Homepage: GlobalConfig = {
   slug: "homepage",
   admin: { group: "Content" },
   fields: [
+    {
+      name: "heroBlocks",
+      type: "blocks",
+      label: "Hero Blocks",
+      blocks: [HomeHeroBlock],
+    },
     {
       name: "layout",
       type: "blocks",
@@ -248,6 +269,20 @@ const EarlyAccessPage: GlobalConfig = {
 };
 
 // ─── Seed data ────────────────────────────────────────────────────────────────
+
+const homepageHeroSeed = [
+  {
+    blockType: "homeHero",
+    blockName: "Home Hero",
+    headline: "Your movement deserves more than a hashtag.",
+    subhead: "Kinship turns your movement into a real organization \u2014 with a membership base, a treasury, and a team of agents that do the work.",
+    bodyParagraphOne: "Getting a movement going on social media is like climbing Niagara Falls. You fight the algorithm for reach, stomp trolls between posts, and lose your supporters to the very next meme on the screen. Social platforms were built for ads, thirst traps, and the ever-addictive scroll. To Big Tech, your powerful work is just more inventory to sell.",
+    bodyParagraphTwo: "Kinship Exchange is built different. Your members belong to a real organization, with the standing to sign contracts, hold a treasury, and act in the world. Your votes actually count. Your agents handle every side of the operational grind \u2014 campaigns, paperwork, follow-through, settlement. The work that used to take an NGO, a marketing agency, and six part-time volunteers now runs all by itself, under your own direction.",
+    ctaLabel: "Get Early Access",
+    ctaHref: "/early-access",
+    subCtaText: "Start a Movement \u00b7 Join a Movement",
+  },
+];
 
 const homepageSeed = [
   {
@@ -541,6 +576,14 @@ export default buildConfig({
           data: { layout: homepageSeed },
         });
         payload.logger.info("Homepage seeded with default content.");
+      }
+      if (!(homepage as any)?.heroBlocks?.length) {
+        await payload.updateGlobal({
+          slug: "homepage",
+          overrideAccess: true,
+          data: { heroBlocks: homepageHeroSeed },
+        });
+        payload.logger.info("Homepage hero blocks seeded.");
       }
     } catch (err) {
       payload.logger.warn(`Homepage seed skipped: ${err}`);
