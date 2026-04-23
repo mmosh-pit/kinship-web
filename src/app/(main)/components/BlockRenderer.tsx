@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { HeroBlock } from "./blocks/HeroBlock";
 import { VideoSectionBlock } from "./blocks/VideoSectionBlock";
 import { RichTextSectionBlock } from "./blocks/RichTextSectionBlock";
 import { CardsGridBlock } from "./blocks/CardsGridBlock";
@@ -13,7 +12,6 @@ type BlockProps = {
 };
 
 const blockComponents: Record<string, React.ComponentType<BlockProps>> = {
-  hero: HeroBlock,
   videoSection: VideoSectionBlock,
   richTextSection: RichTextSectionBlock,
   cardsGrid: CardsGridBlock,
