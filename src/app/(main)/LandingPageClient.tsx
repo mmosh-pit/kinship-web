@@ -36,8 +36,6 @@ export default function LandingPage({
   navItems?: NavItem[];
 }) {
 
-  console.log("LAYOUT: ", layout);
-
   const searchParams = useSearchParams();
   const [isUserAuthenticated, setIsUserAuthenticated] = useAtom(isAuth);
   const router = useRouter();
