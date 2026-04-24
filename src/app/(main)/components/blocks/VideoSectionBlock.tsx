@@ -1,5 +1,7 @@
 "use client";
 
+import { renderWithLineBreaks } from "../renderWithLineBreaks";
+
 type Props = { block: Record<string, any> };
 
 export function VideoSectionBlock({ block }: Props) {
@@ -14,7 +16,7 @@ export function VideoSectionBlock({ block }: Props) {
     >
       {block.title && (
         <h1 className="text-center font-bold xl:px-5 leading-[1] xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy">
-          {block.title}
+          {renderWithLineBreaks(block.title)}
         </h1>
       )}
 
@@ -37,7 +39,7 @@ export function VideoSectionBlock({ block }: Props) {
       {block.description && (
         <div className="xl:w-[64.313rem] m-auto">
           <p className="max-md:text-sm max-md:px-2 text-center text-lg text-[#FFFFFFC7] px-[2rem] mt-5 font-avenir">
-            {block.description}
+            {renderWithLineBreaks(block.description)}
           </p>
         </div>
       )}

@@ -1,5 +1,7 @@
 "use client";
 
+import { renderWithLineBreaks } from "../renderWithLineBreaks";
+
 type Props = {
   block: Record<string, any>;
   onScrollToEarlyAccess: () => void;
@@ -22,20 +24,20 @@ export function HeroBlock({ block, onScrollToEarlyAccess }: Props) {
     >
       <div className="m-auto max-w-[85%] xl:w-[50.063rem] border-[0.031rem] border-[#FFFFFF] bg-[#3F3E3E54] md:backdrop-filter backdrop-blur-[30px] rounded-[3rem] xl:p-[20px] p-[10px]">
         <h1 className="w-auto md:text-[3.5rem] text-4xl leading-relaxed xl:leading-[2.813rem] font-bold font-poppinsNew bg-[linear-gradient(135deg,#FFF_11.53%,rgba(255,255,255,0.30)_109.53%)] bg-clip-text text-transparent stroke-text">
-          {block.title}
+          {renderWithLineBreaks(block.title)}
         </h1>
 
         {block.subtitle && (
           <div className="mt-3.5">
             <p className="xl:text-base text-xs text-[#FFFFFF] font-avenir text-opacity-90 xl:px-12">
-              {block.subtitle}
+              {renderWithLineBreaks(block.subtitle)}
             </p>
           </div>
         )}
 
         {block.tagline && (
           <h1 className="w-auto xl:text-[1.375rem] text-[0.75rem] leading-[1.2] font-bold font-poppinsNew bg-[linear-gradient(135deg,#FFF_11.53%,rgba(255,255,255,0.30)_109.53%)] bg-clip-text text-transparent stroke-text mt-4">
-            {block.tagline}
+            {renderWithLineBreaks(block.tagline)}
           </h1>
         )}
 

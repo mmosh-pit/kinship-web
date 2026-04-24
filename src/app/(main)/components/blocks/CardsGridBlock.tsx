@@ -1,5 +1,7 @@
 "use client";
 
+import { renderWithLineBreaks } from "../renderWithLineBreaks";
+
 type Card = { title?: string; subtitle?: string; description?: string };
 
 type Props = {
@@ -25,13 +27,13 @@ export function CardsGridBlock({ block, onScrollToEarlyAccess }: Props) {
     >
       {block.sectionTitle && (
         <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text">
-          {block.sectionTitle}
+          {renderWithLineBreaks(block.sectionTitle)}
         </h1>
       )}
 
       {block.description && (
         <p className="max-md:text-sm font-avenir text-center text-[#FFFFFFC7] mt-[1rem] xl:w-[64.313rem] mx-auto">
-          {block.description}
+          {renderWithLineBreaks(block.description)}
         </p>
       )}
 
@@ -46,17 +48,17 @@ export function CardsGridBlock({ block, onScrollToEarlyAccess }: Props) {
             <div className="bg-[linear-gradient(155deg,#070a38_0%,#07052e_109.53%)] rounded-xl py-6 px-3 h-full flex flex-col text-center">
               {card.title && (
                 <p className="text-white font-bold text-[1.375rem] font-avenirNext">
-                  {card.title}
+                  {renderWithLineBreaks(card.title)}
                 </p>
               )}
               {card.subtitle && (
                 <p className="text-white font-bold text-lg font-avenirNext mt-1">
-                  {card.subtitle}
+                  {renderWithLineBreaks(card.subtitle)}
                 </p>
               )}
               {card.description && (
                 <p className="text-[#CDCDCDE5] font-avenir text-[0.938rem] leading-[110%] tracking-[-0.02em] mt-2">
-                  {card.description}
+                  {renderWithLineBreaks(card.description)}
                 </p>
               )}
             </div>
