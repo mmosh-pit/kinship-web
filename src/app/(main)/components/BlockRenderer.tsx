@@ -21,5 +21,6 @@ const blockComponents: Record<string, React.ComponentType<BlockProps>> = {
 export function BlockRenderer({ block, onScrollToEarlyAccess }: BlockProps) {
   const Component = blockComponents[block.blockType];
   if (!Component) return null;
+  console.log("BLOCK:", block);
   return <Component block={block} onScrollToEarlyAccess={onScrollToEarlyAccess} />;
 }
