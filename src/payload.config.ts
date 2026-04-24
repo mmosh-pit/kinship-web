@@ -132,7 +132,18 @@ const CardsGridBlock: Block = {
 
 const Homepage: GlobalConfig = {
   slug: "homepage",
-  admin: { group: "Content" },
+  versions: { drafts: { autosave: { interval: 800 } } },
+  admin: {
+    group: "Content",
+    livePreview: {
+      url: ({ req }) => `${req.protocol}://${req.host}/?preview=1`,
+      breakpoints: [
+        { name: "mobile", width: 375, height: 667, label: "Mobile" },
+        { name: "tablet", width: 768, height: 1024, label: "Tablet" },
+        { name: "desktop", width: 1440, height: 900, label: "Desktop" },
+      ],
+    },
+  },
   fields: [
     {
       name: "layout",
@@ -505,6 +516,9 @@ const siteHeaderSeed = {
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 export default buildConfig({
+  serverURL: process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_APP_MAIN_URL || "",
   admin: { user: "users" },
   collections: [Users, Media, Posts],
   globals: [Homepage, SiteHeader, EarlyAccessPage],
@@ -520,9 +534,13 @@ export default buildConfig({
       acl: "Public",
       bucket: process.env.GCS_BUCKET || "",
       options: {
-        credentials: JSON.parse(
-          Buffer.from(process.env.GCS_CREDENTIALS_BASE64 || "", "base64").toString("utf-8")
-        ),
+        ...(process.env.GCS_CREDENTIALS_BASE64
+          ? {
+              credentials: JSON.parse(
+                Buffer.from(process.env.GCS_CREDENTIALS_BASE64, "base64").toString("utf-8"),
+              ),
+            }
+          : {}),
       },
     }),
   ],
@@ -538,7 +556,7 @@ export default buildConfig({
         await payload.updateGlobal({
           slug: "homepage",
           overrideAccess: true,
-          data: { layout: homepageSeed },
+          data: { layout: homepageSeed } as any,
         });
         payload.logger.info("Homepage seeded with default content.");
       }
@@ -551,7 +569,7 @@ export default buildConfig({
         await payload.updateGlobal({
           slug: "site-header",
           overrideAccess: true,
-          data: siteHeaderSeed,
+          data: siteHeaderSeed as any,
         });
         payload.logger.info("Site header seeded with default nav items.");
       }
@@ -564,7 +582,7 @@ export default buildConfig({
         await payload.updateGlobal({
           slug: "early-access-page",
           overrideAccess: true,
-          data: earlyAccessPageSeed,
+          data: earlyAccessPageSeed as any,
         });
         payload.logger.info("Early access page seeded with default content.");
       }
