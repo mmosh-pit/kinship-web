@@ -21,7 +21,7 @@ export function HeroBlock({ block, onScrollToEarlyAccess }: Props) {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="m-auto max-w-[85%] xl:w-[50.063rem] border-[0.031rem] border-[#FFFFFF] bg-[#3F3E3E54] md:backdrop-filter backdrop-blur-[30px] rounded-[3rem] xl:p-[20px] p-[10px]">
-        <h1 className="w-auto md:text-[2.813rem] text-4xl leading-relaxed xl:leading-[2.813rem] font-bold font-poppinsNew bg-[linear-gradient(135deg,#FFF_11.53%,rgba(255,255,255,0.30)_109.53%)] bg-clip-text text-transparent stroke-text">
+        <h1 className="w-auto md:text-[3.5rem] text-4xl leading-relaxed xl:leading-[2.813rem] font-bold font-poppinsNew bg-[linear-gradient(135deg,#FFF_11.53%,rgba(255,255,255,0.30)_109.53%)] bg-clip-text text-transparent stroke-text">
           {block.title}
         </h1>
 
