@@ -31,7 +31,7 @@ export function encryptData(data: any): string {
     .substring(0, 16);
 
   const cipher = crypto.createCipheriv(encryptionMethod, key, encryptionIV);
-  return Buffer.from(
-    cipher.update(data, "utf8", "hex") + cipher.final("hex"),
-  ).toString("base64");
+  const encrypted =
+    cipher.update(data, "utf8", "hex") + cipher.final("hex");
+  return Buffer.from(encrypted, "hex").toString("base64");
 }
