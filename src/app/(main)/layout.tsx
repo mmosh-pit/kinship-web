@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter, Poppins } from "next/font/google";
-import Header from "./components/Header";
 import "../globals.css";
-// import Footer from "./components/Footer";
-import ConfigHOC from "./components/ConfigHOC";
 import Footer from "./footer";
-import { Suspense } from "react";
+import ConfigHOC from "@/components/ConfigHOC/ConfigHOC";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -139,6 +137,7 @@ const avenirLTStd = localFont({
   display: "swap",
 });
 
+
 export const metadata: Metadata = {
   title: "Kinship Agents — The Marketplace for Cooperative AI",
   description:
@@ -160,12 +159,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} ${patched.variable} ${avenir.variable} ${avenirNext.variable} ${avenirLTStd.variable}`}
-    >
+    <html lang="en" data-theme="dark" className={`${poppins.variable} ${patched.variable} ${avenir.variable} ${avenirNext.variable} ${avenirLTStd.variable}`}>
       <head>
-        <link rel="icon" href="/mmosh.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -174,9 +170,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className}`}>
         <ConfigHOC>
-          <Suspense>
-            <main className="grow">{children}</main>
-          </Suspense>
+          <main className="grow">{children}</main>
           <Footer />
         </ConfigHOC>
       </body>

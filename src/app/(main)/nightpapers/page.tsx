@@ -48,7 +48,7 @@ export default async function BlogPage() {
                   <div className="relative w-full h-48">
                     <Image
                       src={image.url}
-                      alt={image.alt || post.title}
+                      alt={(image as any).alt || post.title}
                       fill
                       className="object-cover"
                     />

@@ -254,10 +254,10 @@ const homepageSeed = [
     blockType: "hero",
     blockName: "Hero",
     sectionId: "hero",
-    title: "Where AI Belongs",
+    title: "Your movement deserves more than a #hashtag.",
     subtitle:
-      "Kinship Agents is where creators turn their life's work into living AI agents — and where their people can find them. A cooperative ecosystem governed by members and dedicated to transforming how we grow, connect, live, and work together.",
-    tagline: "Change Yourself. Change Your Life. Change The World.",
+      "Getting a movement going on social media is like climbing Niagara Falls. You fight the algorithms for reach, stomp trolls between posts, and lose your supporters to the very next meme on the screen. Social platforms were built for ads, thirst traps, and the ever-addictive scroll. To Big Tech, your powerful work is just more inventory to sell.\n\nKinship Exchange is built different. Your members belong to a real organization, with the standing to sign contracts, hold a treasury, and act in the world. Your votes actually count. Your agents handle every side of the operational grind — campaigns, paperwork, follow-through, settlement. The work that used to take an NGO, a marketing agency, and six part-time volunteers now runs all by itself, under your own direction.",
+    tagline: "Kinship turns your movement into a real organization — with a membership base, a treasury, and a team of agents that do the work.",
     ctaText: "Join Early Access",
   },
   {
@@ -497,35 +497,47 @@ const siteHeaderSeed = {
   navItems: [
     { label: "Launch Video", actionType: "scroll", sectionId: "origin-story" },
     { label: "A New Choice", actionType: "scroll", sectionId: "ai-infrastructure" },
-    { label: "Circular Economy", actionType: "scroll", sectionId: "creator-economy" },
-    { label: "Service Tiers", actionType: "scroll", sectionId: "pricing" },
+    { label: "Why Agents", actionType: "scroll", sectionId: "platform" },
+    { label: "Flexible Economics", actionType: "scroll", sectionId: "creator-economy" },
+    { label: "Nightpapers", actionType: "link", url: "/nightpapers" },
   ],
 };
 
 // ─── Config ───────────────────────────────────────────────────────────────────
+
+// ─── Plugins ──────────────────────────────────────────────────────────────────
+
+const plugins: any[] = [];
+
+if (process.env.GCS_BUCKET && process.env.GCS_CREDENTIALS_BASE64) {
+  try {
+    const credentials = JSON.parse(
+      Buffer.from(process.env.GCS_CREDENTIALS_BASE64, "base64").toString("utf-8")
+    );
+    plugins.push(
+      gcsStorage({
+        collections: {
+          media: {
+            prefix: "payload",
+            disablePayloadAccessControl: true,
+          },
+        },
+        acl: "Public",
+        bucket: process.env.GCS_BUCKET,
+        options: { credentials },
+      }),
+    );
+  } catch {
+    console.warn("GCS_CREDENTIALS_BASE64 is invalid — media uploads will use local disk.");
+  }
+}
 
 export default buildConfig({
   admin: { user: "users" },
   collections: [Users, Media, Posts],
   globals: [Homepage, SiteHeader, EarlyAccessPage],
   editor: lexicalEditor({}),
-  plugins: [
-    gcsStorage({
-      collections: {
-        media: {
-          prefix: "payload",
-          disablePayloadAccessControl: true,
-        },
-      },
-      acl: "Public",
-      bucket: process.env.GCS_BUCKET || "",
-      options: {
-        credentials: JSON.parse(
-          Buffer.from(process.env.GCS_CREDENTIALS_BASE64 || "", "base64").toString("utf-8")
-        ),
-      },
-    }),
-  ],
+  plugins,
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI || "" },
     schemaName: "payload",

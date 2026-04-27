@@ -2,25 +2,18 @@
 
 import React from "react";
 import { useRef, useState } from "react";
-import AlertModal from "../(main)/components/Modal";
-import KinshipBots from "@/assets/icons/KinshipBots";
-import Button from "../(main)/components/common/Button";
-import LandingPageDrawer from "../(main)/components/LandingPageDrawer";
+import { useSearchParams } from "next/navigation";
+import { Step1 } from "@/components/EarlyAccess/Step1/Step1";
+import { Step2 } from "@/components/EarlyAccess/Step2/Step2";
+import { Step3 } from "@/components/EarlyAccess/Step3/Step3";
+import { Step4 } from "@/components/EarlyAccess/Step4/Step4";
+import { Step5 } from "@/components/EarlyAccess/Step5/Step5";
+import { Step6 } from "@/components/EarlyAccess/Step6/Step6";
 import { testimonials } from "@/constants/testimonials";
-import { Step1 } from "../(main)/components/EarlyAccess/Step1/Step1";
-import { Step2 } from "../(main)/components/EarlyAccess/Step2/Step2";
-import { Step3 } from "../(main)/components/EarlyAccess/Step3/Step3";
-import { Step4 } from "../(main)/components/EarlyAccess/Step4/Step4";
-import { Step5 } from "../(main)/components/EarlyAccess/Step5/Step5";
-import { Step6 } from "../(main)/components/EarlyAccess/Step6/Step6";
-import { Step7 } from "../(main)/components/EarlyAccess/Step7/Step7";
-import { ErrorContainerVW } from "../(catfawn)/catfawn/components/ErrorContainer/ErrorContainerVW";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useAtom } from "jotai";
-import { data, isAuth, isAuthModalOpen, isAuthOverlayOpen } from "./store";
-import client from "./lib/httpClient";
-import WizardEditButton from "./components/AiPageEditor/WizardEditButton";
-import AiPageEditor from "./components/AiPageEditor/AiPageEditor";
+import LandingPageDrawer from "@/components/LandingPageDrawer/LandingPageDrawer";
+import { ErrorContainerVW } from "@/components/ErrorContainer/ErrorContainerVW";
+import Button from "@/components/Button/Button";
+import KinshipBots from "../../../public/assets/icons/KinshipBots";
 import { BlockRenderer } from "./components/BlockRenderer";
 import type { NavItem } from "./page";
 
@@ -35,18 +28,7 @@ export default function LandingPage({
   layout?: CMSBlock[];
   navItems?: NavItem[];
 }) {
-
   const searchParams = useSearchParams();
-  const [isUserAuthenticated, setIsUserAuthenticated] = useAtom(isAuth);
-  const router = useRouter();
-  const [_, setShowAuthOverlay] = useAtom(isAuthOverlayOpen);
-  const [__, setIsAuthModalOpen] = useAtom(isAuthModalOpen);
-  const [currentUser, setCurrentUser] = useAtom(data);
-
-  const [isLoadingLogout, setIsLoadingLogout] = useState(false);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [initialModalStep, setInitialModalStep] = useState(0);
 
   const earlyAccessRef = useRef<HTMLDivElement>(null);
   const mainSection = useRef<HTMLDivElement>(null);
@@ -55,6 +37,8 @@ export default function LandingPage({
   const itemsPerSlide = 3;
 
   const totalSlides = Math.ceil((testimonials?.length || 0) / itemsPerSlide);
+
+  const [currentStep, setCurrentStep] = useState<number>(1);
 
   React.useEffect(() => {
     try {
@@ -68,27 +52,6 @@ export default function LandingPage({
       setCurrentStep(1);
     }
   }, []);
-
-  const checkIfIsAuthenticated = React.useCallback(async () => {
-    const url = `/is-auth`;
-
-    try {
-      const result = await client.get(url);
-
-      const user = result.data?.data?.user;
-
-      if (!!user && !isUserAuthenticated) {
-        router.replace("/early");
-      }
-
-      setShowAuthOverlay(!user);
-      setIsAuthModalOpen(!user);
-      setIsUserAuthenticated(!!user);
-      setCurrentUser(user);
-    } catch (err) {
-      // router.replace("/");
-    }
-  }, [STORAGE_KEY, isUserAuthenticated]);
 
   const prevSlide = () => {
     if (!totalSlides) return;
@@ -105,75 +68,39 @@ export default function LandingPage({
     currentSlide * itemsPerSlide + itemsPerSlide,
   );
 
-  const [currentStep, setCurrentStep] = useState<number>(1);
-
-  React.useEffect(() => {
-    checkIfIsAuthenticated();
-  }, []);
-
   const scrollWithOffset = (
     ref: React.RefObject<HTMLElement | null>,
     offset = 120,
   ) => {
     if (!ref.current) return;
-
     const elementTop =
       ref.current.getBoundingClientRect().top + window.pageYOffset;
-
-    window.scrollTo({
-      top: elementTop - offset,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: elementTop - offset, behavior: "smooth" });
   };
 
-  const scrollToId = (id: string, offset = 120) => {
+  const scrollToId = (id: string) => {
     const el = document.getElementById(id);
-    console.log("Scrolling to ID: ", id, el);
-    if (!el) return;
-    // const top = el.offsetTop;
-    // window.scrollTo({ top: top, behavior: "scooth" });
-    el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: elementTop - 120, behavior: "smooth" });
+    }
   };
 
   React.useEffect(() => {
     const menuType = searchParams.get("menu_type");
-    if (menuType === "origin_story") {
-      scrollToId("origin-story");
-    } else if (menuType === "kinship_intelligence") {
-      scrollToId("ai-infrastructure");
-    } else if (menuType === "co_op_economics") {
-      scrollToId("creator-economy");
-    } else if (menuType === "founding_sages") {
-      scrollToId("pricing");
-    } else if (menuType === "join_early_access") {
+    if (menuType === "join_early_access") {
       scrollWithOffset(earlyAccessRef);
+    } else if (menuType) {
+      scrollToId(menuType.replace(/_/g, "-"));
     }
   }, []);
-
-  const logout = async () => {
-    if (isLoadingLogout) return;
-
-    setIsLoadingLogout(true);
-    await client.delete("/logout", {});
-    window.localStorage.removeItem("token");
-    setIsLoadingLogout(false);
-
-    setIsUserAuthenticated(false);
-    setCurrentUser(null);
-    setIsAuthModalOpen(false);
-    setShowAuthOverlay(true);
-  };
 
   const [showMsg, setShowMsg] = React.useState(true);
   const [msgClass, setMsgClass] = React.useState("success");
   const [msgText, setMsgText] = React.useState("");
 
-  // When loaded in the preview iframe, hide editor UI
-  const isPreviewMode = searchParams.get("_wizard_preview") === "1";
-
   return (
     <div className="relative h-full">
-      {!isPreviewMode && <AiPageEditor />}
       <header className="w-full fixed flex justify-center z-10">
         <div className="flex justify-between items-center max-2xl:container px-4 max-xl:py-4 py-8 bg-[#32323212] backdrop-filter backdrop-blur-[13px] sm:rounded-full w-full 2xl:mx-40 self-center">
           <button
@@ -197,7 +124,7 @@ export default function LandingPage({
                   onClick={() =>
                     item.actionType === "scroll"
                       ? scrollToId(item.sectionId ?? "")
-                      : router.push(item.url ?? "/")
+                      : window.open(item.url ?? "/", "_blank")
                   }
                 >
                   {item.label}
@@ -206,41 +133,14 @@ export default function LandingPage({
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
-            {currentUser == null && (
-              <div className="font-bold">
-                <Button
-                  action={() => router.push("/login")}
-                  size="small"
-                  isPrimary
-                  title="Login"
-                  isLoading={false}
-                />
-              </div>
-            )}
-
-            {currentUser != null && (
-              <div className="font-bold">
-                <Button
-                  action={logout}
-                  size="small"
-                  isPrimary
-                  title="Logout"
-                  isLoading={false}
-                />
-              </div>
-            )}
-
-            {!isPreviewMode && <WizardEditButton />}
-            <div className="font-bold">
-              <Button
-                action={() => scrollWithOffset(earlyAccessRef)}
-                size="small"
-                isPrimary
-                title="Join Early Access"
-                isLoading={false}
-              />
-            </div>
+          <div className="font-bold">
+            <Button
+              action={() => scrollWithOffset(earlyAccessRef)}
+              size="small"
+              isPrimary
+              title="Join Early Access"
+              isLoading={false}
+            />
           </div>
         </div>
         <ErrorContainerVW
@@ -250,16 +150,11 @@ export default function LandingPage({
         />
       </header>
 
-      <AlertModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        isHome={false}
-        initialStep={initialModalStep}
-      />
       <div
         className="bg-[#050824] text-white min-h-screen mx-auto overflow-hidden top-0 w-full"
         ref={mainSection}
       >
+        {/* ── CMS Blocks ── */}
         {layout.map((block, i) => (
           <BlockRenderer
             key={block.id || i}
@@ -268,6 +163,7 @@ export default function LandingPage({
           />
         ))}
 
+        {/* ── Early Access Steps ── */}
         {currentStep === 1 && (
           <Step1
             onSuccess={() => setCurrentStep(2)}
@@ -318,15 +214,16 @@ export default function LandingPage({
           />
         )}
         {currentStep === 6 && (
-          <Step7
+          <Step6
+            onBack={() => setCurrentStep(5)}
             earlyAccessRef={earlyAccessRef}
-            onBack={() => setCurrentStep(6)}
             setShowMsg={setShowMsg}
             setMsgClass={setMsgClass}
             setMsgText={setMsgText}
           />
         )}
 
+        {/* ── Testimonials ── */}
         <section
           className="px-4 max-md:my-6 my-10 mx-auto"
           ref={testimonialsSection}
@@ -337,18 +234,8 @@ export default function LandingPage({
                 onClick={prevSlide}
                 className="absolute top-1/2 left-[-2%] 2xl:left-[-5%] transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-2 rounded-full text-white z-10"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 19l-7-7 7-7"
-                  />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
 
@@ -356,18 +243,8 @@ export default function LandingPage({
                 onClick={nextSlide}
                 className="absolute top-1/2 right-[-2%] 2xl:right-[-5%] transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-2 rounded-full text-white z-10"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
 
@@ -383,7 +260,7 @@ export default function LandingPage({
                       className="mx-auto mb-4 w-16 h-16 rounded-full object-cover border-2 border-white"
                     />
                     <p className="text-base italic mb-4 font-avenir">
-                      &ldquo;{item.text}&rdquo;
+                      &quot;{item.text}&quot;
                     </p>
                     <h3 className="font-extrabold text-lg font-avenirLtStd">
                       {item.name}

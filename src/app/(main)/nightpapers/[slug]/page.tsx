@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="relative w-full h-72 rounded-xl overflow-hidden">
               <Image
                 src={image.url}
-                alt={image.alt || post.title}
+                alt={(image as any).alt || post.title}
                 fill
                 className="object-cover"
               />

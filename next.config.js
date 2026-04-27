@@ -2,7 +2,6 @@
 import { withPayload } from "@payloadcms/next/withPayload";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
-import webpack from "webpack";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -37,16 +36,9 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config, _context) => {
+  webpack: (config, { webpack }) => {
     config.resolve.fallback = { fs: false };
     config.resolve.alias["jotai"] = resolve(__dirname, "node_modules/jotai");
-    config.resolve.alias["@coral-xyz/anchor$"] = resolve(__dirname, "node_modules/@coral-xyz/anchor/dist/cjs/index.js");
-
-    // Alias for problematic anchor imports
-    config.resolve.alias["@coral-xyz/anchor/dist/cjs/utils/bytes"] = resolve(
-      __dirname,
-      "node_modules/@coral-xyz/anchor/dist/esm/utils/bytes",
-    );
 
     // Exclude undici from webpack processing to avoid build errors
     config.externals = config.externals || [];

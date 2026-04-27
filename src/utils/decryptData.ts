@@ -1,9 +1,11 @@
 import crypto from "crypto";
 export const decryptData = (data: string): string => {
     try {
-        const secretKey = process.env.SECRET_KEY || "F0N9ogWmYbWDc6smA94dCPkvhck5L5FQjYAaZ39ZrM";
-        const encryptionMethod = process.env.ENCRYPTION_METHOD || "aes-256-cbc";
-        const secretIv = process.env.SECRET_IV || "60e142d4325237a695aa95afddea8687";
+        const secretKey = process.env.NEXT_PUBLIC_SECRET_KEY || process.env.SECRET_KEY || "";
+        const encryptionMethod = process.env.NEXT_PUBLIC_ENCRYPTION_METHOD || process.env.ENCRYPTION_METHOD || "aes-256-cbc";
+        const secretIv = process.env.NEXT_PUBLIC_SECRET_IV || process.env.SECRET_IV || "";
+
+        if (!secretKey || !secretIv) return "";
 
         const key = crypto
             .createHash("sha512")
@@ -36,9 +38,11 @@ export const decryptData = (data: string): string => {
 
 export const encryptData = (data: string): string => {
     try {
-        const secretKey = process.env.SECRET_KEY || "F0N9ogWmYbWDc6smA94dCPkvhck5L5FQjYAaZ39ZrM";
-        const encryptionMethod = process.env.ENCRYPTION_METHOD || "aes-256-cbc";
-        const secretIv = process.env.SECRET_IV || "60e142d4325237a695aa95afddea8687";
+        const secretKey = process.env.NEXT_PUBLIC_SECRET_KEY || process.env.SECRET_KEY || "";
+        const encryptionMethod = process.env.NEXT_PUBLIC_ENCRYPTION_METHOD || process.env.ENCRYPTION_METHOD || "aes-256-cbc";
+        const secretIv = process.env.NEXT_PUBLIC_SECRET_IV || process.env.SECRET_IV || "";
+
+        if (!secretKey || !secretIv) return "";
 
         const key = crypto
             .createHash("sha512")

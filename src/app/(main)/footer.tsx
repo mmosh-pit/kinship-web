@@ -1,17 +1,17 @@
 "use client";
 
-import KinshipMainIcon from "@/assets/icons/KinshipMainIcon";
+import KinshipMainIcon from "../../../public/assets/icons/KinshipMainIcon";
 import { usePathname } from "next/navigation";
-import YoutubeIcon from "@/assets/icons/YoutubeIcon";
-import TiktokIcon from "@/assets/icons/TiktokIcon";
-import TwitterIcon from "@/assets/icons/TwitterIcon";
-import InstagramIcon from "@/assets/icons/InstagramIcon";
-import ThreadsIcon from "@/assets/icons/ThreadsIcon";
-import FacebookIcon from "@/assets/icons/FacebookIcon";
-import SubstackIcon from "@/assets/icons/SubstackIcon";
-import BlueskyIcon from "@/assets/icons/BlueskyIcon";
-import LinkedinIcon from "@/assets/icons/LinkedinIcon";
-import KinshipBots from "@/assets/icons/KinshipBots";
+import YoutubeIcon from "../../../public/assets/icons/YoutubeIcon";
+import KinshipBots from "../../../public/assets/icons/KinshipBots";
+import TiktokIcon from "../../../public/assets/icons/TiktokIcon";
+import TwitterIcon from "../../../public/assets/icons/TwitterIcon";
+import InstagramIcon from "../../../public/assets/icons/InstagramIcon";
+import ThreadsIcon from "../../../public/assets/icons/ThreadsIcon";
+import FacebookIcon from "../../../public/assets/icons/FacebookIcon";
+import SubstackIcon from "../../../public/assets/icons/SubstackIcon";
+import BlueskyIcon from "../../../public/assets/icons/BlueskyIcon";
+import LinkedinIcon from "../../../public/assets/icons/LinkedinIcon";
 
 const Footer = () => {
   const pathname = usePathname();
@@ -42,7 +42,7 @@ const Footer = () => {
           <KinshipBots />
         </div>
 
-        <ul className="flex max-md:flex-col max-xl:gap-2 gap-8 xl:justify-between font-normal mt-8 xl:mt-0">
+        <ul className="flex max-xl:flex-col max-xl:gap-2 gap-8 xl:justify-between font-normal mt-8 xl:mt-0">
           <li>
             <a
               className="cursor-pointer"
@@ -79,23 +79,31 @@ const Footer = () => {
               Founding Sages{" "}
             </a>
           </li>
+          <li>
+            <a
+              href="https://Kinship.today"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer"
+            >
+              {" "}
+              Go Deeper
+            </a>
+          </li>{" "}
         </ul>
       </div>
 
       <div className="xl:flex justify-between items-center mt-12 place-self-center">
         <div>
           <p className="text-sm">
-            © 2025 Kinship Media Syndicate. All Rights Reserved.
+            © 2025 Kinship Intelligence Cooperative, PBC. All Rights Reserved.
           </p>
           <p className="text-sm">
-            Read our{" "}
-            <a href="/tos" target="_blank">
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a href="/privacy" target="_blank">
-              Privacy Policy
-            </a>
+            Kinship Intelligence™ and Kinship Bots™ are trademarks of
+          </p>
+          <p className="text-sm">
+            Kinship Intelligence, a Colorado Cooperative and Public Benefit
+            Corporation.
           </p>
         </div>
         <div>
