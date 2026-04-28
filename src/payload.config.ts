@@ -128,6 +128,263 @@ const CardsGridBlock: Block = {
   ],
 };
 
+const FeaturesGridBlock: Block = {
+  slug: "featuresGrid",
+  labels: { singular: "Features Grid", plural: "Features Grids" },
+  fields: [
+    sectionIdField,
+    { name: "sectionTitle", type: "text", label: "Section Title" },
+    { name: "description", type: "textarea", label: "Section Description" },
+    {
+      name: "features",
+      type: "array",
+      label: "Features",
+      fields: [
+        { name: "icon", type: "upload", relationTo: "media", label: "Icon (upload)" },
+        { name: "iconUrl", type: "text", label: "Icon URL (alternative to upload)" },
+        { name: "title", type: "text", label: "Title" },
+        { name: "description", type: "textarea", label: "Description" },
+      ],
+    },
+  ],
+};
+
+const TestimonialsBlock: Block = {
+  slug: "testimonials",
+  labels: { singular: "Testimonials", plural: "Testimonials" },
+  fields: [
+    sectionIdField,
+    { name: "sectionTitle", type: "text", label: "Section Title" },
+    { name: "description", type: "textarea", label: "Section Description" },
+    {
+      name: "testimonials",
+      type: "array",
+      label: "Testimonials",
+      fields: [
+        { name: "quote", type: "textarea", label: "Quote", required: true },
+        { name: "authorName", type: "text", label: "Author Name" },
+        { name: "authorTitle", type: "text", label: "Author Title / Role" },
+        { name: "company", type: "text", label: "Company" },
+        { name: "avatar", type: "upload", relationTo: "media", label: "Avatar (upload)" },
+        { name: "avatarUrl", type: "text", label: "Avatar URL (alternative to upload)" },
+      ],
+    },
+  ],
+};
+
+const LogoCloudBlock: Block = {
+  slug: "logoCloud",
+  labels: { singular: "Logo Cloud", plural: "Logo Clouds" },
+  fields: [
+    sectionIdField,
+    { name: "heading", type: "text", label: "Heading (optional)" },
+    { name: "subheading", type: "text", label: "Subheading (optional)" },
+    {
+      name: "logos",
+      type: "array",
+      label: "Logos",
+      fields: [
+        { name: "image", type: "upload", relationTo: "media", label: "Logo (upload)" },
+        { name: "imageUrl", type: "text", label: "Logo URL (alternative to upload)" },
+        { name: "alt", type: "text", label: "Alt Text" },
+        { name: "linkUrl", type: "text", label: "Link URL (optional)" },
+      ],
+    },
+  ],
+};
+
+const StatsBlock: Block = {
+  slug: "statsNumbers",
+  labels: { singular: "Stats / Numbers", plural: "Stats / Numbers" },
+  fields: [
+    sectionIdField,
+    { name: "heading", type: "text", label: "Heading (optional)" },
+    { name: "description", type: "textarea", label: "Description (optional)" },
+    {
+      name: "stats",
+      type: "array",
+      label: "Stats",
+      fields: [
+        { name: "value", type: "text", label: "Value (e.g. '10,000', '98%')", required: true },
+        { name: "label", type: "text", label: "Label" },
+        { name: "description", type: "text", label: "Description (optional)" },
+      ],
+    },
+  ],
+};
+
+const CtaSectionBlock: Block = {
+  slug: "ctaSection",
+  labels: { singular: "CTA Section", plural: "CTA Sections" },
+  fields: [
+    sectionIdField,
+    { name: "heading", type: "text", label: "Heading", required: true },
+    { name: "description", type: "textarea", label: "Description" },
+    { name: "ctaText", type: "text", label: "CTA Button Text" },
+    {
+      name: "ctaUrl",
+      type: "text",
+      label: "CTA Button URL",
+      admin: {
+        description: "If empty, the button scrolls to the Early Access section.",
+      },
+    },
+    {
+      name: "backgroundImage",
+      type: "upload",
+      relationTo: "media",
+      label: "Background Image (optional)",
+    },
+  ],
+};
+
+const FaqBlock: Block = {
+  slug: "faq",
+  labels: { singular: "FAQ", plural: "FAQs" },
+  fields: [
+    sectionIdField,
+    { name: "sectionTitle", type: "text", label: "Section Title" },
+    { name: "description", type: "textarea", label: "Section Description" },
+    {
+      name: "items",
+      type: "array",
+      label: "Questions",
+      fields: [
+        { name: "question", type: "text", label: "Question", required: true },
+        { name: "answer", type: "textarea", label: "Answer", required: true },
+      ],
+    },
+  ],
+};
+
+const PricingBlock: Block = {
+  slug: "pricingTable",
+  labels: { singular: "Pricing Table", plural: "Pricing Tables" },
+  fields: [
+    sectionIdField,
+    { name: "sectionTitle", type: "text", label: "Section Title" },
+    { name: "description", type: "textarea", label: "Section Description" },
+    {
+      name: "plans",
+      type: "array",
+      label: "Plans",
+      fields: [
+        { name: "name", type: "text", label: "Plan Name", required: true },
+        { name: "price", type: "text", label: "Price (e.g. '$29', 'Free')" },
+        { name: "priceDetail", type: "text", label: "Price Detail (e.g. '/month')" },
+        { name: "description", type: "textarea", label: "Short Description" },
+        {
+          name: "features",
+          type: "array",
+          label: "Feature List",
+          fields: [{ name: "text", type: "text", label: "Feature", required: true }],
+        },
+        { name: "ctaText", type: "text", label: "CTA Button Text" },
+        {
+          name: "ctaUrl",
+          type: "text",
+          label: "CTA Button URL",
+          admin: {
+            description: "If empty, the button scrolls to the Early Access section.",
+          },
+        },
+        {
+          name: "highlighted",
+          type: "checkbox",
+          label: "Highlight this plan (recommended/featured)",
+        },
+      ],
+    },
+  ],
+};
+
+const StepsBlock: Block = {
+  slug: "steps",
+  labels: { singular: "Steps / Process", plural: "Steps / Processes" },
+  fields: [
+    sectionIdField,
+    { name: "sectionTitle", type: "text", label: "Section Title" },
+    { name: "description", type: "textarea", label: "Section Description" },
+    {
+      name: "layout",
+      type: "select",
+      label: "Layout",
+      defaultValue: "horizontal",
+      options: [
+        { label: "Horizontal (row)", value: "horizontal" },
+        { label: "Vertical (stacked)", value: "vertical" },
+      ],
+    },
+    {
+      name: "steps",
+      type: "array",
+      label: "Steps",
+      fields: [
+        { name: "title", type: "text", label: "Title", required: true },
+        { name: "description", type: "textarea", label: "Description" },
+        { name: "icon", type: "upload", relationTo: "media", label: "Icon (upload)" },
+        { name: "iconUrl", type: "text", label: "Icon URL (alternative to upload)" },
+      ],
+    },
+  ],
+};
+
+const MediaContentBlock: Block = {
+  slug: "mediaContent",
+  labels: { singular: "Media + Content", plural: "Media + Content Sections" },
+  fields: [
+    sectionIdField,
+    { name: "heading", type: "text", label: "Heading" },
+    { name: "subheading", type: "text", label: "Subheading" },
+    { name: "body", type: "textarea", label: "Body Text", admin: { rows: 8 } },
+    { name: "image", type: "upload", relationTo: "media", label: "Image (upload)" },
+    { name: "imageUrl", type: "text", label: "Image URL (alternative to upload)" },
+    {
+      name: "imagePosition",
+      type: "select",
+      label: "Image Position",
+      defaultValue: "left",
+      options: [
+        { label: "Left", value: "left" },
+        { label: "Right", value: "right" },
+      ],
+    },
+    { name: "ctaText", type: "text", label: "CTA Button Text (optional)" },
+    {
+      name: "ctaUrl",
+      type: "text",
+      label: "CTA Button URL",
+      admin: {
+        description: "If empty, the button scrolls to the Early Access section.",
+      },
+    },
+  ],
+};
+
+const NewsletterBlock: Block = {
+  slug: "newsletter",
+  labels: { singular: "Newsletter Signup", plural: "Newsletter Signups" },
+  fields: [
+    sectionIdField,
+    { name: "heading", type: "text", label: "Heading" },
+    { name: "description", type: "textarea", label: "Description" },
+    { name: "placeholder", type: "text", label: "Email Input Placeholder" },
+    { name: "buttonText", type: "text", label: "Button Text" },
+    { name: "successMessage", type: "textarea", label: "Success Message" },
+    { name: "errorMessage", type: "textarea", label: "Error Message" },
+    {
+      name: "endpoint",
+      type: "text",
+      label: "Submission Endpoint URL",
+      admin: {
+        description:
+          "POST endpoint that receives { email } JSON. Leave empty to only show success state without a request.",
+      },
+    },
+    { name: "privacyNote", type: "textarea", label: "Privacy Note (below the form)" },
+  ],
+};
+
 // ─── Globals ──────────────────────────────────────────────────────────────────
 
 const Homepage: GlobalConfig = {
@@ -138,7 +395,22 @@ const Homepage: GlobalConfig = {
       name: "layout",
       type: "blocks",
       label: "Page Sections",
-      blocks: [HeroBlock, VideoSectionBlock, RichTextSectionBlock, CardsGridBlock],
+      blocks: [
+        HeroBlock,
+        VideoSectionBlock,
+        RichTextSectionBlock,
+        CardsGridBlock,
+        FeaturesGridBlock,
+        TestimonialsBlock,
+        LogoCloudBlock,
+        StatsBlock,
+        CtaSectionBlock,
+        FaqBlock,
+        PricingBlock,
+        StepsBlock,
+        MediaContentBlock,
+        NewsletterBlock,
+      ],
     },
   ],
 };
