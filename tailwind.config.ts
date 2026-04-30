@@ -17,7 +17,24 @@ const config: Config = {
         "search": "#5A00FF",
         "light-gray": "#BDBCBC",
         "theme-blue": "#180E4F",
-        "claim-color": "#6537BB"
+        "claim-color": "#6537BB",
+
+        // Homepage theme tokens (driven by CSS variables)
+        "theme-page": "var(--theme-bg-page)",
+        "theme-card-from": "var(--theme-bg-card-from)",
+        "theme-card-to": "var(--theme-bg-card-to)",
+        "theme-glass": "var(--theme-bg-glass)",
+        "theme-heading": "var(--theme-text-heading)",
+        "theme-body": "var(--theme-text-body)",
+        "theme-muted": "var(--theme-text-muted)",
+        "theme-faint": "var(--theme-text-faint)",
+        "theme-border": "var(--theme-border-glass)",
+        "theme-divider": "var(--theme-border-divider)",
+        "theme-accent-from": "var(--theme-accent-from)",
+        "theme-accent-to": "var(--theme-accent-to)",
+        "theme-cta": "var(--theme-cta-bg)",
+        "theme-cta-text": "var(--theme-cta-text)",
+        "theme-error": "var(--theme-text-error)",
       },
       backgroundImage: {
         'conic-fancy': `conic-gradient(

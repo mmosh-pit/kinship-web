@@ -32,13 +32,13 @@ export function TestimonialsBlock({ block }: Props) {
       className="px-4 md:px-8 mt-[3rem] max-md:mt-8 scroll-mt-[120px]"
     >
       {block.sectionTitle && (
-        <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text pb-[0.15em]">
+        <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy theme-heading-gradient stroke-text">
           {renderWithLineBreaks(block.sectionTitle)}
         </h1>
       )}
 
       {block.description && (
-        <p className="max-md:text-sm font-avenir text-center text-[#FFFFFFC7] mt-[1rem] xl:w-[64.313rem] mx-auto">
+        <p className="max-md:text-sm font-avenir text-center text-theme-body mt-[1rem] xl:w-[64.313rem] mx-auto">
           {renderWithLineBreaks(block.description)}
         </p>
       )}
@@ -54,38 +54,38 @@ export function TestimonialsBlock({ block }: Props) {
           return (
             <div
               key={i}
-              className="bg-[linear-gradient(155deg,#9091a6_11.53%,rgba(255,255,255,0.30)_109.53%)] p-[1px] rounded-xl"
+              className="theme-card-border p-[1px] rounded-xl"
             >
-              <div className="bg-[linear-gradient(155deg,#070a38_0%,#07052e_109.53%)] rounded-xl py-8 px-6 h-full flex flex-col relative">
+              <div className="theme-card-bg rounded-xl py-8 px-6 h-full flex flex-col relative">
                 <span
                   aria-hidden
-                  className="font-goudy text-[5rem] leading-none bg-[linear-gradient(96.69deg,#ff29c3_0%,#0765ff_100%)] bg-clip-text text-transparent select-none -mt-2 mb-2"
+                  className="font-goudy text-[5rem] leading-none theme-accent-gradient-text select-none -mt-2 mb-2"
                 >
                   &ldquo;
                 </span>
                 {t.quote && (
-                  <p className="text-[#FFFFFFE5] font-avenir text-[1.063rem] leading-relaxed flex-1">
+                  <p className="text-theme-heading font-avenir text-[1.063rem] leading-relaxed flex-1">
                     {renderWithLineBreaks(t.quote)}
                   </p>
                 )}
                 {(avatarSrc || t.authorName || meta) && (
-                  <div className="flex items-center mt-6 gap-3 pt-6 border-t border-white/10">
+                  <div className="flex items-center mt-6 gap-3 pt-6 border-t border-theme-divider">
                     {avatarSrc && (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={avatarSrc}
                         alt={t.authorName || ""}
-                        className="w-12 h-12 rounded-full object-cover shrink-0 border border-white/20"
+                        className="w-12 h-12 rounded-full object-cover shrink-0 border border-theme-border"
                       />
                     )}
                     <div className="flex flex-col">
                       {t.authorName && (
-                        <p className="text-white font-bold text-base font-avenirNext leading-tight">
+                        <p className="text-theme-heading font-bold text-base font-avenirNext leading-tight">
                           {t.authorName}
                         </p>
                       )}
                       {meta && (
-                        <p className="text-[#CDCDCDE5] font-avenir text-sm mt-0.5">
+                        <p className="text-theme-muted font-avenir text-sm mt-0.5">
                           {meta}
                         </p>
                       )}

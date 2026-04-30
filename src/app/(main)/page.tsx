@@ -16,17 +16,20 @@ export default async function Page() {
 
   let layout: Record<string, any>[] = [];
   let navItems: NavItem[] = [];
+  let theme: Record<string, any> | null = null;
 
   try {
-    const [homepage, siteHeader] = await Promise.all([
+    const [homepage, siteHeader, themeGlobal] = await Promise.all([
       payload.findGlobal({ slug: "homepage", overrideAccess: true, depth: 2 }),
       payload.findGlobal({ slug: "site-header", overrideAccess: true }),
+      payload.findGlobal({ slug: "homepage-theme", overrideAccess: true }),
     ]);
     layout = (homepage?.layout as any[]) ?? [];
     navItems = (siteHeader?.navItems as NavItem[]) ?? [];
+    theme = (themeGlobal as Record<string, any>) ?? null;
   } catch {
     // DB not yet migrated — fall through to empty defaults
   }
 
-  return <LandingPage layout={layout} navItems={navItems} />;
+  return <LandingPage layout={layout} navItems={navItems} theme={theme} />;
 }

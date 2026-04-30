@@ -28,13 +28,13 @@ export function FeaturesGridBlock({ block }: Props) {
       className="px-4 md:px-8 mt-[3rem] max-md:mt-8 scroll-mt-[120px]"
     >
       {block.sectionTitle && (
-        <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text pb-[0.15em]">
+        <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy theme-heading-gradient stroke-text">
           {renderWithLineBreaks(block.sectionTitle)}
         </h1>
       )}
 
       {block.description && (
-        <p className="max-md:text-sm font-avenir text-center text-[#FFFFFFC7] mt-[1rem] xl:w-[64.313rem] mx-auto">
+        <p className="max-md:text-sm font-avenir text-center text-theme-body mt-[1rem] xl:w-[64.313rem] mx-auto">
           {renderWithLineBreaks(block.description)}
         </p>
       )}
@@ -48,12 +48,12 @@ export function FeaturesGridBlock({ block }: Props) {
           return (
             <div
               key={i}
-              className="bg-[linear-gradient(155deg,#9091a6_11.53%,rgba(255,255,255,0.30)_109.53%)] p-[1px] rounded-xl"
+              className="theme-card-border p-[1px] rounded-xl"
             >
-              <div className="bg-[linear-gradient(155deg,#070a38_0%,#07052e_109.53%)] rounded-xl py-7 px-5 h-full flex flex-col items-center text-center">
+              <div className="theme-card-bg rounded-xl py-7 px-5 h-full flex flex-col items-center text-center">
                 {iconSrc && (
-                  <div className="bg-[linear-gradient(96.69deg,rgba(255,41,195,0.3)_0%,rgba(7,101,255,0.3)_100%)] p-[1px] rounded-2xl mb-4">
-                    <div className="bg-[#070a38] rounded-2xl w-14 h-14 flex items-center justify-center">
+                  <div className="theme-accent-gradient-soft-bg p-[1px] rounded-2xl mb-4">
+                    <div className="bg-theme-card-from rounded-2xl w-14 h-14 flex items-center justify-center">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={iconSrc}
@@ -64,12 +64,12 @@ export function FeaturesGridBlock({ block }: Props) {
                   </div>
                 )}
                 {f.title && (
-                  <p className="text-white font-bold text-[1.375rem] font-avenirNext">
+                  <p className="text-theme-heading font-bold text-[1.375rem] font-avenirNext">
                     {renderWithLineBreaks(f.title)}
                   </p>
                 )}
                 {f.description && (
-                  <p className="text-[#CDCDCDE5] font-avenir text-[0.938rem] leading-[140%] tracking-[-0.02em] mt-2">
+                  <p className="text-theme-muted font-avenir text-[0.938rem] leading-[140%] tracking-[-0.02em] mt-2">
                     {renderWithLineBreaks(f.description)}
                   </p>
                 )}

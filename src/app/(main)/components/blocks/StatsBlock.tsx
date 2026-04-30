@@ -27,12 +27,12 @@ export function StatsBlock({ block }: Props) {
       className="px-4 md:px-8 mt-[3rem] max-md:mt-8 scroll-mt-[120px]"
     >
       {block.heading && (
-        <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text pb-[0.15em]">
+        <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy theme-heading-gradient stroke-text">
           {renderWithLineBreaks(block.heading)}
         </h1>
       )}
       {block.description && (
-        <p className="max-md:text-sm font-avenir text-center text-[#FFFFFFC7] mt-[1rem] xl:w-[64.313rem] mx-auto">
+        <p className="max-md:text-sm font-avenir text-center text-theme-body mt-[1rem] xl:w-[64.313rem] mx-auto">
           {renderWithLineBreaks(block.description)}
         </p>
       )}
@@ -43,21 +43,21 @@ export function StatsBlock({ block }: Props) {
         {stats.map((s, i) => (
           <div
             key={i}
-            className="bg-[linear-gradient(155deg,#9091a6_11.53%,rgba(255,255,255,0.30)_109.53%)] p-[1px] rounded-xl"
+            className="theme-card-border p-[1px] rounded-xl"
           >
-            <div className="bg-[linear-gradient(155deg,#070a38_0%,#07052e_109.53%)] rounded-xl py-8 px-5 h-full flex flex-col items-center text-center">
+            <div className="theme-card-bg rounded-xl py-8 px-5 h-full flex flex-col items-center text-center">
               {s.value && (
-                <p className="font-goudy font-bold text-[4rem] max-md:text-5xl leading-none bg-[linear-gradient(96.69deg,#ff29c3_0%,#0765ff_100%)] bg-clip-text text-transparent pb-[0.15em]">
+                <p className="font-goudy font-bold text-[4rem] max-md:text-5xl leading-none theme-accent-gradient-text pb-[0.15em]">
                   {s.value}
                 </p>
               )}
               {s.label && (
-                <p className="text-white font-bold text-lg font-avenirNext mt-2">
+                <p className="text-theme-heading font-bold text-lg font-avenirNext mt-2">
                   {renderWithLineBreaks(s.label)}
                 </p>
               )}
               {s.description && (
-                <p className="text-[#CDCDCDE5] font-avenir text-sm leading-relaxed mt-2">
+                <p className="text-theme-muted font-avenir text-sm leading-relaxed mt-2">
                   {renderWithLineBreaks(s.description)}
                 </p>
               )}
