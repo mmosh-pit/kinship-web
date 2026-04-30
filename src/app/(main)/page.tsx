@@ -19,14 +19,17 @@ export default async function Page() {
   let theme: Record<string, any> | null = null;
 
   try {
-    const [homepage, siteHeader, themeGlobal] = await Promise.all([
+    const [homepage, siteHeader] = await Promise.all([
       payload.findGlobal({ slug: "homepage", overrideAccess: true, depth: 2 }),
       payload.findGlobal({ slug: "site-header", overrideAccess: true }),
-      payload.findGlobal({ slug: "homepage-theme", overrideAccess: true }),
     ]);
     layout = (homepage?.layout as any[]) ?? [];
     navItems = (siteHeader?.navItems as NavItem[]) ?? [];
-    theme = (themeGlobal as Record<string, any>) ?? null;
+    // theme is a relationship — with depth>=1 it's the full document
+    theme =
+      homepage?.theme && typeof homepage.theme === "object"
+        ? (homepage.theme as Record<string, any>)
+        : null;
   } catch {
     // DB not yet migrated — fall through to empty defaults
   }
