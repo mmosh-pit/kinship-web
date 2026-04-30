@@ -71,6 +71,24 @@ const sectionIdField = {
   },
 };
 
+// Renders a color swatch + text input with a "Clear" button in the admin UI.
+// Accepts hex, rgba(), oklch(), etc.
+const colorField = (
+  name: string,
+  label: string,
+  description?: string,
+) => ({
+  name,
+  type: "text" as const,
+  label,
+  admin: {
+    ...(description ? { description } : {}),
+    components: {
+      Field: "@/components/admin/ColorPickerField",
+    },
+  },
+});
+
 const HeroBlock: Block = {
   slug: "hero",
   labels: { singular: "Hero", plural: "Heroes" },
@@ -474,69 +492,59 @@ const HomepageTheme: GlobalConfig = {
       type: "collapsible",
       label: "Backgrounds",
       fields: [
-        {
-          name: "bgPage",
-          type: "text",
-          label: "Page background",
-          admin: { description: "Hex/rgba/oklch — e.g. #050824" },
-        },
-        { name: "bgCardFrom", type: "text", label: "Card gradient start (top)" },
-        { name: "bgCardTo", type: "text", label: "Card gradient end (bottom)" },
-        {
-          name: "bgGlass",
-          type: "text",
-          label: "Glass card background (semi-transparent)",
-        },
+        colorField("bgPage", "Page background", "Hex / rgba / oklch — e.g. #050824"),
+        colorField("bgCardFrom", "Card gradient start (top)"),
+        colorField("bgCardTo", "Card gradient end (bottom)"),
+        colorField(
+          "bgGlass",
+          "Glass card background (semi-transparent)",
+          "Use rgba() or an 8-digit #RRGGBBAA so the page shows through.",
+        ),
       ],
     },
     {
       type: "collapsible",
       label: "Text colors",
       fields: [
-        { name: "textHeading", type: "text", label: "Heading color" },
-        {
-          name: "textBody",
-          type: "text",
-          label: "Body text color",
-          admin: { description: "Used for paragraphs and descriptions." },
-        },
-        { name: "textMuted", type: "text", label: "Muted text" },
-        { name: "textFaint", type: "text", label: "Faint text (privacy notes, captions)" },
-        { name: "textError", type: "text", label: "Error text (form validation)" },
+        colorField("textHeading", "Heading color"),
+        colorField("textBody", "Body text color", "Used for paragraphs and descriptions."),
+        colorField("textMuted", "Muted text"),
+        colorField("textFaint", "Faint text (privacy notes, captions)"),
+        colorField("textError", "Error text (form validation)"),
       ],
     },
     {
       type: "collapsible",
       label: "Borders & dividers",
       fields: [
-        { name: "borderCardFrom", type: "text", label: "Card border gradient start" },
-        { name: "borderCardTo", type: "text", label: "Card border gradient end" },
-        { name: "borderGlass", type: "text", label: "Glass card border" },
-        { name: "borderDivider", type: "text", label: "Hairline divider" },
+        colorField("borderCardFrom", "Card border gradient start"),
+        colorField("borderCardTo", "Card border gradient end"),
+        colorField("borderGlass", "Glass card border"),
+        colorField("borderDivider", "Hairline divider"),
       ],
     },
     {
       type: "collapsible",
       label: "Accent gradient (used for stats, badges, links)",
       fields: [
-        { name: "accentFrom", type: "text", label: "Accent gradient start" },
-        { name: "accentTo", type: "text", label: "Accent gradient end" },
+        colorField("accentFrom", "Accent gradient start"),
+        colorField("accentTo", "Accent gradient end"),
       ],
     },
     {
       type: "collapsible",
       label: "Heading gradient (used for section titles)",
       fields: [
-        { name: "headingGradFrom", type: "text", label: "Heading gradient start" },
-        { name: "headingGradTo", type: "text", label: "Heading gradient end" },
+        colorField("headingGradFrom", "Heading gradient start"),
+        colorField("headingGradTo", "Heading gradient end"),
       ],
     },
     {
       type: "collapsible",
       label: "CTA button",
       fields: [
-        { name: "ctaBg", type: "text", label: "CTA button background" },
-        { name: "ctaText", type: "text", label: "CTA button text" },
+        colorField("ctaBg", "CTA button background"),
+        colorField("ctaText", "CTA button text"),
       ],
     },
   ],
