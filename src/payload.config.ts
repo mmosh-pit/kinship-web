@@ -410,6 +410,16 @@ const Homepage: GlobalConfig = {
   admin: { group: "Content" },
   fields: [
     {
+      name: "theme",
+      type: "relationship",
+      relationTo: "themes",
+      label: "Active Theme",
+      admin: {
+        description: "Pick which theme to apply to the homepage. Manage themes under Themes.",
+        position: "sidebar",
+      },
+    },
+    {
       name: "layout",
       type: "blocks",
       label: "Page Sections",
@@ -479,15 +489,23 @@ const SiteHeader: GlobalConfig = {
   ],
 };
 
-const HomepageTheme: GlobalConfig = {
-  slug: "homepage-theme",
-  label: "Homepage Theme",
+const Themes: CollectionConfig = {
+  slug: "themes",
   admin: {
+    useAsTitle: "name",
+    defaultColumns: ["name", "description", "updatedAt"],
     group: "Content",
     description:
-      "Color and styling tokens for the homepage. Leave any field empty to fall back to the site default.",
+      "Visual themes for the homepage. Leave any color empty to fall back to the site default. Pick which theme to apply in the Homepage global.",
   },
   fields: [
+    { name: "name", type: "text", required: true, label: "Theme Name" },
+    {
+      name: "description",
+      type: "text",
+      label: "Description (internal note)",
+      admin: { description: "For your reference, e.g. 'Dark navy launch theme', 'Sunset variant'." },
+    },
     {
       type: "collapsible",
       label: "Backgrounds",
@@ -867,8 +885,8 @@ const siteHeaderSeed = {
 
 export default buildConfig({
   admin: { user: "users" },
-  collections: [Users, Media, Posts],
-  globals: [Homepage, SiteHeader, HomepageTheme, EarlyAccessPage],
+  collections: [Users, Media, Posts, Themes],
+  globals: [Homepage, SiteHeader, EarlyAccessPage],
   editor: lexicalEditor({}),
   plugins: [
     gcsStorage({
@@ -931,6 +949,34 @@ export default buildConfig({
       }
     } catch (err) {
       payload.logger.warn(`Early access page seed skipped: ${err}`);
+    }
+    try {
+      const existingThemes = await payload.find({
+        collection: "themes",
+        overrideAccess: true,
+        limit: 1,
+      });
+      if (existingThemes.docs.length === 0) {
+        const created = await payload.create({
+          collection: "themes",
+          overrideAccess: true,
+          data: {
+            name: "Default",
+            description: "Site default — fields blank fall back to globals.css.",
+          },
+        });
+        const homepage = await payload.findGlobal({ slug: "homepage", overrideAccess: true });
+        if (!homepage?.theme) {
+          await payload.updateGlobal({
+            slug: "homepage",
+            overrideAccess: true,
+            data: { theme: created.id },
+          });
+        }
+        payload.logger.info("Default Theme created and linked to homepage.");
+      }
+    } catch (err) {
+      payload.logger.warn(`Theme seed skipped: ${err}`);
     }
   },
 });
