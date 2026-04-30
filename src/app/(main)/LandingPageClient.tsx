@@ -22,6 +22,7 @@ import client from "./lib/httpClient";
 import WizardEditButton from "./components/AiPageEditor/WizardEditButton";
 import AiPageEditor from "./components/AiPageEditor/AiPageEditor";
 import { BlockRenderer } from "./components/BlockRenderer";
+import { HomepageThemeStyle } from "./components/HomepageThemeStyle";
 import type { NavItem } from "./page";
 
 const STORAGE_KEY = "early-access-data";
@@ -31,9 +32,11 @@ type CMSBlock = Record<string, any> & { blockType: string; blockName?: string };
 export default function LandingPage({
   layout = [],
   navItems = [],
+  theme = null,
 }: {
   layout?: CMSBlock[];
   navItems?: NavItem[];
+  theme?: Record<string, any> | null;
 }) {
 
   const searchParams = useSearchParams();
@@ -256,8 +259,9 @@ export default function LandingPage({
         isHome={false}
         initialStep={initialModalStep}
       />
+      <HomepageThemeStyle theme={theme} />
       <div
-        className="bg-[#050824] text-white min-h-screen mx-auto overflow-hidden top-0 w-full"
+        className="bg-theme-page text-theme-heading min-h-screen mx-auto overflow-hidden top-0 w-full"
         ref={mainSection}
       >
         {layout.map((block, i) => (

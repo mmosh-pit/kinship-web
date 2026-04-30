@@ -30,7 +30,7 @@ export function RichTextSectionBlock({ block, onScrollToEarlyAccess }: Props) {
         className="max-md:pt-7 max-md:pb-0 pb-16 max-w-[1144px] mx-auto px-4 md:px-8 scroll-mt-[120px]"
       >
         {block.heading && (
-          <h3 className="transition duration-300 place-self-center sm:text-left md:text-[3.125rem] max-md:text-xl max-md:leading-relaxed sm:text-[52px] font-goudy font-bold leading-[3.75rem] tracking-[-1.04px] bg-[linear-gradient(143deg,#FFF_18.17%,rgba(255,255,255,0)_152.61%)] bg-clip-text text-transparent stroke-text">
+          <h3 className="transition duration-300 place-self-center sm:text-left md:text-[3.125rem] max-md:text-xl max-md:leading-relaxed sm:text-[52px] font-goudy font-bold leading-[3.75rem] tracking-[-1.04px] theme-heading-gradient stroke-text">
             {renderWithLineBreaks(block.heading)}
           </h3>
         )}
@@ -43,7 +43,7 @@ export function RichTextSectionBlock({ block, onScrollToEarlyAccess }: Props) {
             {paragraphs.map((para: string, i: number) => (
               <p
                 key={i}
-                className="text-justify font-avenir text-base sm:text-[1.063rem] max-md:leading-relaxed font-normal leading-[100%] tracking-[-0.02em] text-[rgba(255,255,255,0.78)]"
+                className="text-justify font-avenir text-base sm:text-[1.063rem] max-md:leading-relaxed font-normal leading-[100%] tracking-[-0.02em] text-theme-body"
               >
                 {renderWithLineBreaks(para)}
               </p>
@@ -61,13 +61,13 @@ export function RichTextSectionBlock({ block, onScrollToEarlyAccess }: Props) {
       className="mt-[3rem] max-md:mt-8 px-4 md:px-8 scroll-mt-[120px]"
     >
       {block.heading && (
-        <h1 className="text-center font-bold xl:px-12 leading-[1.2] xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl max-md:leading-relaxed m-auto font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text">
+        <h1 className="text-center font-bold xl:px-12 leading-[1.2] xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl max-md:leading-relaxed m-auto font-goudy theme-heading-gradient stroke-text">
           {renderWithLineBreaks(block.heading)}
         </h1>
       )}
 
       {block.subheading && (
-        <p className="max-sm:text-xl text-3xl leading-[110%] tracking-[-0.02em] font-bold text-center text-[#FFFFFFC7] font-avenirNext mt-2 mb-5">
+        <p className="max-sm:text-xl text-3xl leading-[110%] tracking-[-0.02em] font-bold text-center text-theme-body font-avenirNext mt-2 mb-5">
           {renderWithLineBreaks(block.subheading)}
         </p>
       )}
@@ -77,7 +77,7 @@ export function RichTextSectionBlock({ block, onScrollToEarlyAccess }: Props) {
           {paragraphs.map((para: string, i: number) => (
             <p
               key={i}
-              className="font-avenir max-md:text-sm max-md:px-2 max-md:mt-4 text-[1.188rem] leading-[110%] font-normal text-center text-[#FFFFFFC7] xl:px-[2rem] m-auto mb-4"
+              className="font-avenir max-md:text-sm max-md:px-2 max-md:mt-4 text-[1.188rem] leading-[110%] font-normal text-center text-theme-body xl:px-[2rem] m-auto mb-4"
             >
               {renderWithLineBreaks(para)}
             </p>
@@ -88,7 +88,7 @@ export function RichTextSectionBlock({ block, onScrollToEarlyAccess }: Props) {
       {block.showCtaButton && (
         <div className="text-center mt-6">
           <button
-            className="btn bg-[#EB8000] font-avenirNext py-[1.063rem] ps-[1.875rem] pe-[1.813rem] text-lg font-extrabold leading-[100%] text-white border-none hover:bg-[#EB8000]"
+            className="btn theme-cta-button font-avenirNext py-[1.063rem] ps-[1.875rem] pe-[1.813rem] text-lg font-extrabold leading-[100%]"
             onClick={onScrollToEarlyAccess}
           >
             {block.ctaText || "Join Early Access"}

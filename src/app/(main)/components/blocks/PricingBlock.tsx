@@ -40,13 +40,13 @@ export function PricingBlock({ block, onScrollToEarlyAccess }: Props) {
       className="px-4 md:px-8 mt-[3rem] max-md:mt-8 scroll-mt-[120px]"
     >
       {block.sectionTitle && (
-        <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text pb-[0.15em]">
+        <h1 className="text-center font-bold xl:px-10 leading-tight xl:w-[65.063rem] text-[3.75rem] max-xl:text-5xl max-md:text-4xl max-sm:text-2xl m-auto font-goudy theme-heading-gradient stroke-text">
           {renderWithLineBreaks(block.sectionTitle)}
         </h1>
       )}
 
       {block.description && (
-        <p className="max-md:text-sm font-avenir text-center text-[#FFFFFFC7] mt-[1rem] xl:w-[64.313rem] mx-auto">
+        <p className="max-md:text-sm font-avenir text-center text-theme-body mt-[1rem] xl:w-[64.313rem] mx-auto">
           {renderWithLineBreaks(block.description)}
         </p>
       )}
@@ -56,43 +56,43 @@ export function PricingBlock({ block, onScrollToEarlyAccess }: Props) {
       >
         {plans.map((plan, i) => {
           const borderClass = plan.highlighted
-            ? "bg-[linear-gradient(96.69deg,#ff29c3_0%,#0765ff_100%)]"
-            : "bg-[linear-gradient(155deg,#9091a6_11.53%,rgba(255,255,255,0.30)_109.53%)]";
+            ? "theme-accent-gradient-bg"
+            : "theme-card-border";
           const innerPadding = plan.highlighted ? "p-[2px]" : "p-[1px]";
           return (
             <div
               key={i}
               className={`relative ${borderClass} ${innerPadding} rounded-xl ${
                 plan.highlighted
-                  ? "shadow-[0_0_30px_rgba(255,41,195,0.25)]"
+                  ? "shadow-[0_0_30px_color-mix(in_srgb,var(--theme-accent-from)_25%,transparent)]"
                   : ""
               }`}
             >
               {plan.highlighted && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[linear-gradient(96.69deg,#ff29c3_0%,#0765ff_100%)] text-white text-xs font-bold font-avenirNext px-4 py-1 rounded-full uppercase tracking-[0.15em] z-10 whitespace-nowrap">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 theme-accent-gradient-bg text-theme-heading text-xs font-bold font-avenirNext px-4 py-1 rounded-full uppercase tracking-[0.15em] z-10 whitespace-nowrap">
                   Recommended
                 </span>
               )}
-              <div className="bg-[linear-gradient(155deg,#070a38_0%,#07052e_109.53%)] rounded-xl py-8 px-6 h-full flex flex-col">
+              <div className="theme-card-bg rounded-xl py-8 px-6 h-full flex flex-col">
                 {plan.name && (
-                  <p className="text-white font-bold text-xl font-avenirNext">
+                  <p className="text-theme-heading font-bold text-xl font-avenirNext">
                     {plan.name}
                   </p>
                 )}
                 {plan.price && (
                   <div className="mt-3 flex items-baseline gap-2">
-                    <span className="font-goudy font-bold text-[3rem] leading-none bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent pb-[0.15em]">
+                    <span className="font-goudy font-bold text-[3rem] leading-none theme-heading-gradient pb-[0.15em]">
                       {plan.price}
                     </span>
                     {plan.priceDetail && (
-                      <span className="text-[#CDCDCDE5] font-avenir text-sm">
+                      <span className="text-theme-muted font-avenir text-sm">
                         {plan.priceDetail}
                       </span>
                     )}
                   </div>
                 )}
                 {plan.description && (
-                  <p className="text-[#CDCDCDE5] font-avenir text-sm leading-relaxed mt-3">
+                  <p className="text-theme-muted font-avenir text-sm leading-relaxed mt-3">
                     {renderWithLineBreaks(plan.description)}
                   </p>
                 )}
@@ -101,7 +101,7 @@ export function PricingBlock({ block, onScrollToEarlyAccess }: Props) {
                     {plan.features.map((f, fi) => (
                       <li
                         key={fi}
-                        className="text-[#FFFFFFC7] font-avenir text-[0.95rem] flex items-start gap-2.5"
+                        className="text-theme-body font-avenir text-[0.95rem] flex items-start gap-2.5"
                       >
                         <svg
                           className="w-4 h-4 mt-1 shrink-0"
@@ -111,8 +111,8 @@ export function PricingBlock({ block, onScrollToEarlyAccess }: Props) {
                         >
                           <defs>
                             <linearGradient id={`check-${i}-${fi}`} x1="0" y1="0" x2="16" y2="16" gradientUnits="userSpaceOnUse">
-                              <stop offset="0" stopColor="#ff29c3" />
-                              <stop offset="1" stopColor="#0765ff" />
+                              <stop offset="0" stopColor="var(--theme-accent-from)" />
+                              <stop offset="1" stopColor="var(--theme-accent-to)" />
                             </linearGradient>
                           </defs>
                           <path
@@ -132,10 +132,10 @@ export function PricingBlock({ block, onScrollToEarlyAccess }: Props) {
                   {plan.ctaUrl ? (
                     <a
                       href={plan.ctaUrl}
-                      className={`btn w-full border-none inline-flex items-center justify-center ${
+                      className={`btn w-full inline-flex items-center justify-center ${
                         plan.highlighted
-                          ? "bg-[#EB8000] text-white hover:bg-[#EB8000]"
-                          : "bg-transparent text-white border border-white/30 hover:bg-white/5 hover:border-white/50"
+                          ? "theme-cta-button"
+                          : "bg-transparent text-theme-heading border border-theme-border hover:bg-white/5 hover:border-theme-heading/50"
                       }`}
                     >
                       {plan.ctaText || "Get Started"}
@@ -145,8 +145,8 @@ export function PricingBlock({ block, onScrollToEarlyAccess }: Props) {
                       onClick={onScrollToEarlyAccess}
                       className={`btn w-full ${
                         plan.highlighted
-                          ? "bg-[#EB8000] text-white border-none hover:bg-[#EB8000]"
-                          : "bg-transparent text-white border border-white/30 hover:bg-white/5 hover:border-white/50"
+                          ? "theme-cta-button"
+                          : "bg-transparent text-theme-heading border border-theme-border hover:bg-white/5 hover:border-theme-heading/50"
                       }`}
                     >
                       {plan.ctaText || "Get Started"}

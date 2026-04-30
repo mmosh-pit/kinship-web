@@ -461,6 +461,87 @@ const SiteHeader: GlobalConfig = {
   ],
 };
 
+const HomepageTheme: GlobalConfig = {
+  slug: "homepage-theme",
+  label: "Homepage Theme",
+  admin: {
+    group: "Content",
+    description:
+      "Color and styling tokens for the homepage. Leave any field empty to fall back to the site default.",
+  },
+  fields: [
+    {
+      type: "collapsible",
+      label: "Backgrounds",
+      fields: [
+        {
+          name: "bgPage",
+          type: "text",
+          label: "Page background",
+          admin: { description: "Hex/rgba/oklch — e.g. #050824" },
+        },
+        { name: "bgCardFrom", type: "text", label: "Card gradient start (top)" },
+        { name: "bgCardTo", type: "text", label: "Card gradient end (bottom)" },
+        {
+          name: "bgGlass",
+          type: "text",
+          label: "Glass card background (semi-transparent)",
+        },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Text colors",
+      fields: [
+        { name: "textHeading", type: "text", label: "Heading color" },
+        {
+          name: "textBody",
+          type: "text",
+          label: "Body text color",
+          admin: { description: "Used for paragraphs and descriptions." },
+        },
+        { name: "textMuted", type: "text", label: "Muted text" },
+        { name: "textFaint", type: "text", label: "Faint text (privacy notes, captions)" },
+        { name: "textError", type: "text", label: "Error text (form validation)" },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Borders & dividers",
+      fields: [
+        { name: "borderCardFrom", type: "text", label: "Card border gradient start" },
+        { name: "borderCardTo", type: "text", label: "Card border gradient end" },
+        { name: "borderGlass", type: "text", label: "Glass card border" },
+        { name: "borderDivider", type: "text", label: "Hairline divider" },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Accent gradient (used for stats, badges, links)",
+      fields: [
+        { name: "accentFrom", type: "text", label: "Accent gradient start" },
+        { name: "accentTo", type: "text", label: "Accent gradient end" },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Heading gradient (used for section titles)",
+      fields: [
+        { name: "headingGradFrom", type: "text", label: "Heading gradient start" },
+        { name: "headingGradTo", type: "text", label: "Heading gradient end" },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "CTA button",
+      fields: [
+        { name: "ctaBg", type: "text", label: "CTA button background" },
+        { name: "ctaText", type: "text", label: "CTA button text" },
+      ],
+    },
+  ],
+};
+
 const EarlyAccessPage: GlobalConfig = {
   slug: "early-access-page",
   label: "Early Access Page",
@@ -779,7 +860,7 @@ const siteHeaderSeed = {
 export default buildConfig({
   admin: { user: "users" },
   collections: [Users, Media, Posts],
-  globals: [Homepage, SiteHeader, EarlyAccessPage],
+  globals: [Homepage, SiteHeader, HomepageTheme, EarlyAccessPage],
   editor: lexicalEditor({}),
   plugins: [
     gcsStorage({

@@ -34,19 +34,19 @@ export function MediaContentBlock({ block, onScrollToEarlyAccess }: Props) {
   const contentEl = (
     <div className="flex flex-col px-4 xl:w-[695px] gap-4 mt-4 xl:mt-0">
       {block.heading && (
-        <h3 className="font-goudy font-bold md:text-[3.125rem] max-md:text-2xl leading-[1.1] tracking-[-1.04px] bg-[linear-gradient(143deg,#FFF_18.17%,rgba(255,255,255,0)_152.61%)] bg-clip-text text-transparent stroke-text pb-[0.15em]">
+        <h3 className="font-goudy font-bold md:text-[3.125rem] max-md:text-2xl leading-[1.1] tracking-[-1.04px] theme-heading-gradient stroke-text pb-[0.15em]">
           {renderWithLineBreaks(block.heading)}
         </h3>
       )}
       {block.subheading && (
-        <p className="max-sm:text-lg text-xl leading-[120%] tracking-[-0.02em] font-bold text-[#FFFFFFC7] font-avenirNext">
+        <p className="max-sm:text-lg text-xl leading-[120%] tracking-[-0.02em] font-bold text-theme-body font-avenirNext">
           {renderWithLineBreaks(block.subheading)}
         </p>
       )}
       {paragraphs.map((para: string, i: number) => (
         <p
           key={i}
-          className="font-avenir text-base sm:text-[1.063rem] max-md:leading-relaxed font-normal leading-[130%] tracking-[-0.02em] text-[rgba(255,255,255,0.78)]"
+          className="font-avenir text-base sm:text-[1.063rem] max-md:leading-relaxed font-normal leading-[130%] tracking-[-0.02em] text-theme-body"
         >
           {renderWithLineBreaks(para)}
         </p>
@@ -56,14 +56,14 @@ export function MediaContentBlock({ block, onScrollToEarlyAccess }: Props) {
           {block.ctaUrl ? (
             <a
               href={block.ctaUrl}
-              className="btn bg-[#EB8000] text-white border-none hover:bg-[#EB8000] inline-flex items-center justify-center px-8"
+              className="btn theme-cta-button inline-flex items-center justify-center px-8"
             >
               {block.ctaText}
             </a>
           ) : (
             <button
               onClick={onScrollToEarlyAccess}
-              className="btn bg-[#EB8000] text-white border-none hover:bg-[#EB8000] px-8"
+              className="btn theme-cta-button px-8"
             >
               {block.ctaText}
             </button>

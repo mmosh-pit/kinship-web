@@ -50,21 +50,21 @@ export function NewsletterBlock({ block }: Props) {
       id={sectionId}
       className="px-4 md:px-8 mt-[3rem] max-md:mt-8 scroll-mt-[120px]"
     >
-      <div className="m-auto max-w-[85%] xl:w-[50rem] border border-[rgba(255,255,255,0.22)] bg-[rgba(0,0,0,0.05)] backdrop-blur-[19.5px] rounded-[3rem] xl:px-12 xl:py-12 p-6 text-center">
+      <div className="m-auto max-w-[85%] xl:w-[50rem] border border-theme-border bg-[rgba(0,0,0,0.05)] backdrop-blur-[19.5px] rounded-[3rem] xl:px-12 xl:py-12 p-6 text-center">
         {block.heading && (
-          <h1 className="font-bold leading-tight text-[2.5rem] max-xl:text-4xl max-md:text-3xl max-sm:text-2xl font-goudy bg-[linear-gradient(to_bottom,#FFFFFF,#FFFFFF64)] bg-clip-text text-transparent stroke-text pb-[0.15em]">
+          <h1 className="font-bold leading-tight text-[2.5rem] max-xl:text-4xl max-md:text-3xl max-sm:text-2xl font-goudy theme-heading-gradient stroke-text pb-[0.15em]">
             {renderWithLineBreaks(block.heading)}
           </h1>
         )}
         {block.description && (
-          <p className="max-md:text-sm font-avenir text-center text-[#FFFFFFC7] mt-3">
+          <p className="max-md:text-sm font-avenir text-center text-theme-body mt-3">
             {renderWithLineBreaks(block.description)}
           </p>
         )}
 
         {status === "success" ? (
-          <div className="mt-6 inline-block bg-[linear-gradient(96.69deg,rgba(255,41,195,0.5)_0%,rgba(7,101,255,0.5)_100%)] p-[1px] rounded-full">
-            <p className="bg-[#070a38] text-white font-avenirNext font-bold text-base rounded-full px-6 py-3">
+          <div className="mt-6 inline-block theme-accent-gradient-soft-bg p-[1px] rounded-full">
+            <p className="bg-theme-card-from text-theme-heading font-avenirNext font-bold text-base rounded-full px-6 py-3">
               {renderWithLineBreaks(successMessage)}
             </p>
           </div>
@@ -80,12 +80,12 @@ export function NewsletterBlock({ block }: Props) {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={placeholder}
               disabled={status === "loading"}
-              className="flex-1 rounded-full bg-[rgba(255,255,255,0.05)] backdrop-blur-[19.5px] text-white placeholder:text-[#FFFFFF80] font-avenir px-5 py-3 border border-[rgba(255,255,255,0.22)] outline-none focus:border-white/50 transition disabled:opacity-60"
+              className="flex-1 rounded-full bg-[rgba(255,255,255,0.05)] backdrop-blur-[19.5px] text-theme-heading placeholder:text-theme-faint font-avenir px-5 py-3 border border-theme-border outline-none focus:border-theme-heading/50 transition disabled:opacity-60"
             />
             <button
               type="submit"
               disabled={status === "loading"}
-              className="btn bg-[#EB8000] text-white border-none hover:bg-[#EB8000] px-8 disabled:opacity-60 rounded-full"
+              className="btn theme-cta-button px-8 disabled:opacity-60 rounded-full"
             >
               {status === "loading" ? "..." : buttonText}
             </button>
@@ -93,13 +93,13 @@ export function NewsletterBlock({ block }: Props) {
         )}
 
         {status === "error" && (
-          <p className="mt-3 text-[#FFB4B4] font-avenir text-sm">
+          <p className="mt-3 text-theme-error font-avenir text-sm">
             {renderWithLineBreaks(errorMessage)}
           </p>
         )}
 
         {block.privacyNote && status !== "success" && (
-          <p className="mt-4 text-[#FFFFFF80] font-avenir text-xs">
+          <p className="mt-4 text-theme-faint font-avenir text-xs">
             {renderWithLineBreaks(block.privacyNote)}
           </p>
         )}
