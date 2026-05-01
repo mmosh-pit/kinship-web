@@ -339,7 +339,7 @@ export default function LandingPage({
             <div className="relative max-w-[80rem] mx-auto">
               <button
                 onClick={prevSlide}
-                className="absolute top-1/2 left-[-2%] 2xl:left-[-5%] transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-2 rounded-full text-white z-10"
+                className="absolute top-1/2 left-[-2%] 2xl:left-[-5%] transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-2 rounded-full text-theme-heading z-10"
               >
                 <svg
                   className="w-6 h-6"
@@ -358,7 +358,7 @@ export default function LandingPage({
 
               <button
                 onClick={nextSlide}
-                className="absolute top-1/2 right-[-2%] 2xl:right-[-5%] transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-2 rounded-full text-white z-10"
+                className="absolute top-1/2 right-[-2%] 2xl:right-[-5%] transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-2 rounded-full text-theme-heading z-10"
               >
                 <svg
                   className="w-6 h-6"
@@ -379,20 +379,20 @@ export default function LandingPage({
                 {visibleTestimonials.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[linear-gradient(155deg,#070a38_0%,#07052e_109.53%)] text-white rounded-xl p-6 shadow-xl text-center border border-[#FFFFFF42]"
+                    className="theme-card-bg text-theme-heading rounded-xl p-6 shadow-xl text-center border border-theme-border"
                   >
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="mx-auto mb-4 w-16 h-16 rounded-full object-cover border-2 border-white"
+                      className="mx-auto mb-4 w-16 h-16 rounded-full object-cover border-2 border-theme-heading"
                     />
-                    <p className="text-base italic mb-4 font-avenir">
+                    <p className="text-base italic mb-4 font-avenir text-theme-body">
                       &ldquo;{item.text}&rdquo;
                     </p>
-                    <h3 className="font-extrabold text-lg font-avenirLtStd">
+                    <h3 className="font-extrabold text-lg font-avenirLtStd text-theme-heading">
                       {item.name}
                     </h3>
-                    <p className="text-sm text-gray-300 font-avenirLtStd">
+                    <p className="text-sm text-theme-muted font-avenirLtStd">
                       {item.title}
                     </p>
                   </div>

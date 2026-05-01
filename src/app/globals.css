@@ -25,6 +25,8 @@
   --theme-cta-bg: #EB8000;
   --theme-cta-text: #ffffff;
 
+  --theme-input-bg: rgba(255, 255, 255, 0.08);
+
   --theme-heading-gradient-from: #ffffff;
   --theme-heading-gradient-to: rgba(255, 255, 255, 0.4);
 
@@ -1523,4 +1525,9 @@ a:hover {
 .theme-cta-button:hover {
   background: var(--theme-cta-bg);
   filter: brightness(1.05);
+}
+
+.theme-error-fill {
+  background: color-mix(in srgb, var(--theme-text-error) 14%, transparent);
+  border-color: color-mix(in srgb, var(--theme-text-error) 55%, transparent);
 }

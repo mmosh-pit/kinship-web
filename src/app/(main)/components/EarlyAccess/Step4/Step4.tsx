@@ -173,16 +173,16 @@ export const Step4: React.FC<Step4Props> = ({
 
   return (
     <>
-      <div ref={earlyAccessRef} className="bg-[#09073A] py-10 px-4 md:px-8 my-10">
+      <div ref={earlyAccessRef} className="bg-theme-page py-10 px-4 md:px-8 my-10">
         <div className="lg:flex items-center justify-center">
           <EarlyAccessCircleVW />
-          <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-[#100E59] rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">
-            <h2 className="relative font-poppinsNew text-center text-[1.563rem] max-md:text-lg leading-[100%] font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF88] bg-clip-text text-transparent">
+          <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-theme-card-from rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">
+            <h2 className="relative font-poppinsNew text-center text-[1.563rem] max-md:text-lg leading-[100%] font-bold bg-gradient-to-r from-theme-heading to-theme-faint bg-clip-text text-transparent">
               <BackArrowVW onClick={handleBackNavigation} />
               Request Early Access
             </h2>
 
-            <p className="max-sm:text-base text-[#FFFFFFE5] font-avenirNext max-md:text-sm font-bold leading-snug lg:leading-[94%] mt-5 -tracking-[0.04em]">
+            <p className="max-sm:text-base text-theme-heading font-avenirNext max-md:text-sm font-bold leading-snug lg:leading-[94%] mt-5 -tracking-[0.04em]">
               Step 4 of 6: Enter your mobile number.{" "}
               <span className="font-normal font-avenir">
                 {" "}
@@ -196,7 +196,7 @@ export const Step4: React.FC<Step4Props> = ({
             >
               <div className="flex flex-col gap-[0.25rem]">
                 <div>
-                  <label className="block text-[0.813rem] mb-[0.125rem] font-normal leading-[100%] text-[#FFFFFFCC]">
+                  <label className="block text-[0.813rem] mb-[0.125rem] font-normal leading-[100%] text-theme-body">
                     Mobile number *
                   </label>
                   <PhoneInput
@@ -247,7 +247,7 @@ export const Step4: React.FC<Step4Props> = ({
 
                 <button
                   type="submit"
-                  className="steps_btn_submit mt-[10.438rem] text-white font-bold btn bg-[#EB8000] border-[#FF710F33] w-full hover:bg-[#EB8000] hover:border-[#FF710F33]"
+                  className="steps_btn_submit mt-[10.438rem] text-theme-cta-text font-bold btn bg-theme-cta border-theme-cta/20 w-full hover:bg-theme-cta hover:border-theme-cta/20"
                 >
                   {isLoading ? <Spinner size="sm" /> : "Send Code"}
                 </button>

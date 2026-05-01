@@ -18,6 +18,7 @@ const cssVarMap: Record<string, string> = {
   accentTo: "--theme-accent-to",
   ctaBg: "--theme-cta-bg",
   ctaText: "--theme-cta-text",
+  inputBg: "--theme-input-bg",
   headingGradFrom: "--theme-heading-gradient-from",
   headingGradTo: "--theme-heading-gradient-to",
 };

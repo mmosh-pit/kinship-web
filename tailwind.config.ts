@@ -35,6 +35,7 @@ const config: Config = {
         "theme-cta": "var(--theme-cta-bg)",
         "theme-cta-text": "var(--theme-cta-text)",
         "theme-error": "var(--theme-text-error)",
+        "theme-input": "var(--theme-input-bg)",
       },
       backgroundImage: {
         'conic-fancy': `conic-gradient(
