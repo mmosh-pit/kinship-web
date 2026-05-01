@@ -143,16 +143,16 @@ export const Step1: React.FC<Step1Props> = ({
 
   return (
     <>
-      <div ref={earlyAccessRef} className="bg-[#09073A] py-10 px-4 md:px-8 my-10">
+      <div ref={earlyAccessRef} className="bg-theme-page py-10 px-4 md:px-8 my-10">
         <div className="lg:flex items-center justify-center">
           <EarlyAccessCircleVW />
 
-          <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-[#100E59] rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">
-            <h3 className="transition duration-300 text-[1.95rem] text-center font-poppinsNew font-bold  tracking-[-1.04px] bg-[linear-gradient(143deg,#FFF_18.17%,rgba(255,255,255,0)_152.61%)] bg-clip-text text-transparent stroke-text">
+          <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-theme-card-from rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">
+            <h3 className="transition duration-300 text-[1.95rem] text-center font-poppinsNew font-bold  tracking-[-1.04px] theme-heading-gradient stroke-text">
               Request Early Access
             </h3>
 
-            <p className="text-[#FFFFFFE5] text-base  my-2">
+            <p className="text-theme-heading text-base  my-2">
               <span className="text-white font-bold text-base">
                 Step 1 of 6: Enter your name and email address.
               </span>
@@ -164,7 +164,7 @@ export const Step1: React.FC<Step1Props> = ({
                 <legend className="fieldset-legend">Full Name*</legend>
                 <input
                   type="text"
-                  className="input w-full bg-[#FFFFFF14] border-[1px] border-[#FFFFFF29]"
+                  className="input w-full bg-theme-input border-[1px] border-theme-border"
                   placeholder="Full Name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -176,7 +176,7 @@ export const Step1: React.FC<Step1Props> = ({
                 <legend className="fieldset-legend">Email address*</legend>
                 <input
                   type="text"
-                  className="input w-full bg-[#FFFFFF14] border-[1px] border-[#FFFFFF29]"
+                  className="input w-full bg-theme-input border-[1px] border-theme-border"
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -186,7 +186,7 @@ export const Step1: React.FC<Step1Props> = ({
               <label className="label">
                 <input
                   type="checkbox"
-                  className="checkbox bg-[#FFFFFF14] border-[1px] border-[#FFFFFF29]"
+                  className="checkbox bg-theme-input border-[1px] border-theme-border"
                   checked={hasChecked}
                   onChange={(e) => setHasChecked(e.target.checked)}
                 />
@@ -207,7 +207,7 @@ export const Step1: React.FC<Step1Props> = ({
 
               <button
                 type="submit"
-                className="btn bg-[#EB8000] hover:bg-[#EB8000] w-full text-white font-bold mt-[2rem] border-[#FF710F33] hover:border-none"
+                className="btn bg-theme-cta hover:bg-theme-cta w-full text-theme-cta-text font-bold mt-[2rem] border-theme-cta/20 hover:border-none"
                 disabled={isLoading}
               >
                 {isLoading

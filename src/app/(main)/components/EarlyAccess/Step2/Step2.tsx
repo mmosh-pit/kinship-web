@@ -209,22 +209,22 @@ export const Step2: React.FC<Step2Props> = ({
 
   return (
     <>
-      <div ref={earlyAccessRef} className="bg-[#09073A] py-10 px-4 md:px-8 my-10">
+      <div ref={earlyAccessRef} className="bg-theme-page py-10 px-4 md:px-8 my-10">
         <div className="lg:flex items-center justify-center">
           <EarlyAccessCircleVW />
-          <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-[#100E59] rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">
-            <h2 className="relative font-poppinsNew text-center text-[1.563rem] max-md:text-lg leading-[100%] font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF88] bg-clip-text text-transparent">
+          <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-theme-card-from rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">
+            <h2 className="relative font-poppinsNew text-center text-[1.563rem] max-md:text-lg leading-[100%] font-bold bg-gradient-to-r from-theme-heading to-theme-faint bg-clip-text text-transparent">
               <BackArrowVW onClick={handleBackNavigation} />
               Request Early Access
             </h2>
             <p className="max-sm:text-base font-avenirNext max-md:text-sm font-bold leading-[130%] mt-[0.313rem] -tracking-[0.06em]">
               Step 2 of 6: Enter your name and email address.
-              <span className="text-[#FFFFFFE5] font-normal font-avenir -tracking-[0.02em]">
+              <span className="text-theme-heading font-normal font-avenir -tracking-[0.02em]">
                 {" "}
                 We sent a security code to {cachedData.email}
                 {". "}Please follow the steps below.
               </span>
-              <div className="mt-[0.563rem] text-[0.938rem] text-[#FFFFFFE5] leading-relaxed lg:leading-[105%] max-md:text-sm font-normal max-lg:w-max max-lg:mx-auto max-md:w-auto max-lg:text-start text-wrap -tracking-[0.02em]">
+              <div className="mt-[0.563rem] text-[0.938rem] text-theme-heading leading-relaxed lg:leading-[105%] max-md:text-sm font-normal max-lg:w-max max-lg:mx-auto max-md:w-auto max-lg:text-start text-wrap -tracking-[0.02em]">
                 <ul className="ml-6 list-disc font-avenir">
                   <li>Open your email</li>
                   <li>Look for a message from security@kinship.systems</li>
@@ -237,7 +237,7 @@ export const Step2: React.FC<Step2Props> = ({
               onSubmit={verifyOTP}
             >
               <div className="max-sm:w-auto max-lg:w-max max-lg:mx-auto max-lg:text-center">
-                <label className="block mb-[0.313rem] text-[1rem] leading-[100%] text-[#FFFFFFCC] max-lg:mx-auto">
+                <label className="block mb-[0.313rem] text-[1rem] leading-[100%] text-theme-body max-lg:mx-auto">
                   Enter your 6-digit code
                 </label>
                 <div className="mt-[0.313rem] flex justify-center gap-2 sm:gap-3 xl:gap-[1.75rem]">
@@ -261,8 +261,8 @@ export const Step2: React.FC<Step2Props> = ({
                 border text-white
                 focus:outline-none
                 ${hasInvalid
-                          ? "bg-[#F8060624] border-[#F806068F]"
-                          : "bg-[#FFFFFF14] border-white/20 focus:border-white"
+                          ? "theme-error-fill"
+                          : "bg-theme-input border-white/20 focus:border-white"
                         }`}
                     />
                   ))}
@@ -281,7 +281,7 @@ export const Step2: React.FC<Step2Props> = ({
                   </span>
                 )}
 
-                <div className="text-center text-[0.875rem] text-[#FFFFFFE5] mt-[0.813rem] leading-[140%] font-normal -tracking-[0.02em]">
+                <div className="text-center text-[0.875rem] text-theme-heading mt-[0.813rem] leading-[140%] font-normal -tracking-[0.02em]">
                   Didn’t get it?{" "}
                   <span
                     onClick={resendOTP}
@@ -291,9 +291,9 @@ export const Step2: React.FC<Step2Props> = ({
                   </span>
                 </div>
 
-                <div className="text-center text-[0.875rem] text-[#FFFFFFE5] mt-[0.813rem] leading-[140%] font-normal -tracking-[0.02em]">
+                <div className="text-center text-[0.875rem] text-theme-heading mt-[0.813rem] leading-[140%] font-normal -tracking-[0.02em]">
                   Or try{" "}
-                  <span className="text-[#007bff]" onClick={onBack}>
+                  <span className="theme-accent-gradient-text font-semibold cursor-pointer" onClick={onBack}>
                     a different email address
                   </span>
                 </div>
@@ -301,7 +301,7 @@ export const Step2: React.FC<Step2Props> = ({
 
               <button
                 type="submit"
-                className="steps_btn_submit mt-[5.438rem] text-white font-bold btn bg-[#EB8000] border-[#FF710F33] w-full hover:bg-[#EB8000] hover:border-[#FF710F33]"
+                className="steps_btn_submit mt-[5.438rem] text-theme-cta-text font-bold btn bg-theme-cta border-theme-cta/20 w-full hover:bg-theme-cta hover:border-theme-cta/20"
                 disabled={isLoading}
               >
                 {isLoading ? <Spinner size="sm" /> : "Confirm Security Code"}

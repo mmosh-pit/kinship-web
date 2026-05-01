@@ -189,11 +189,11 @@ export const Step7 = ({
 
   return (
     <>
-      <div ref={earlyAccessRef} className="bg-[#09073A] py-10 px-4 md:px-8 my-10">
+      <div ref={earlyAccessRef} className="bg-theme-page py-10 px-4 md:px-8 my-10">
         <div className="lg:flex items-center justify-center">
           <EarlyAccessCircleVW />
-          <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-[#100E59] rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">
-            <h2 className="relative font-poppinsNew text-center text-[1.563rem] max-md:text-lg leading-[100%] font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF88] bg-clip-text text-transparent">
+          <div className="min-h-[29.875rem] lg:ml-[5rem] m-2  xl:w-[36.188rem] bg-theme-card-from rounded-[1.25rem] pt-[1.563rem] pb-[0.938rem] pl-[3.125rem] pe-[3.313rem] max-md:px-5 max-md:py-8">
+            <h2 className="relative font-poppinsNew text-center text-[1.563rem] max-md:text-lg leading-[100%] font-bold bg-gradient-to-r from-theme-heading to-theme-faint bg-clip-text text-transparent">
               <BackArrowVW onClick={handleBackNavigation} />
               Request Early Access
             </h2>
@@ -225,7 +225,7 @@ export const Step7 = ({
                   maxLength={20}
                 />
 
-                <label className="flex items-center gap-0.5 text-[#FFFFFFE5] opacity-70 text-[0.75rem] max-md:text-xs leading-[140%] mt-2 -tracking-[0.02em] cursor-pointer">
+                <label className="flex items-center gap-0.5 text-theme-heading opacity-70 text-[0.75rem] max-md:text-xs leading-[140%] mt-2 -tracking-[0.02em] cursor-pointer">
                   {
                     <input
                       type="checkbox"
@@ -243,7 +243,7 @@ export const Step7 = ({
 
               <button
                 type="submit"
-                className="steps_btn_submit mt-[10.438rem] text-white font-bold btn bg-[#EB8000] border-[#FF710F33] w-full hover:bg-[#EB8000] hover:border-[#FF710F33]"
+                className="steps_btn_submit mt-[10.438rem] text-theme-cta-text font-bold btn bg-theme-cta border-theme-cta/20 w-full hover:bg-theme-cta hover:border-theme-cta/20"
               >
                 {isLoading ? <Spinner size="sm" /> : "Join Early Access"}
               </button>

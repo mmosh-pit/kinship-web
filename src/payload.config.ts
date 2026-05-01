@@ -565,6 +565,17 @@ const Themes: CollectionConfig = {
         colorField("ctaText", "CTA button text"),
       ],
     },
+    {
+      type: "collapsible",
+      label: "Form inputs",
+      fields: [
+        colorField(
+          "inputBg",
+          "Input background",
+          "Translucent fill behind text fields and checkboxes. Use rgba() / 8-digit hex.",
+        ),
+      ],
+    },
   ],
 };
 
