@@ -140,15 +140,15 @@ const avenirLTStd = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Kinship Agents — The Marketplace for Cooperative AI",
+  title: "Kiduna: A Business, Association & Movement All Rolled Into One",
   description:
-    "Design, develop, and deploy intelligent agents that listen, learn, and cooperate. A decentralized marketplace for coherent, cohesive agents that care.",
+    "Join or launch a 100% agentic, completely trusted, and totally legit Kiduna today.",
   openGraph: {
     images: ["https://storage.googleapis.com/mmosh-assets/kinship_meta.png"],
-    siteName: "Kinship Agents",
-    title: "Build Agents. Not Apps.",
+    siteName: "Kiduna News",
+    title: "Kiduna: A Business, Association & Movement All Rolled Into One",
     description:
-      "Design, develop, and deploy intelligent agents that listen, learn, and cooperate. A decentralized marketplace for coherent, cohesive agents that care.",
+      "Join or launch a 100% agentic, completely trusted, and totally legit Kiduna today.",
     url: "https://kiduna.news",
     type: "website",
   },
