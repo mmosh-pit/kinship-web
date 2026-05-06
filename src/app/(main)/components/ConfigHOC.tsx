@@ -35,12 +35,12 @@ const ConfigHOC = ({ children }: { children: React.ReactNode }) => {
         type="text/javascript"
         src="https://telegram.org/js/telegram-widget.js?22"
       ></Script>
-      <Script
+      {/*<Script
         async
         strategy="beforeInteractive"
         type="text/javascript"
         src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_KEY}`}
-      ></Script>
+      ></Script>*/}
 
       <div className={`${getClassName()} flex flex-col h-full`}>{children}</div>
     </>
