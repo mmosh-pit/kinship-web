@@ -144,7 +144,7 @@ export const metadata: Metadata = {
   description:
     "Join or launch a 100% agentic, completely trusted, and totally legit Kiduna today.",
   openGraph: {
-    images: ["https://storage.googleapis.com/mmosh-assets/kinship_meta.png"],
+    images: ["https://storage.googleapis.com/mmosh-assets/kiduna_meta.png"],
     siteName: "Kiduna News",
     title: "Kiduna: A Business, Association & Movement All Rolled Into One",
     description:

@@ -1,17 +1,17 @@
 const Privacy = () => (
   <div className="flex flex-col items-center tos-container w-full min-h-screen">
     <h1 className="text-2xl text-white font-bold">
-      KINSHIP BOTS CLUB PRIVACY POLICY
+      KIDUNA CLUB PRIVACY POLICY
     </h1>
 
     <p>Last modified date: May 5, 2025</p>
 
     <p>
-      This privacy policy ("Privacy Policy") explains how Kinship Media
-      Syndicate (“KMS,” "our," "we," or "us") collects, uses, and discloses
-      information about you. This Privacy Policy applies when you{" "}
-      <a href="https://kinship.systems" target="_blank">
-        https://kinship.systems
+      This privacy policy ("Privacy Policy") explains how Kiduna Club (“KC,”
+      "our," "we," or "us") collects, uses, and discloses information about you.
+      This Privacy Policy applies when you{" "}
+      <a href="https://kiduna.news" target="_blank">
+        https://kiduna.news
       </a>{" "}
       (the "Website"), use our mobile app, interact with any of our AI agents,
       contact our team by email or Telegram, engage with us on social media, or
@@ -286,9 +286,9 @@ const Privacy = () => (
       collect, use, and disclose, (2) request deletion of your personal
       information, and (3) not be discriminated against for exercising these
       rights. You may make these requests by contacting us by email at
-      support@kinship.systems. We will verify your request by asking you to
-      provide information related to your recent interactions with us. We will
-      not discriminate against you if you exercise your rights under the CCPA.
+      support@kiduna.news. We will verify your request by asking you to provide
+      information related to your recent interactions with us. We will not
+      discriminate against you if you exercise your rights under the CCPA.
     </p>
 
     <h2>ADDITIONAL DISCLOSURES FOR INDIVIDUALS IN EUROPE</h2>
@@ -348,7 +348,7 @@ const Privacy = () => (
       format, the right to ask that your personal data be corrected or erased,
       and the right to object to, or request that we restrict, certain
       processing. If you would like to exercise any of these rights, please
-      contact our technology services provider at support@kinship.systems.
+      contact our technology services provider at support@kiduna.news.
     </p>
 
     <h3>Questions or Complaints</h3>
@@ -391,7 +391,7 @@ const Privacy = () => (
 
     <p>
       If you have any questions about this Privacy Policy, please contact us at
-      support@kinship.systems.
+      support@kiduna.news.
     </p>
   </div>
 );
