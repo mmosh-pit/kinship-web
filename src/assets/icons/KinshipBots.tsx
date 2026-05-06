@@ -1,8 +1,8 @@
 type Props = React.SVGProps<SVGSVGElement>;
 const KinshipBots = (props: Props) => (
   <svg
-    width="1304"
-    height="304"
+    width="300"
+    height="50"
     viewBox="0 0 1304 304"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
