@@ -98,7 +98,7 @@ export const Step8 = ({
 
       localStorage.removeItem("early-access-data");
       createMessage("Successfully submitted.", "success");
-      router.replace("/early");
+      router.replace("/register");
     } catch {
       createMessage("Something went wrong", "error");
     } finally {

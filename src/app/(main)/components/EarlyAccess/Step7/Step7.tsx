@@ -86,7 +86,7 @@ export const Step7 = ({
       }
 
       createMessage("Successfully submitted.", "success");
-      router.replace("/early");
+      router.replace("/register");
     } catch {
       createMessage("Something went wrong", "error");
     } finally {
