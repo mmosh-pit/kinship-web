@@ -11,6 +11,14 @@ export type User = {
   referred_by: string;
   bluesky: Bluesky | null;
   role: string;
+  // Stripe-driven subscription state (populated by webhook → /is-auth)
+  stripeCustomerId?: string | null;
+  stripeSubscriptionId?: string | null;
+  subscriptionTier?: "guest" | "member" | "sponsor" | null;
+  subscriptionBilling?: "monthly" | "yearly" | null;
+  subscriptionStatus?: string | null;
+  subscriptionCurrentPeriodEnd?: string | null;
+  subscriptionCancelAtPeriodEnd?: boolean | null;
 };
 
 type Bluesky = {
