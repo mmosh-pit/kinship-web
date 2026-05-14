@@ -109,10 +109,9 @@ export const Step3: React.FC<Step3Props> = ({
       return;
     }
 
-    const encryptedPassword = encryptData(password);
     const updatedData = {
       ...cachedData,
-      password: encryptedPassword,
+      password: password,
       currentStep: "4",
     };
     localStorage.setItem("early-access-data", JSON.stringify(updatedData));
@@ -121,7 +120,7 @@ export const Step3: React.FC<Step3Props> = ({
     client
       .post("/visitors/upsert-early-access", {
         email: cachedData.email,
-        password: encryptedPassword,
+        password: password,
         currentStep: "4",
       })
       .catch(() => { });
